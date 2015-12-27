@@ -8,38 +8,54 @@
 
   <!-- BEGIN PLUGIN CSS -->
   <%= stylesheet_link_tag "pace-theme-flash", media: "all" %>
-  <%= stylesheet_link_tag "bootstrap.min", media: "all" %>
-  <%= stylesheet_link_tag "bootstrap-theme.min", media: "all" %>
   <%= stylesheet_link_tag "animate.min", media: "all" %>
   <%= stylesheet_link_tag "jquery.scrollbar", media: "all" %>
   <%= stylesheet_link_tag "application", media: "all" %>
   <!-- END PLUGIN CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <!-- BEGIN CORE CSS FRAMEWORK -->
     <%= stylesheet_link_tag "webarch", media: "all" %>
     <!-- END CORE CSS FRAMEWORK -->
 </head>
-<body class="horizontal-menu">
-  <%= render 'shared/header' %>
-  <!-- BEGIN PAGE CONTAINER-->
-    <div class="clearfix"></div>
-    <!-- BEGIN CONTENT -->
-    <div class="page-container row-fluid">
-      <div class="page-content">
-        <%= render 'shared/nav_bar' %>
-        <div class="content">
+
+<body class="">
+<!-- BEGIN HEADER -->
+<%= render 'shared/header'%>
+<!-- END HEADER -->
+
+<div class="page-container row-fluid">
+<!-- BEGIN SIDEBAR -->
+<%= render 'shared/sidebar' %>
+<!-- END SIDEBAR -->
+<!-- BEGIN PAGE CONTAINER-->
+<div class="page-content">
+  <div class="content">
+    <!-- BEGIN PAGE TITLE -->
+    <div class="page-title">
+      <h3>Master Page</h3>
       <div class="page-title">
         <h3><%= yield :content_title %></h3>
       </div>
-      	<div class="row">
-      	<div class="col-md-5">
-          <%= yield %>
-      	</div>
-      	</div>
-      </div>
     </div>
+    <!-- END PAGE TITLE -->
+    <!-- BEGIN PlACE PAGE CONTENT HERE -->
+    <%= yield %>
+    <!-- END PLACE PAGE CONTENT HERE -->
   </div>
+</div>
+<!-- END PAGE CONTAINER -->
+<!-- BEGIN CHAT -->
+<%=render 'shared/chat' %>
+<!-- END CHAT -->
+</div>
+
+</body>
+
+
+
+
   <!-- END CONTENT -->
   <!-- BEGIN CORE JS FRAMEWORK-->
   <%= javascript_include_tag "pace.min", "data-turbolinks-track" => true %>
@@ -58,5 +74,5 @@
   <%= javascript_include_tag "webarch", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "chat", "data-turbolinks-track" => true %>
   <!-- END CORE TEMPLATE JS -->
-</body>
+
 </html>
