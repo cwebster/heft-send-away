@@ -1041,7 +1041,7 @@ body.boxed-layout .footer-widget {
   line-height: 16px;
 }
 .scrollup {
-  background: url('../img/pullup.png') no-repeat;
+  background: url('<%=image_path('pullup.png')%>') no-repeat;
   background-position: 0px 0px;
   width: 27px;
   height: 27px;
@@ -1566,7 +1566,7 @@ body.boxed-layout .footer-widget {
   text-decoration: none;
 }
 .status-icon {
-  background: url('../img/icon/status.png') no-repeat;
+  background: url('<%=image_path('status.png')%>') no-repeat;
   position: relative;
   display: inline-block;
   margin-right: 10px;
@@ -2337,7 +2337,7 @@ span.iconset {
   display: block;
 }
 .iconset {
-  background: url("../img/icon/top-tray.png") no-repeat;
+  background: url(<%=image_path('top-tray.png')%>) no-repeat;
   position: relative;
   top: 1px;
 }
@@ -4756,7 +4756,7 @@ form legend,
   margin-top: 3px;
 }
 .grid.box .grid-title .tools a {
-  background: url(@{base-img-url}/icon/portlet-tray.png) no-repeat;
+  background: url(@{base-img-url}<%=image_path('portlet-tray.png')%>) no-repeat;
   width: 23px;
   height: 23px;
 }
@@ -5122,7 +5122,7 @@ form legend,
 .grid.simple .grid-title .tools a,
 .grid.solid .grid-title .tools a {
   position: relative;
-  background: url('../img/icon/portlet-tray.png') no-repeat;
+  background: url('<%=image_path('portlet-tray.png')%>') no-repeat;
   transition: all 0.1s linear 0s;
 }
 .grid.simple .grid-title .tools > a.remove,
@@ -5624,7 +5624,7 @@ form legend,
 }
 .tiles .controller a {
   position: relative;
-  background: url('../img/icon/portlet-tray.png') no-repeat;
+  background: url('<%=image_path('portlet-tray.png')%>') no-repeat;
   transition: all 0.1s linear 0s;
   display: inline-block;
 }
@@ -5957,7 +5957,7 @@ form legend,
 }
 .widget-item .controller a {
   position: relative;
-  background: url('../img/icon/portlet-tray.png') no-repeat;
+  background: url('<%=image_path('portlet-tray.png')%>') no-repeat;
   transition: all 0.1s linear 0s;
   display: inline-block;
 }
@@ -6081,7 +6081,7 @@ form legend,
 }
 .widget .controller a {
   position: relative;
-  background: url('../img/icon/portlet-tray.png') no-repeat;
+  background: url('<%=image_path('portlet-tray.png')%>') no-repeat;
   transition: all 0.1s linear 0s;
   display: inline-block;
 }
@@ -6774,7 +6774,7 @@ code:hover {
 }
 .nav .tools a {
   position: relative;
-  background: url('../img/icon/portlet-tray.png') no-repeat;
+  background: url('<%=image_path('portlet-tray.png')%>') no-repeat;
   transition: all 0.1s linear 0s;
 }
 .nav > .disabled > a:hover,
@@ -9842,29 +9842,29 @@ body.rtl .footer-widget {
 /*** Retina Display Images **/
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 200/100), only screen and (min-device-pixel-ratio: 2) {
   .grid.simple .grid-title .tools a {
-    background: url('../img/icon/portlet-tray-2x.png');
+    background: url('<%=image_path('portlet-tray-2x.png')%>');
     background-size: 199px 57px;
   }
   .tiles .controller a {
     position: relative;
-    background: url('../img/icon/portlet-tray-2x.png');
+    background: url('<%=image_path('portlet-tray-2x.png')%>');
     background-size: 199px 57px;
   }
   .widget-item .controller a {
     position: relative;
-    background: url('../img/icon/portlet-tray-2x.png');
+    background: url('<%=image_path('portlet-tray-2x.png')%>');
     background-size: 199px 57px;
   }
   .iconset {
-    background: url('../img/icon/top-trayx2.png') no-repeat;
+    background: url('<%=image_path('top-trayx2.png')%>') no-repeat;
     background-size: 394px 29px;
   }
   .status-icon {
-    background: url('../img/icon/status2x.png');
+    background: url('<%=image_path('status2x.png')%>');
     background-size: 79px 16px;
   }
   .scrollup {
-    background: url('../img/pullup2x.png');
+    background: url('<%=image_path('pullup2x.png')%>');
     background-size: 57px 27px;
   }
   .alert .close {
