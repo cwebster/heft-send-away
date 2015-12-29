@@ -16,62 +16,56 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <!-- BEGIN CORE CSS FRAMEWORK -->
-    <%= stylesheet_link_tag "webarch", media: "all" %>
-		
-    <!-- END CORE CSS FRAMEWORK -->
+  <%= stylesheet_link_tag "webarch", media: "all" %>
+  <!-- END CORE CSS FRAMEWORK -->
 </head>
 
 <body class="horizontal-menu">
-<!-- BEGIN HEADER -->
-<%= render 'shared/header'%>
-
-<!-- END HEADER -->
-
-<div class="page-container row-fluid">
-
-<!-- BEGIN PAGE CONTAINER-->
-<div class="page-content">
-	<%= render 'shared/menu_items'%>
-</div>
-  <div class="content">
-    <!-- BEGIN PAGE TITLE -->
-    <div class="page-title">
-      <h3>Master Page</h3>
-      <div class="page-title">
-        <h3><%= yield :content_title %></h3>
+  <!-- BEGIN HEADER -->
+  <%= render 'shared/header'%>
+  <!-- END HEADER -->
+  <div class="page-container row-fluid">
+    <%= render 'shared/sidebar' %>
+    <!-- BEGIN PAGE CONTAINER-->
+    <div class="page-content">
+      <%= render 'shared/menu_bar'%>
+      <div class="clearfix"></div>
+      <div class="content">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+          <div class ='cw-gutter'>
+            <h3><%= yield :content_title %></h3>
+          </div>
+        </div>
+        <!-- END PAGE TITLE -->
+        <!-- BEGIN PlACE PAGE CONTENT HERE -->
+        <div class ='cw-gutter'>
+          <%= yield %>
+        </div>
+        <!-- END PLACE PAGE CONTENT HERE -->
       </div>
     </div>
-    <!-- END PAGE TITLE -->
-    <!-- BEGIN PlACE PAGE CONTENT HERE -->
-    <%= yield %>
-    <!-- END PLACE PAGE CONTENT HERE -->
+    <!-- END PAGE CONTAINER -->
   </div>
-</div>
-<!-- END PAGE CONTAINER -->
-</div>
-
 </body>
 
+<!-- END CONTENT -->
+<!-- BEGIN CORE JS FRAMEWORK-->
+<%= javascript_include_tag "pace.min", "data-turbolinks-track" => true %>
+<!-- BEGIN JS DEPENDECENCIES-->
 
-
-
-  <!-- END CONTENT -->
-  <!-- BEGIN CORE JS FRAMEWORK-->
-  <%= javascript_include_tag "pace.min", "data-turbolinks-track" => true %>
-  <!-- BEGIN JS DEPENDECENCIES-->
-
-  <%= javascript_include_tag "jquery-1.11.3.min", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jqueryblockui.min", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jquery.unveil.min", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jquery.scrollbar.min", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jquery.animateNumbers", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jquery.validate.min", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "select2.min", "data-turbolinks-track" => true %>
-  <!-- END CORE JS DEPENDECENCIES-->
-  <!-- BEGIN CORE TEMPLATE JS -->
-  <%= javascript_include_tag "webarch", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "chat", "data-turbolinks-track" => true %>
-  <!-- END CORE TEMPLATE JS -->
+<%= javascript_include_tag "jquery-1.11.3.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jqueryblockui.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.unveil.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.scrollbar.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.animateNumbers", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "jquery.validate.min", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "select2.min", "data-turbolinks-track" => true %>
+<!-- END CORE JS DEPENDECENCIES-->
+<!-- BEGIN CORE TEMPLATE JS -->
+<%= javascript_include_tag "webarch", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "chat", "data-turbolinks-track" => true %>
+<!-- END CORE TEMPLATE JS -->
 
 </html>

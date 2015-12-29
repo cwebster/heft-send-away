@@ -32,3 +32,6 @@ Rails.application.config.assets.precompile += %w( logo.png )
 Rails.application.config.assets.precompile += %w( portlet-tray-2x.png )
 Rails.application.config.assets.precompile += %w( portlet-tray.png )
 Rails.application.config.assets.precompile += %w( webarch.coporate.css )
+
+## Precompile all images
+Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
