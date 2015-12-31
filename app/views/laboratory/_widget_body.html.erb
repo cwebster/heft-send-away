@@ -3,12 +3,23 @@
 		<div class="comment">
 			<div class="user-name text-black bold large-text">
 				<%= render partial: "cpa_status", locals: {laboratory: laboratory} %>
+				<%= render partial: "info", locals: {laboratory: laboratory} %>
 			</div>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 	<div class="clearfix"></div>
 	<div class="p-l-15 p-t-10 p-r-20">
-		<%= render partial: "info", locals: {laboratory: laboratory} %>
+		
 	</div>
+	<div class="p-l-15 p-t-10 p-r-20">
+	<%= button_to "View Tests", tests_for_laboratory_path, remote: true, method: :get,  params: {laboratory_id: laboratory.id}, class: "btn btn-info" %>
+	<script type="text/javascript">
+	  function clearBox(elementID)
+	  {
+		  document.getElementById(elementID).innerHTML = "";
+	  }
+	</script>
+</div>
+	<div id="<%=laboratory.id%>"></div>
 </div>

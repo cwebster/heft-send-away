@@ -1,0 +1,32 @@
+<table class="table table-hover no-more-tables">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>EQA</th>
+			<th>TAT</th>
+			<th>UKAS</th>
+			<th>Method</th>
+			<th>Ref Range</th>
+			<th>Sample</th>
+			<th>Cost</th>
+			<th>UoM</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @laboratory_tests.each do |laboratory_test| %>
+		<tr>
+			<td><%=laboratory_test.analyte_name%></td>
+			<td><%=laboratory_test.eqa_status%></td>
+			<td><%=laboratory_test.turnaround_time%></td>
+			<td><%=laboratory_test.ukas_status%></td>
+			<td><%=laboratory_test.methodology%></td>
+			<td><%=laboratory_test.reference_range%></td>
+			<td><%=laboratory_test.sample_type%></td>
+			<td><%=laboratory_test.cost_of_test%></td>
+			<td><%=laboratory_test.uncertainty_of_measurement%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<button onclick="clearBox('<%=@laboratory_id%>')", class='btn btn-info'>Hide Tests</button>

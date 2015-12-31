@@ -1,0 +1,6 @@
+/**
+* this renders the output of the generate_summary_report method in the prime
+* contractors controller
+* It will render content into the div with the id summary_report_table
+*/
+$("#<%=@laboratory_id%>").html("<%= escape_javascript(render partial: 'tests_table' ) %>");

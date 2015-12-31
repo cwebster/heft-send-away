@@ -1,7 +1,13 @@
-<div class="tiles green " style="max-height:345px">
+<div class="tiles <%=colour%>" style="max-height:345px">
 	<div class="tiles-body">
 		<h3 class="text-white m-t-50 m-b-30 m-r-20"><%=laboratory.laboratory_name%></h3>
 		<%= render partial: "address", locals: {laboratory: laboratory} %>
 		<div class="clearfix"></div>
+		<div class="overlayer-wrapper">
+			<div class=" p-l-20 p-r-20 p-b-20 p-t-20">
+				<div class="pull-right"> <%= render partial: "menu", locals: {laboratory: laboratory} %></div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
 	</div>
 </div>

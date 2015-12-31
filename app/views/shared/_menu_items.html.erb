@@ -1,19 +1,20 @@
 	<ul>
+		<% if current_user.admin? %>
 		<li>
-			<a href="javascript:;">
-				Whats <span class="semi-bold">new </span>
+			<a href="<%=admin_root_path%>">
+				Admin <span class="semi-bold">Menu </span>
 			</a>
 		</li>
+		<% end %>
 		<li class="classic">
 			<a href="javascript:;">
-				Classic <span class="semi-bold">Menu</span> <span class="arrow"></span>
+				Laboratory <span class="semi-bold">Management</span> <span class="arrow"></span>
 			</a>
 			<ul class="classic">
 				<li>
-					<a href="index.html">UI Elements
+					<a href="<%=laboratory_index_path%>">View Laboratory Details
 						<span class="description">
-							Find which UI elements suits you the
-							most.
+							View your laboratory details
 						</spam>
 					</a>
 				</li>
@@ -41,80 +42,6 @@
 						</spam>
 					</a>
 				</li>
-			</ul>
-		</li>
-		<li class="horizontal">
-			<a href="javascript:;">
-				Horizontal <span class="semi-bold">Menu</span> <span class="arrow"></span>
-			</a>
-			<ul class="horizontal">
-				<li>
-					<a href="index.html">UI Elements</a>
-				</li>
-				<li>
-					<a href="index.html">Message & Notifications</a>
-				</li>
-				<li>
-					<a href="index.html">Buttons</a>
-				</li>
-				<li>
-					<a href="index.html">Sliders</a>
-				</li>
-			</ul>
-		</li>
-		<li class="mega">
-			<a href="javascript:;">
-				Mega <span class="semi-bold">Menu </span><span class="arrow"></span>
-			</a>
-			<ul class="mega">
-				<div class="container">
-				<div class="row">
-					<div class="col-sm-3 ">
-						<div class="sub-menu-heading bold">Features UI</div>
-						<img src="assets/img/Webarch_thumb.jpg" alt="" data-src="assets/img/Webarch_thumb.jpg" data-src-retina="assets/img/Webarch_thumb_retina.jpg" height="100" width="100">
-
-					</div>
-					<div class="col-sm-3">
-						<div class="sub-menu-heading bold"> UI Elements</div>
-								<ul class="sub-menu">
-									<li > <a href="typography.html"> Typography </a> </li>
-									<li > <a href="messages_notifications.html"> Messages & Notifications </a> </li>
-									<li > <a href="notifications.html"> Notifications </a> </li>
-									<li > <a href="icons.html">Icons</a> </li>
-									<li > <a href="buttons.html">Buttons</a> </li>
-									<li > <a href="tabs_accordian.html"> Tabs & Accordions </a> </li>
-									<li > <a href="sliders.html">Sliders</a> </li>
-									<li class="active"> <a href="group_list.html">Group list </a> </li>
-								</ul>
-					</div>
-					<div class="col-sm-3">
-						<div class="sub-menu-heading bold">Layout Options</div>
-									<ul class="sub-menu">
-										<li > <a href="layout_options.html"> Layout Options </a> </li>
-										<li > <a href="boxed_layout.html">Boxed Layout </a> </li>
-										<li > <a href="boxed_layout_v2.html">Inner Boxed Layout </a> </li>
-										<li > <a href="extended_layout.html">Extended Layout</a> </li>
-										<li > <a href="RTL.html">RTL Layout</a> </li>
-									</ul>
-									<div class="sub-menu-heading bold"> Forms</div>
-								<ul class="sub-menu">
-									<li > <a href="form_elements.html">Form Elements </a> </li>
-									<li > <a href="form_validations.html">Form Validations</a> </li>
-								</ul>
-					</div>
-
-				<div class="col-sm-3">
-					<div class="sub-menu-heading bold">Extra</div>
-								<ul class="sub-menu">
-									<li > <a href="layout_options.html"> Layout Options </a> </li>
-									<li > <a href="boxed_layout.html">Boxed Layout </a> </li>
-									<li > <a href="boxed_layout_v2.html">Inner Boxed Layout </a> </li>
-									<li > <a href="extended_layout.html">Extended Layout</a> </li>
-									<li > <a href="RTL.html">RTL Layout</a> </li>
-								</ul>
-				</div>
-				</div>
-				</div>
 			</ul>
 		</li>
 	</ul>
