@@ -43,3 +43,5 @@ gem 'puma'
 gem 'material_icons'
 gem 'devise'
 gem "pundit"
+gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_theme'

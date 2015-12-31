@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+['registered',  'admin'].each do |role|
+  Role.find_or_create_by({name: role})
+end
+User.create!(email: 'craig.webster@mac.com', password: 'password', password_confirmation: 'password')
