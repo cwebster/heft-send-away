@@ -1,0 +1,23 @@
+<div class="post p-t-10 p-b-10">
+	<ul class="action-bar no-margin p-b-20 ">
+		<li>
+			<% if laboratory.selection_form_completed? %>
+			<a href="#" class="bold">
+				<i class="fa fa-file-text-o m-r-10"></i>Selection Form Completed
+			<% else %>
+				<a href="#" class="text-error muted">
+				<i class="fa fa-file-text-o m-r-10"></i>Selection Form Not Completed
+			<% end %>
+				</li>
+				<li>
+					<% if laboratory.website_updated? %>
+					<a href="#" class="bold">
+						<i class="fa fa-heart  m-r-10"></i> HEFT Website Updated
+					<% else %>
+						<a href="#" class="text-error muted">
+						<i class="fa fa-heart  m-r-10"></i> HEFT Website Not Updated
+					<% end %>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+</div>

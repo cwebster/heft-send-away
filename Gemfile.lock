@@ -38,6 +38,7 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_admin_import_anything (0.0.4)
     active_admin_theme (1.0.3)
     activejob (4.2.4)
       activesupport (= 4.2.4)
@@ -116,6 +117,9 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -218,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin_import_anything
   active_admin_theme
   activeadmin!
   better_errors
@@ -227,6 +232,8 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
+  kaminari-bootstrap (~> 3.0.1)
   material_icons
   pg
   puma

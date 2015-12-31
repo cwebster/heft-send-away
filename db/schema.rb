@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231101452) do
+ActiveRecord::Schema.define(version: 20151231150710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,43 @@ ActiveRecord::Schema.define(version: 20151231101452) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "laboratories", force: :cascade do |t|
+    t.string   "laboratory_name"
+    t.string   "cpa_status"
+    t.string   "cpa_reference_number"
+    t.string   "contact_name"
+    t.date     "date_completed"
+    t.boolean  "selection_form_completed"
+    t.boolean  "website_updated"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "telephone"
+    t.string   "website"
+    t.string   "comments"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  create_table "laboratory_tests", force: :cascade do |t|
+    t.string   "analyte_name"
+    t.string   "comments"
+    t.string   "eqa_status"
+    t.string   "turnaround_time"
+    t.string   "ukas_status"
+    t.string   "methodology"
+    t.string   "reference_range"
+    t.string   "sample_type"
+    t.string   "cost_of_test"
+    t.string   "uncertainty_of_measurement"
+    t.integer  "laboratory_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

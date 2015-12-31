@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="user-comment-wrapper pull-left">
+		<div class="comment">
+			<div class="user-name text-black bold large-text">
+				<%= render partial: "cpa_status", locals: {laboratory: laboratory} %>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="p-l-15 p-t-10 p-r-20">
+		<%= render partial: "info", locals: {laboratory: laboratory} %>
+	</div>
+</div>
