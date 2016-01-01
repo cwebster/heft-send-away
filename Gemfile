@@ -48,3 +48,5 @@ gem 'active_admin_theme'
 gem 'active_admin_import_anything'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem "algoliasearch-rails"
+gem 'hogan_assets'

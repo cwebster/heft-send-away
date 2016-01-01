@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   match 'tests_for_laboratory', to: 'laboratory_test#tests_for_laboratory',
   as: :tests_for_laboratory, via: [:get]
 
+  match 'search', to: 'search#search',
+  as: :search, via: [:get]
+
   root 'welcome#index'
 end

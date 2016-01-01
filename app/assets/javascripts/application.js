@@ -13,3 +13,7 @@
 //= require jquery_ujs
 //= require bootstrap-datepicker
 //= require form_functions
+//= require algolia/algoliasearch.min
+//= require algolia/typeahead.jquery
+//= require hogan
+//= require search

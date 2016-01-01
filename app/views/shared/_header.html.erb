@@ -1,58 +1,63 @@
 <div class="header navbar navbar-inverse">
-      <!-- BEGIN TOP NAVIGATION BAR -->
-      <div class="navbar-inner">
-        <!-- BEGIN NAVIGATION HEADER -->
-        <div class="header-seperation">
-          <div class="cw-header-seperation">
-          <!-- BEGIN MOBILE HEADER -->
-          <ul class="nav quick-section">
-              <li class="quicklinks">
-                <a href="#main-menu" data-webarch="toggle-left-side">
-                  <div class="iconset top-menu-toggle-dark"></div>
-                </a>
-              </li>
-          </ul>
-          <!-- END MOBILE HEADER -->
-          <!-- BEGIN LOGO -->
-          <%= render 'shared/logo' %>
-          <!-- END LOGO -->
-          <!-- BEGIN LOGO NAV BUTTONS -->
-          <ul class="nav pull-right notifcation-center">
-            <li class="dropdown hidden-xs hidden-sm">
-              <a href="index.html" class="dropdown-toggle active" data-toggle="">
-                <div class="iconset top-home"></div>
-              </a>
-            </li>
-          </ul>
-          <!-- END LOGO NAV BUTTONS -->
-        </div>
-        </div>
-        <!-- END NAVIGATION HEADER -->
-        <!-- BEGIN CONTENT HEADER -->
-        <div class="header-quick-nav">
-
-          <!-- BEGIN HEADER LEFT SIDE SECTION -->
-          <div class="pull-left">
-            <!-- BEGIN SLIM NAVIGATION TOGGLE -->
-            <ul class="nav quick-section">
-              <li class="quicklinks">
-                <a href="#" class="" id="layout-condensed-toggle">
-                  <div class="iconset top-menu-toggle-dark"></div>
-                </a>
-              </li>
-            </ul>
-            <!-- END SLIM NAVIGATION TOGGLE -->
-            <!-- BEGIN HEADER QUICK LINKS -->
-            <!-- BEGIN HEADER QUICK LINKS -->
-          </div>
-          <!-- END HEADER LEFT SIDE SECTION -->
-          <!-- BEGIN HEADER RIGHT SIDE SECTION -->
-          <div class="pull-right">
-            <%= render 'shared/logo' %>
-          </div>
-          <!-- END HEADER RIGHT SIDE SECTION -->
-        </div>
-        <!-- END CONTENT HEADER -->
+  <!-- BEGIN TOP NAVIGATION BAR -->
+  <div class="navbar-inner">
+    <!-- BEGIN NAVIGATION HEADER -->
+    <div class="header-seperation">
+      <div class="cw-header-seperation">
+        <!-- BEGIN MOBILE HEADER -->
+        <ul class="nav quick-section">
+          <li class="quicklinks">
+            <a href="#main-menu" data-webarch="toggle-left-side">
+              <div class="iconset top-menu-toggle-dark"></div>
+            </a>
+          </li>
+        </ul>
+        <!-- END MOBILE HEADER -->
+        <!-- BEGIN LOGO -->
+        <%= render 'shared/logo' %>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGO NAV BUTTONS -->
+        <ul class="nav pull-right notifcation-center">
+          <li class="dropdown hidden-xs hidden-sm">
+            <a href="index.html" class="dropdown-toggle active" data-toggle="">
+              <div class="iconset top-home"></div>
+            </a>
+          </li>
+        </ul>
+        <!-- END LOGO NAV BUTTONS -->
       </div>
-      <!-- END TOP NAVIGATION BAR -->
     </div>
+    <!-- END NAVIGATION HEADER -->
+    <!-- BEGIN CONTENT HEADER -->
+    <div class="header-quick-nav">
+
+      <!-- BEGIN HEADER LEFT SIDE SECTION -->
+      <div class="pull-left">
+        <!-- BEGIN SLIM NAVIGATION TOGGLE -->
+        <ul class="nav quick-section">
+          <li class="quicklinks">
+            <a href="#" class="" id="layout-condensed-toggle">
+              <div class="iconset top-menu-toggle-dark"></div>
+            </a>
+          </li>
+          <li class="m-r-10 input-prepend inside search-form no-boarder">
+            <span class="add-on"> <span class="iconset top-search"></span></span>
+            <input type="text" id="search-input" class="no-boarder " placeholder="Search Dashboard" style="width:250px;" />
+          </li>
+        </ul>
+
+        <!-- END SLIM NAVIGATION TOGGLE -->
+        <!-- BEGIN HEADER QUICK LINKS -->
+        <!-- BEGIN HEADER QUICK LINKS -->
+      </div>
+      <!-- END HEADER LEFT SIDE SECTION -->
+      <!-- BEGIN HEADER RIGHT SIDE SECTION -->
+      <div class="pull-right">
+        <%= render 'shared/logo' %>
+      </div>
+      <!-- END HEADER RIGHT SIDE SECTION -->
+    </div>
+    <!-- END CONTENT HEADER -->
+  </div>
+  <!-- END TOP NAVIGATION BAR -->
+</div>
