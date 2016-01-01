@@ -1,10 +1,13 @@
+
 	<ul>
+		<%unless current_user.nil?%>
 		<% if current_user.admin? %>
 		<li>
 			<a href="<%=admin_root_path%>">
 				Admin <span class="semi-bold">Menu </span>
 			</a>
 		</li>
+		<% end %>
 		<% end %>
 		<li class="classic">
 			<a href="javascript:;">
