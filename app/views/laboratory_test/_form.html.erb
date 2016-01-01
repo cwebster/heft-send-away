@@ -1,0 +1,77 @@
+<div class='row'>
+	<%= render 'errors' %>
+	<div class="grid simple">
+		<div class="grid-title no-border">
+			<h4>Laboratory <span class="semi-bold">Address</span></h4>
+			<div class="tools">
+				<a href="javascript:;" class="collapse"></a>
+				<a href="javascript:;" class="reload"></a>
+				<a href="javascript:;" class="remove"></a>
+			</div>
+		</div>
+		<div class='grid-body no-border'>
+			<%= form_for @laboratory_test do |f|%>
+			<div class="form-group">
+				<label class="form-label">Analyte Name</label>
+				<span class="help">The name of the analyte</span>
+				<div class="controls">
+					<%= f.text_field :analyte_name, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Methodology</label>
+				<span class="help">How is the test measured e.g. LC/MSMS</span>
+				<div class="controls">
+					<%= f.text_field :methodology, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Reference Range</label>
+				<span class="help">Reference Range</span>
+				<div class="controls">
+					<%= f.text_field :reference_range, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Sample Type</label>
+				<span class="help">What type of sample is required</span>
+				<div class="controls">
+					<%= f.text_field :sample_type, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Cost of Test</label>
+				<span class="help">How much does the test cost?</span>
+				<div class="controls">
+					<%= f.text_field :cost_of_test, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Uncertainty of Measurement</label>
+				<span class="help">What is the uncertainty of measurement for the test?</span>
+				<div class="controls">
+					<%= f.text_field :uncertainty_of_measurement, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">EQA Status</label>
+				<span class="help">Is the test in an EQA scheme or Sample exchange scheme?</span>
+				<div class="controls">
+					<%= f.text_field :eqa_status, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">UKAS Status</label>
+				<span class="help">Is the test UKAS accrediated? enter details here.</span>
+				<div class="controls">
+					<%= f.text_field :ukas_status, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class='row m-t-10'>
+<%= f.submit ("Submit"), class: 'btn btn-success btn-cons' %>
+</div>
+			<% end %>
+		</div>
+	</div>
+</div>

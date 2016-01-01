@@ -1,4 +1,4 @@
-<table class="table table-hover no-more-tables">
+<table class="table table-bordered no-more-tables">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -16,7 +16,10 @@
 	<tbody>
 		<% @laboratory_tests.each do |laboratory_test| %>
 		<tr>
-			<td><%=laboratory_test.analyte_name%></td>
+			<td>
+			<%=laboratory_test.analyte_name%>
+		  <span data-toggle="tooltip" title="" data-placement="right"
+			data-original-title="<%=laboratory_test.laboratory.laboratory_name + ' ' +laboratory_test.laboratory.address1%>" class="badge badge-info"><i class="fa fa-info"> </i></span></td>
 			<td><%=laboratory_test.eqa_status%></td>
 			<td><%=laboratory_test.turnaround_time%></td>
 			<td><%=laboratory_test.ukas_status%></td>
@@ -32,5 +35,3 @@
 		<% end %>
 	</tbody>
 </table>
-
-<button onclick="clearBox('<%=@laboratory_id%>')", class='btn btn-info'>Hide Tests</button>

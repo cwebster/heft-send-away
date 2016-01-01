@@ -1,0 +1,14 @@
+<div class="tiles <%=colour%>" style="max-height:345px">
+	<div class="tiles-body">
+		<h3 class="text-white m-t-50 m-b-30 m-r-20"><%=laboratory_test.analyte_name%></h3>
+		<a href="<%=laboratory_path(laboratory_test.laboratory)%>" class="btn btn-primary"><i class="fa fa-info"></i> <%=laboratory_test.laboratory.laboratory_name%></a>
+
+		<div class="clearfix"></div>
+		<div class="overlayer-wrapper">
+			<div class=" p-l-20 p-r-20 p-b-20 p-t-20">
+				<div class="pull-right"> <%= render partial: "menu", locals: {laboratory_test: laboratory_test} %></div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+</div>

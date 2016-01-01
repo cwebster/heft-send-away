@@ -1,0 +1,130 @@
+<div class='row'>
+	<%= render 'errors' %>
+	<div class="grid simple">
+		<div class="grid-title no-border">
+			<h4>Laboratory <span class="semi-bold">Address</span></h4>
+			<div class="tools">
+				<a href="javascript:;" class="collapse"></a>
+				<a href="javascript:;" class="reload"></a>
+				<a href="javascript:;" class="remove"></a>
+			</div>
+		</div>
+		<div class='grid-body no-border'>
+			<%= form_for @laboratory do |f|%>
+			<div class="form-group">
+				<label class="form-label">Laboratory Name</label>
+				<span class="help">The name of the laboratory</span>
+				<div class="controls">
+					<%= f.text_field :laboratory_name, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Address Line 1</label>
+				<span class="help">First line of the address</span>
+				<div class="controls">
+					<%= f.text_field :address1, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Address Line 2</label>
+				<span class="help">Second line of the address</span>
+				<div class="controls">
+					<%= f.text_field :address2, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Address Line 3</label>
+				<span class="help">Third line of the address</span>
+				<div class="controls">
+					<%= f.text_field :address3, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">City</label>
+				<span class="help">City</span>
+				<div class="controls">
+					<%= f.text_field :city, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Postcode</label>
+				<span class="help">Postcode</span>
+				<div class="controls">
+					<%= f.text_field :postcode, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Telephone</label>
+				<span class="help">Telephone number of laboratory</span>
+				<div class="controls">
+					<%= f.text_field :telephone, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Website</label>
+				<span class="help">Website of the laboratory</span>
+				<div class="controls">
+					<%= f.text_field :website, class: 'form-control' %>
+				</div>
+			</div>
+		<hr>
+		<h4>Laboratory <span class="semi-bold">Details</span></h4>
+			<div class="form-group">
+				<label class="form-label">CPA Status</label>
+				<span class="help">Is the laboratory CPA accrediated</span>
+				<div class="controls">
+					<%= f.text_field :cpa_status, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">CPA Reference Number</label>
+				<span class="help">The CPA reference number</span>
+				<div class="controls">
+					<%= f.text_field :cpa_reference_number, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Contact Name</label>
+				<span class="help">The name of the person we can contact</span>
+				<div class="controls">
+					<%= f.text_field :contact_name, class: 'form-control' %>
+				</div>
+			</div>
+
+			<div class='row'>
+				<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-label">Date Selection for Completed</label><br>
+					<span class="help">The date we last checked the details of this laboratory</span>
+					<div class="controls">
+						<%= f.text_field :date_completed, class: 'input-append success date col-md-10 col-lg-6 no-padding' %>
+						<span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
+					</div>
+				</div>
+			</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="form-label">Selection Form Completed?</label><br>
+						<span class="help">The date we last checked the details of this laboratory</span>
+						<div class="controls">
+							<%= f.check_box :selection_form_completed %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<label class="form-label">HEFT Website Updated?</label><br>
+						<span class="help">Is the HEFT Web site up to date?</span>
+						<div class="controls">
+							<%= f.check_box :website_updated %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='row m-t-10'>
+<%= f.submit ("Submit"), class: 'btn btn-success btn-cons' %>
+</div>
+			<% end %>
+		</div>
+	</div>
+</div>

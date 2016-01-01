@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-md-12 col-sm-12">
+		<div class="grid simple ">
+			<div class="grid-title no-border">
+				<h4>Laboratory <span class="semi-bold">Tests</span></h4>
+			</div>
+			<div class="grid-body no-border">
+				<%= render 'tests_table_bare', locals: {laboratory_tests: @laboratory_tests} %>
+			</div>
+			<%= paginate @laboratory_tests %>
+		</div>
+	</div>
+</div>

@@ -9,4 +9,16 @@ class LaboratoryPolicy
 	def index?
 		user.admin? or @laboratory.first.user_id == user
 	end
+
+	def edit?
+		user.admin? or @laboratory.first.user_id == user
+	end
+
+	def update?
+		user.admin? or @laboratory.first.user_id == user
+	end
+
+	def show?
+		user.admin? or @laboratory.first.user_id == user
+	end
 end

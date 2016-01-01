@@ -11,3 +11,5 @@
 // about supported directives.
 //
 //= require jquery_ujs
+//= require bootstrap-datepicker
+//= require form_functions
