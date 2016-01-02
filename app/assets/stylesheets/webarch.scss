@@ -7690,7 +7690,7 @@ input[type="checkbox"] {
 .comments-section {
   margin-top: 12px;
 }
-#Parks {
+#SearchResults {
   margin-bottom: 30px;
 }
 .img_wrapper {
@@ -8073,10 +8073,10 @@ input[type="checkbox"] {
 /*------------------------------------------------------------------
 [20. Search Results]
 */
-#Parks {
+#SearchResults {
   margin-bottom: 30px;
 }
-#Parks ul {
+#SearchResults ul {
   padding-left: 0px;
 }
 /* IMAGES */
@@ -8102,7 +8102,7 @@ input[type="checkbox"] {
   opacity: 1;
 }
 /* FAIL ELEMENT */
-#Parks {
+#SearchResults {
   position: relative;
   margin: 0px;
 }
@@ -8121,7 +8121,7 @@ input[type="checkbox"] {
   opacity: 1;
 }
 /* LIST VIEW STYLES */
-#Parks.list .list_header {
+#SearchResults.list .list_header {
   height: 38px;
   line-height: 38px;
   background: #d1dade;
@@ -8131,7 +8131,7 @@ input[type="checkbox"] {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-#Parks.list .meta {
+#SearchResults.list .meta {
   display: inline-block;
   width: 205px;
   text-align: center;
@@ -8140,22 +8140,22 @@ input[type="checkbox"] {
   height: 100%;
   vertical-align: top;
 }
-#Parks.list .list_header .meta {
+#SearchResults.list .list_header .meta {
   line-height: 38px;
   border: 0 none;
   margin-top: -8px;
   vertical-align: inherit;
 }
-#Parks.list .meta.name {
+#SearchResults.list .meta.name {
   float: left;
   text-align: left;
   width: auto;
   border-left: 0 none;
 }
-#Parks.list .list_header .meta.name {
+#SearchResults.list .list_header .meta.name {
   padding-left: 15px;
 }
-#Parks.list .list_header .meta span {
+#SearchResults.list .list_header .meta span {
   position: relative;
   display: inline-block;
   width: 24px;
@@ -8167,36 +8167,36 @@ input[type="checkbox"] {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-#Parks.list .list_header .meta span:after {
+#SearchResults.list .list_header .meta span:after {
   content: '';
   position: absolute;
   top: 9px;
   left: 7px;
   border: 5px solid transparent;
 }
-#Parks.list .list_header .meta span.asc:after {
+#SearchResults.list .list_header .meta span.asc:after {
   border-top: 7px solid #8E9AA2;
 }
-#Parks.list .list_header .meta span.desc:after {
+#SearchResults.list .list_header .meta span.desc:after {
   top: 4px;
   border-bottom: 7px solid #8e9aa2;
 }
-#Parks.list .list_header .meta span:hover {
+#SearchResults.list .list_header .meta span:hover {
   background: #b8bbbe;
 }
-#Parks.list .list_header .meta span.asc:hover:after {
+#SearchResults.list .list_header .meta span.asc:hover:after {
   border-top-color: #e5e9ec;
 }
-#Parks.list .list_header .meta span.desc:hover:after {
+#SearchResults.list .list_header .meta span.desc:hover:after {
   border-bottom-color: #e5e9ec;
 }
-#Parks.list .list_header .meta span.active.asc:after {
+#SearchResults.list .list_header .meta span.active.asc:after {
   border-top-color: #505458;
 }
-#Parks.list .list_header .meta span.active.desc:after {
+#SearchResults.list .list_header .meta span.active.desc:after {
   border-bottom-color: #505458;
 }
-#Parks.list .mix {
+#SearchResults.list .mix {
   display: none;
   opacity: 0;
   padding: 18px 0 14px;
@@ -8208,30 +8208,30 @@ input[type="checkbox"] {
   vertical-align: top;
   font-weight: 300;
 }
-#Parks.list .mix .meta * {
+#SearchResults.list .mix .meta * {
   line-height: 1;
 }
-#Parks.list .mix .meta p,
-#Parks.list .mix .meta ul {
+#SearchResults.list .mix .meta p,
+#SearchResults.list .mix .meta ul {
   display: inline-block;
   vertical-align: middle;
   list-style: none;
 }
-#Parks.list .mix .meta li {
+#SearchResults.list .mix .meta li {
   margin-bottom: 5px;
 }
-#Parks.list .img_wrapper {
+#SearchResults.list .img_wrapper {
   display: inline-block;
   width: 177px;
   height: 95px;
   vertical-align: top;
   margin-right: 30px;
 }
-#Parks.list .titles {
+#SearchResults.list .titles {
   display: inline-block;
   vertical-align: middle;
 }
-#Parks.list .titles h2 {
+#SearchResults.list .titles h2 {
   font-weight: 700;
   font-size: 17px;
   text-transform: uppercase;
@@ -8240,26 +8240,26 @@ input[type="checkbox"] {
   margin-bottom: 3px;
   line-height: 1.2 !important;
 }
-#Parks.list .titles p {
+#SearchResults.list .titles p {
   text-indent: -2px;
 }
-#Parks.grid {
+#SearchResults.grid {
   text-align: justify;
 }
-#Parks.grid .list_header {
+#SearchResults.grid .list_header {
   display: none;
 }
-#Parks.grid .meta {
+#SearchResults.grid .meta {
   display: none;
 }
-#Parks.grid .meta.name {
+#SearchResults.grid .meta.name {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   display: block;
 }
-#Parks.grid .mix {
+#SearchResults.grid .mix {
   display: none;
   opacity: 0;
   position: relative;
@@ -8267,13 +8267,13 @@ input[type="checkbox"] {
   padding-top: 26%;
   margin-bottom: 3%;
 }
-#Parks.grid .img_wrapper {
+#SearchResults.grid .img_wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
   background: #000;
 }
-#Parks.grid .titles {
+#SearchResults.grid .titles {
   position: relative;
   width: 90%;
   max-width: 400px;
@@ -8287,7 +8287,7 @@ input[type="checkbox"] {
   background: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
-#Parks.grid .titles h2 {
+#SearchResults.grid .titles h2 {
   font-weight: 700;
   font-size: 17px;
   text-transform: uppercase;
@@ -8295,12 +8295,12 @@ input[type="checkbox"] {
   letter-spacing: 2px;
   margin-bottom: 3px;
 }
-#Parks.grid .titles p {
+#SearchResults.grid .titles p {
   font-weight: 300;
   text-indent: -2px;
 }
 @media (max-width: 500px) {
-  #Parks.grid .mix {
+  #SearchResults.grid .mix {
     width: 100%;
     padding-top: 53%;
   }
@@ -8309,21 +8309,21 @@ input[type="checkbox"] {
   }
 }
 @media (max-width: 1000px) {
-  #Parks.list .meta {
+  #SearchResults.list .meta {
     width: 150px;
   }
 }
 @media (max-width: 840px) {
-  #Parks.list .meta.region,
-  #Parks.list .meta.rec {
+  #SearchResults.list .meta.region,
+  #SearchResults.list .meta.rec {
     display: none;
   }
 }
 @media (max-width: 540px) {
-  #Parks.list .meta.area {
+  #SearchResults.list .meta.area {
     display: none;
   }
-  #Parks.list .titles {
+  #SearchResults.list .titles {
     max-width: 37%;
   }
 }

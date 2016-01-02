@@ -1,0 +1,13 @@
+<form id="search-form" class="form-inline" action="<%=search_path%>">
+<span class="add-on"> <span onclick="myFunction()" value="Submit form" class="iconset top-search"></span></span>
+<input name='search_items' type="text" id="search-input" class="no-boarder " placeholder="Search Dashboard" style="width:250px;" />
+<input type="submit"
+       style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+       tabindex="-1" />
+</form>
+
+<script>
+function myFunction() {
+    document.getElementById("search-form").submit();
+}
+</script>

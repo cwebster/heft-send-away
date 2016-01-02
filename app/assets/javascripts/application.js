@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery_ujs
+//= require jquery.mixitup.min
 //= require bootstrap-datepicker
 //= require form_functions
 //= require algolia/algoliasearch.min
