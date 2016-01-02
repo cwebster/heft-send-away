@@ -29,4 +29,4 @@ Rails.application.config.assets.precompile += %w( webarch.js )
 Rails.application.config.assets.precompile += %w( chat.js )
 Rails.application.config.assets.precompile += %w( search.js )
 ## Precompile all images
-#Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
