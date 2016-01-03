@@ -1,5 +1,6 @@
 <% if current_user.admin? %>
-You are an admin
+<h3>You are an admin</h3>	
+<%=render 'admin_home'%>
 <% else %>
 Display some stuff about their lab
 <% end %>

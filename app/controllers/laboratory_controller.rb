@@ -36,6 +36,12 @@ class LaboratoryController < ApplicationController
 		authorize @laboratory
 	end
 
+	def labs_out_of_date
+		@laboratories = Laboratory.where(["date_completed < ?", 6.months.ago]).order(:date_completed).page params[:page]
+		authorize @laboratories
+		render 'index'
+	end
+
 	def laboratory_params
 		params.require(:laboratory).permit(:laboratory_name, :address1, :address2,
 		:address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number,

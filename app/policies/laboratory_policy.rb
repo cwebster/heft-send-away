@@ -21,4 +21,8 @@ class LaboratoryPolicy
 	def show?
 		user.admin? or @laboratory.first.user_id == user
 	end
+
+	def labs_out_of_date?
+		user.admin? or @laboratory.first.user_id == user
+	end
 end
