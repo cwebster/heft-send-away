@@ -33,6 +33,6 @@ function getHowFarBackUrl () {
   }
 
   params = howFarBack.textContent;
-  pageUrl = 'http://localhost:3000/api/v1/laboratories/out_of_date/' + params
+  pageUrl = 'https://localhost:3000/api/v1/laboratories/out_of_date/' + params
   return pageUrl
 }
