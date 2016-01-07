@@ -20,35 +20,8 @@
   <!-- END CORE CSS FRAMEWORK -->
 
 </head>
-
-<body class="horizontal-menu">
-  <!-- BEGIN HEADER -->
-  <%= render 'shared/header'%>
-  <!-- END HEADER -->
-  <div class="page-container row-fluid">
-    <%= render 'shared/sidebar' %>
-    <!-- BEGIN PAGE CONTAINER-->
-    <div class="page-content">
-      <%= render 'shared/menu_bar'%>
-      <div class="clearfix"></div>
-      <div class="content">
-        <!-- BEGIN PAGE TITLE -->
-        <div class="page-title">
-          <div class ='cw-gutter'>
-            <%= render 'shared/errors' %>
-            <h3><%= yield :content_title %></h3>
-          </div>
-        </div>
-        <!-- END PAGE TITLE -->
-        <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <div class ='cw-gutter'>
-          <%= yield %>
-        </div>
-        <!-- END PLACE PAGE CONTENT HERE -->
-      </div>
-    </div>
-    <!-- END PAGE CONTAINER -->
-  </div>
+<body>
+<%= yield %>
 </body>
 
 <!-- END CONTENT -->

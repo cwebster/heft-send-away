@@ -1,6 +1,5 @@
 class LaboratoryController < ApplicationController
 	before_action :authenticate_user!
-
 	def index
 		if current_user.admin?
 			@laboratories = Laboratory.all.page params[:page]
@@ -40,6 +39,14 @@ class LaboratoryController < ApplicationController
 		@laboratories = Laboratory.where(["date_completed < ?", 6.months.ago]).order(:date_completed).page params[:page]
 		authorize @laboratories
 		render 'index'
+	end
+
+	def out_of_date
+		@howFarBack = params[:months_out]
+		laboratories = Laboratory
+										.where(["date_completed < ?", params[:months_out].to_i.months.ago])
+										.order(:date_completed)
+										render :layout => 'blank'
 	end
 
 	def laboratory_params

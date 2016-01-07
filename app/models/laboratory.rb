@@ -8,5 +8,4 @@ class Laboratory < ActiveRecord::Base
   algoliasearch do
     attribute :laboratory_name, :city, :address1
   end
-
 end

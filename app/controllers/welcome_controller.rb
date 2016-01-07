@@ -1,10 +1,9 @@
 class WelcomeController < ApplicationController
 	def index
-
 		if current_user.nil? || !current_user.admin?
-
+      ## Add something for the normal user
 		else
-			@labs_gtr_6_months = Laboratory.where(["date_completed > ?", 6.months.ago])
+			@labs_gtr_6_months = Laboratory.where(["date_completed > ?", 10.months.ago])
 			@total_labs = Laboratory.count
 			@lab_tests = LaboratoryTest.where(
 				{ukas_status: ''})

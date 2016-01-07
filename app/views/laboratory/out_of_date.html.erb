@@ -1,0 +1,16 @@
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'laboratory/labs_out_of_date' %>
+<% end %>
+<div class="hidden" id="howFarBack"><%=@howFarBack%></div>
+<table id="laboratoryDataTable">
+    <tr>
+        <th>Contact Name</th>
+				<th>LabName</th>
+        <th>Address1</th>
+        <th>Address2</th>
+				<th>address3</th>
+				<th>City</th>
+				<th>Postcode</th>
+    </tr>
+
+</table>

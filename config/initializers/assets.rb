@@ -28,5 +28,6 @@ Rails.application.config.assets.precompile += %w( select2.min.js )
 Rails.application.config.assets.precompile += %w( webarch.js )
 Rails.application.config.assets.precompile += %w( chat.js )
 Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += ['laboratory/*']
 ## Precompile all images
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)

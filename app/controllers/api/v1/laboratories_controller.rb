@@ -1,0 +1,19 @@
+# app/controllers/api/v1/posts_controller.rb
+class Api::V1::LaboratoriesController < Api::V1::BaseController
+  def index
+    laboratories = Laboratory.all
+    render json: serialize_models(laboratories)
+  end
+
+  def show
+    laboratory = Laboratory.find(params[:id])
+    render json: serialize_model(laboratory)
+  end
+
+	def out_of_date
+		laboratories = Laboratory
+		                .where(["date_completed < ?", params[:months].to_i.months.ago])
+										.order(:date_completed)
+    render json: serialize_models(laboratories)
+	end
+end

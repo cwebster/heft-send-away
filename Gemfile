@@ -50,3 +50,5 @@ gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem "algoliasearch-rails"
 gem 'hogan_assets'
+gem 'jsonapi-serializers'
+gem 'draper', '~> 1.3'

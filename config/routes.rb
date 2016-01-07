@@ -11,8 +11,19 @@ Rails.application.routes.draw do
   match 'labs_out_of_date', to: 'laboratory#labs_out_of_date',
   as: :labs_out_of_date, via: [:get]
 
+  match 'out_of_date/:months', to: 'laboratory#out_of_date',
+  as: :out_of_date, via: [:get, :post]
+
   match 'search', to: 'search#search',
   as: :search, via: [:get]
+
+  namespace :api do
+    namespace :v1 do
+      resources :laboratories
+      match 'laboratories/out_of_date/:months', to: 'laboratories#out_of_date',
+      as: :out_of_date, via: [:get]
+    end
+  end
 
   root 'welcome#index'
 end
