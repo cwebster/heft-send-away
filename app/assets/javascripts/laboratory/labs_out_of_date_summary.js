@@ -1,6 +1,6 @@
 $.ajax({
     type: 'GET',
-    url: 'https://localhost:3000/api/v1/laboratories/out_of_date',
+    url: '/api/v1/laboratories/out_of_date',
     data: { get_param: 'value' },
     dataType: 'json',
     success: function (data) {
