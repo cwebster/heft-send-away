@@ -10,10 +10,16 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
     render json: serialize_model(laboratory)
   end
 
-	def out_of_date
-		laboratories = Laboratory
-		                .where(["date_completed < ?", params[:months].to_i.months.ago])
-										.order(:date_completed)
+  def out_of_date
+    laboratories = Laboratory
+    .where(["date_completed < ?", params[:months].to_i.months.ago])
+    .order(:date_completed)
     render json: serialize_models(laboratories)
-	end
+  end
+
+  def workload
+    workload = Laboratory.workload
+    render json: workload
+  end
+
 end

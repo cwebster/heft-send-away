@@ -1,6 +1,12 @@
 <% content_for :javascript do %>
-  <%= javascript_include_tag 'laboratory/labs_out_of_date_summary' %>
+  <%= javascript_include_tag 'jquery-sparkline.min' %>
+  <%= javascript_include_tag 'laboratory/workload' %>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <% end %>
+
+
 
 <div class="row 2col">
 	<div class="col-md-6 col-sm-12 spacing-bottom-sm spacing-bottom">
@@ -48,6 +54,5 @@
 	</div>
 <%= render 'print_letters', locals: {title: @title = 'Print Letters'}  %>
 <%= render 'workload_summary', locals: {title: @title = 'Workload Summary'} %>
-<%= render 'widget', locals: {title: @title = 'Do Something'} %>
-<%= render 'widget', locals: {title: @title = 'Do Something'} %>
+
 </div>

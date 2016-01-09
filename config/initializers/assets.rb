@@ -29,5 +29,7 @@ Rails.application.config.assets.precompile += %w( webarch.js )
 Rails.application.config.assets.precompile += %w( chat.js )
 Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += ['laboratory/*']
+Rails.application.config.assets.precompile += %w( excanvas.min.js )
+Rails.application.config.assets.precompile += %w( jquery-sparkline.min.js )
 ## Precompile all images
 Rails.application.config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)

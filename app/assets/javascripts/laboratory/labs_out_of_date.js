@@ -10,6 +10,7 @@ $.ajax({
 
 
 function drawTable(data) {
+  howFarBack.textContent = '';
     for (var i = 0; i < data.data.length; i++) {
         drawRow(data.data[i]);
     }

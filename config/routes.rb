@@ -19,9 +19,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      match 'laboratories/workload', to: 'laboratories#workload',
+      as: :workload, via: [:get]
       resources :laboratories
+
       match 'laboratories/out_of_date/:months', to: 'laboratories#out_of_date',
       as: :out_of_date, via: [:get]
+
+
     end
   end
 
