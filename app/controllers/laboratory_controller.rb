@@ -24,14 +24,14 @@ class LaboratoryController < ApplicationController
 		if @laboratory.update_attributes(laboratory_params)
 			# Handle a successful update.
 			flash[:success] = "Labortory updated"
-      redirect_to laboratory_path
+			redirect_to laboratory_path
 		else
 			render 'edit'
 		end
 	end
 
 	def show
-    @laboratory = Laboratory.find(params[:id])
+		@laboratory = Laboratory.find(params[:id])
 		authorize @laboratory
 	end
 
@@ -43,10 +43,17 @@ class LaboratoryController < ApplicationController
 
 	def out_of_date
 		@howFarBack = params[:months_out]
-		laboratories = Laboratory
-										.where(["date_completed < ?", params[:months_out].to_i.months.ago])
-										.order(:date_completed)
-										render :layout => 'blank'
+		respond_to do |format|
+			format.html {render :layout => 'blank'}
+			format.csv { out_of_date_letter_send }
+		end
+	end
+
+	def out_of_date_letter_send
+		@laboratories = Laboratory.out_of_date(params[:months].to_i)
+    Laboratory.where(:id =>@laboratories.pluck(:id))
+		          .update_all(:selection_form_completed => false, :date_selection_form_sent => Date.today)
+		render text: @laboratories.to_csv
 	end
 
 	def laboratory_params
