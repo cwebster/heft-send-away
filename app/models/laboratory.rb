@@ -5,14 +5,14 @@ class Laboratory < ActiveRecord::Base
   has_many :laboratory_tests
   belongs_to :user
 
-  scope :date_completed_not_nil, -> {Laboratory.where('date_completed IS NOT NULL')}
+  scope :date_completed_not_nil, -> {Laboratory.where('date_information_updated IS NOT NULL')}
 
   algoliasearch do
     attribute :laboratory_name, :city, :address1
   end
 
   def self.workload
-    sql = 'select extract(year from age(date_completed)) * 12 + extract(month from age(date_completed)) as months,
+    sql = 'select extract(year from age(date_information_updated)) * 12 + extract(month from age(date_information_updated)) as months,
     count(*) from laboratories group by months order by months;'
 
     records_array = ActiveRecord::Base.connection.execute(sql)
@@ -20,8 +20,8 @@ class Laboratory < ActiveRecord::Base
 
   def self.out_of_date(months)
     Laboratory
-    .where(["date_completed < ?", months.months.ago])
-    .order(:date_completed)
+    .where(["date_information_updated < ?", months.months.ago])
+    .order(:date_information_updated)
   end
 
   def self.to_csv

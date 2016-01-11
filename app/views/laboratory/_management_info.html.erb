@@ -3,24 +3,25 @@
 		<li>
 			<% if laboratory.selection_form_completed? %>
 			<a href="#" class="bold">
-				<i class="fa fa-file-text-o m-r-10"></i>Selection Form Completed
+				<i class="fa fa-check-circle m-r-10"></i>Selection Form Completed
+				<%=laboratory.date_selection_form_completed%>
 			<% else %>
 				<a href="#" class="text-error muted">
-				<i class="fa fa-file-text-o m-r-10"></i>Selection Form Not Completed
+				<i class="fa fa-times-circle m-r-10"></i>Selection Form Not Completed
 			<% end %>
 				</li>
 				<li>
 					<% if laboratory.website_updated? %>
 					<a href="#" class="bold">
-						<i class="fa fa-heart  m-r-10"></i> HEFT Website Updated
+						<i class="fa fa-check-circle  m-r-10"></i> HEFT Website Updated
 					<% else %>
 						<a href="#" class="text-error muted">
-						<i class="fa fa-heart  m-r-10"></i> HEFT Website Not Updated
+						<i class="fa fa-times-circle  m-r-10"></i> HEFT Website Not Updated
 					<% end %>
 				</li><br>
 				<li><a href="#" class="text-info bold">
 					HEFT Info last checked:
-					<%= laboratory.date_completed %></a>
+					<%= laboratory.date_information_updated %></a>
 				</li>
 			</ul>
 			<div class="clearfix"></div>

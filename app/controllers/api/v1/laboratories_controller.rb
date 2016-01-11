@@ -12,9 +12,6 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
 
   def out_of_date
     laboratories = Laboratory.out_of_date(params[:months].to_i)
-    # laboratories = Laboratory
-    # .where(["date_completed < ?", params[:months].to_i.months.ago])
-    # .order(:date_completed)
     render json: serialize_models(laboratories)
   end
 

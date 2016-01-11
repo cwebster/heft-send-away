@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110173142) do
+ActiveRecord::Schema.define(version: 20160111123921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160110173142) do
     t.string   "cpa_status"
     t.string   "cpa_reference_number"
     t.string   "contact_name"
-    t.date     "date_completed"
+    t.date     "date_selection_form_completed"
     t.boolean  "selection_form_completed"
     t.boolean  "website_updated"
     t.string   "address1"
@@ -48,9 +48,10 @@ ActiveRecord::Schema.define(version: 20160110173142) do
     t.string   "website"
     t.string   "comments"
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.datetime "date_selection_form_sent"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.datetime "date_request_for_information_sent"
+    t.datetime "date_information_updated"
   end
 
   create_table "laboratory_tests", force: :cascade do |t|

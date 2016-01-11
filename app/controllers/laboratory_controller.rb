@@ -36,7 +36,7 @@ class LaboratoryController < ApplicationController
 	end
 
 	def labs_out_of_date
-		@laboratories = Laboratory.where(["date_completed < ?", 6.months.ago]).order(:date_completed).page params[:page]
+		@laboratories = Laboratory.where(["date_information_updated < ?", 6.months.ago]).order(:date_information_updated).page params[:page]
 		authorize @laboratories
 		render 'index'
 	end
@@ -52,14 +52,14 @@ class LaboratoryController < ApplicationController
 	def out_of_date_letter_send
 		@laboratories = Laboratory.out_of_date(params[:months].to_i)
     Laboratory.where(:id =>@laboratories.pluck(:id))
-		          .update_all(:selection_form_completed => false, :date_selection_form_sent => Date.today)
+		          .update_all(:date_request_for_information_sent => Date.today)
 		render text: @laboratories.to_csv
 	end
 
 	def laboratory_params
 		params.require(:laboratory).permit(:laboratory_name, :address1, :address2,
 		:address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number,
-		:contact_name, :date_completed, :selection_form_completed, :website_updated)
+		:contact_name, :date_selection_form_completed, :selection_form_completed, :website_updated)
 	end
 
 end
