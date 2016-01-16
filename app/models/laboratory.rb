@@ -24,6 +24,12 @@ class Laboratory < ActiveRecord::Base
     .order(:date_information_updated)
   end
 
+  def self.waiting_for_update
+    Laboratory
+    .where(["date_information_updated < date_request_for_information_sent"])
+    .order(:date_information_updated)
+  end
+
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names

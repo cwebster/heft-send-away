@@ -1,0 +1,18 @@
+<div class="tiles green added-margin">
+	<div class="tiles-body">
+		<div class="controller">
+			<a href="javascript:;" class="reload"></a>
+			<a href="javascript:;" class="remove"></a>
+		</div>
+		<div class="tiles-title"> Number of Tests with UKAS Data </div>
+		<div class="heading"> <span class="animate-number" data-value="<%=@lab_tests.count%>" data-animation-duration="1000"><%=@lab_tests.count.to_i%></span>
+		</div>
+		<div class="progress transparent progress-small no-radius">
+			<div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<%=((@lab_tests.count.to_f/@total_lab_tests)*100).to_i%>%" style="width: <%=((@lab_tests.count.to_f/@total_lab_tests)*100).to_i%>%;"></div>
+		</div>
+		<div class="description">
+			<span class="text-white mini-description ">&nbsp; Number of tests <span class="blend">with UKAS status out of <%=@total_lab_tests%></span>
+			</span>
+		</div>
+	</div>
+</div>
