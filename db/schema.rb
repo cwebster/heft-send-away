@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111123921) do
+ActiveRecord::Schema.define(version: 20160129220427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160111123921) do
     t.datetime "updated_at",                        null: false
     t.datetime "date_request_for_information_sent"
     t.datetime "date_information_updated"
+    t.string   "lab_number"
   end
 
   create_table "laboratory_tests", force: :cascade do |t|
@@ -66,8 +67,13 @@ ActiveRecord::Schema.define(version: 20160111123921) do
     t.string   "cost_of_test"
     t.string   "uncertainty_of_measurement"
     t.integer  "laboratory_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "lab_number"
+    t.string   "eqa_provider"
+    t.string   "eqa_performance"
+    t.string   "sample_volume"
+    t.string   "special_collection_requirements"
   end
 
   create_table "roles", force: :cascade do |t|
