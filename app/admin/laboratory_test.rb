@@ -16,8 +16,10 @@ ActiveAdmin.register LaboratoryTest do
 		LaboratoryTest.find_each do |lt|
 			# find the lab first
 			lab = Laboratory.find_by lab_number: lt.lab_number
-			lt.laboratory_id = lab.id
-			lt.save
+			unless lab.nil?
+				lt.laboratory_id = lab.id
+				lt.save
+			end
 		end
 	end
 
