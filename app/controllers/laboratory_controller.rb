@@ -43,8 +43,9 @@ class LaboratoryController < ApplicationController
 
 	def out_of_date
 		@howFarBack = params[:months_out]
+		@laboratories = Laboratory.out_of_date(params[:months].to_i)
 		respond_to do |format|
-			format.html {render :layout => 'blank'}
+			format.html {render 'form_letters', :layout => 'print'}
 			format.csv { out_of_date_letter_send }
 		end
 	end

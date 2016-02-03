@@ -1,0 +1,22 @@
+<% @laboratories.each do |laboratory|%>
+<div class="page">
+	<h2>Referral Laboratory Questionnaire</h2>
+	<p>Lab code (HEFT use only)  ..........................</p>
+	<p>Please send the completed form to: louise.fallon@heartofengland.nhs.uk </p>
+
+	<p>or post to:</p>
+	<address>
+		Louise Fallon</br>
+		Quality Manager, Laboratory Medicine</br>
+		Birmingham Heartlands Hospital</br>
+		Bordesley Green East</br>
+		Birmingham</br>
+		B9 5SS</br>
+	</address>
+	<br>
+	<div align='center'>
+	<%=render partial: 'lab_info_table', locals: {laboratory: laboratory}%>
+	</div>
+	</div>
+	<%=render partial: 'tests_info_table', locals: {laboratory: laboratory}%>
+<%end%>

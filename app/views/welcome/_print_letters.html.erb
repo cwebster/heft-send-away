@@ -5,7 +5,7 @@
 		<div class="row-fluid">
 			<div class="heading"> Generate Addresses of Labs</div>
 			<div class="tiles-title">Generate MailMerge File Addressess (records updated and marked as out)</div>
-			<%=form_tag(out_of_date_path([:months], :format => :csv), class: "form-inline") do%>
+			<%=form_tag(out_of_date_path([:months]), class: "form-inline") do%>
 			<div class="form-group">
 				<select id="months_out" name="months_out" class="form-control">
 					<option>1</option>
