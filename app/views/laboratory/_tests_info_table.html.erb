@@ -1,437 +1,66 @@
-<div class="page" id="container_2">
+<div class="page landscape">
 	<div class='tests'>
-<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;text-align:
-justify'><span lang=EN-GB style='font-family:Arial'>Please complete the
-following information for each test that you provide for our laboratory.<o:p></o:p></span></p>
+		<p>Please complete the
+			following information for each test that you provide for our laboratory. We have prefilled the table with the infomation we currently have in our database</p>
+			<%= render 'tests_info_header' %>
+			<% count = 1 %>
+			<% laboratory.laboratory_tests.each do |labtest| %>
+			<% if count % 6 == 0 %>
+		</table>
+	</div>
+</div>
+<div class="page landscape" >
+	<div class='tests'>
+	<%= render 'tests_info_header' %>
+	<%end%>
+	<tr style="height:100px;">
+		<td class="table_cell">
+		<b><%=labtest.analyte_name%></b>
+	</td>
+	<td class="accred_status">
+	<%=labtest.ukas_status%>
+	<%=ukas_status_html(labtest.ukas_status)%>
+</td>
+<td class="methodology">
+<%=labtest.methodology%>
+</td>
+<td class='reference_range'>
+<%=labtest.reference_range%>
+</td>
+<td class="eqa_participation">
+<div class="eqa_status">
+	Participation in EQA: <b><%=labtest.eqa_status%></b>
+</div>
+<div class="eqa_status">
+	EQA Provider: <b><%=labtest.eqa_provider%></b>
+</div>
+<div class="eqa_status">
+	Satisfactory Performance: <b><%=labtest.eqa_performance%></b>
+</div>
+</td>
+<td class="tat">
+<%=labtest.turnaround_time%>
+</td>
+<td class='sample_requirements'>
+<div class="sample_collection">
+	Measured on (sample type):<%=labtest.sample_type%>
+</div>
+<div class="sample_collection">
+	Any Special collection requirements: <%=labtest.special_collection_requirements%>
+</div>
 
-<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
+</div>
+</td>
+<td class='cost'>
+<%=labtest.cost_of_test%>
+</td>
+<td class='uom'>
+<%=labtest.uncertainty_of_measurement%>
+</td>
+</tr>
+<% count += 1 %>
+<%end%>
 
-<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=808
- style='width:1000.0pt;border-collapse:collapse;border:none;
- mso-border-alt:solid black .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt 0in 5.4pt;
- mso-border-insideh:.5pt solid black;mso-border-insidev:.5pt solid black'>
- <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'>Test (s)<o:p></o:p></span></b></p>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><span lang=EN-GB style='font-family:Arial'>(HEFT to
-  complete)<o:p></o:p></span></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'>Accredited to ISO 15189<o:p></o:p></span></b></p>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><span lang=EN-GB style='font-size:10.0pt;line-height:115%;
-  font-family:Arial'>Yes/No<o:p></o:p></span></p>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><span lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.1pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'>Methodology/ technology used<o:p></o:p></span></b></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'>Reference Range/ Sample Type<o:p></o:p></span></b></p>
-  </td>
-  <td width=99 valign=top style='width:99.2pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b
-  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial'>Participation
-  in EQA or other Inter-laboratory comparison scheme<span
-  style='mso-spacerun:yes'>&nbsp; </span></span></b><span lang=EN-GB
-  style='font-size:10.0pt;line-height:115%;font-family:Arial'>Yes/No</span><b
-  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial'>
-  <o:p></o:p></span></b></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><u><span
-  lang=EN-GB style='font-family:Arial'>State provider<o:p></o:p></span></u></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b
-  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial'>Satisfactory
-  performance **</span></b><span lang=EN-GB style='font-size:10.0pt;line-height:
-  115%;font-family:Arial'><o:p></o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-size:10.0pt;line-height:115%;font-family:Arial'>Yes/No</span><b
-  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial'><o:p></o:p></span></b></p>
-  </td>
-  <td width=85 valign=top style='width:85.05pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b
-  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial'>Expected
-  turnaround time/ Volume required<o:p></o:p></span></b></p>
-  </td>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><b
-  style='mso-bidi-font-weight:normal'><span lang=EN-GB style='font-family:Arial'>Sample
-  collection conditions/ Special requirements<o:p></o:p></span></b></p>
-  </td>
-  <td width=57 valign=top style='width:56.7pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'>Cost of test<o:p></o:p></span></b></p>
-  </td>
-  <td width=92 valign=top style='width:92.15pt;border:solid black 1.0pt;
-  border-left:none;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:center'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'>Uncertainty of Measurement<o:p></o:p></span></b></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:1'>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  border-top:none;mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:right'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=99 valign=top style='width:99.2pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=85 valign=top style='width:85.05pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=113 valign=top style='width:113.4pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=57 valign=top style='width:56.7pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.15pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:2'>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  border-top:none;mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:right'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
-  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:right'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=99 valign=top style='width:99.2pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=85 valign=top style='width:85.05pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=113 valign=top style='width:113.4pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=57 valign=top style='width:56.7pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.15pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:3'>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  border-top:none;mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:right'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=99 valign=top style='width:99.2pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=85 valign=top style='width:85.05pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=113 valign=top style='width:113.4pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=57 valign=top style='width:56.7pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.15pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:4'>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  border-top:none;mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:right'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=99 valign=top style='width:99.2pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=85 valign=top style='width:85.05pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=113 valign=top style='width:113.4pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=57 valign=top style='width:56.7pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.15pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
- </tr>
- <tr style='mso-yfti-irow:5;mso-yfti-lastrow:yes'>
-  <td width=113 valign=top style='width:113.4pt;border:solid black 1.0pt;
-  border-top:none;mso-border-top-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal align=right style='margin-bottom:0in;margin-bottom:.0001pt;
-  text-align:right'><b style='mso-bidi-font-weight:normal'><span lang=EN-GB
-  style='font-family:Arial'><o:p>&nbsp;</o:p></span></b></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.1pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=78 valign=top style='width:78.0pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=99 valign=top style='width:99.2pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=85 valign=top style='width:85.05pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=113 valign=top style='width:113.4pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=57 valign=top style='width:56.7pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;mso-border-top-alt:
-  solid black .5pt;mso-border-left-alt:solid black .5pt;mso-border-alt:solid black .5pt;
-  padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
-  <td width=92 valign=top style='width:92.15pt;border-top:none;border-left:
-  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
-  mso-border-top-alt:solid black .5pt;mso-border-left-alt:solid black .5pt;
-  mso-border-alt:solid black .5pt;padding:0in 5.4pt 0in 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
-  lang=EN-GB style='font-family:Arial'><o:p>&nbsp;</o:p></span></p>
-  </td>
- </tr>
 </table>
 </div>
 
