@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-
-
+ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -24,7 +23,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
 
@@ -32,23 +30,34 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
-  gem "binding_of_caller"
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'binding_of_caller'
   gem 'spring'
 end
 
 gem 'rails_12factor', group: :production
-ruby "2.2.2"
 gem 'puma'
 gem 'material_icons'
 gem 'devise'
-gem "pundit"
+gem 'pundit'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_theme'
 gem 'active_admin_import_anything'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
-gem "algoliasearch-rails"
+gem 'algoliasearch-rails'
 gem 'hogan_assets'
 gem 'jsonapi-serializers'
 gem 'draper', '~> 1.3'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'factory_girl_rails', '~> 4.4.1'
+end
+
+group :test do
+  gem 'faker', '~> 1.4.3'
+  gem 'capybara', '~> 2.4.3'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'launchy', '~> 2.4.2'
+  gem 'selenium-webdriver', '~> 2.43.0'
+end

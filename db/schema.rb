@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129220427) do
+ActiveRecord::Schema.define(version: 20160520103025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160129220427) do
     t.string   "eqa_performance"
     t.string   "sample_volume"
     t.string   "special_collection_requirements"
+    t.string   "ukas_reference_number"
   end
 
   create_table "roles", force: :cascade do |t|
