@@ -21,21 +21,6 @@
     <%=render partial: 'lab_info_table', locals: {laboratory: laboratory}%>
   </div>
 </div>
-<div class="page landscape_page">
-<%=render partial: 'tests_info_table', locals: {laboratory: laboratory}%>
 
-<p><strong>**Satisfactory performance:-</strong></p>
-<ul>
-<li>‘Yes’	indicates no communication from scheme organiser/panel chair about unsatisfactory performance in the last 12 months.</li>
-<li>‘No’	please indicate whether the issue is currently under investigation or has been satisfactorily concluded.</li>
-</ul>
-<br>
-<br>
-<br>
-<p>Name (Print): .................................................................			Date:.............................</p>
-<br>
-<br>
-<br>
-<p>Signed:.........................................................					Designation:……………………………….</p>
-</div>
+<%=render partial: 'tests_info_table', locals: {laboratory: laboratory}%>
 <%end%>

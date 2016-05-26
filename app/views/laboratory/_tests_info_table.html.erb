@@ -1,62 +1,26 @@
+<% laboratory.laboratory_tests.each do |labtest| %>
 
-	<div class='tests'>
-		<p>Please complete the
-			following information for each test that you provide for our laboratory. We have prefilled the table with the infomation we currently have in our database</p>
-			<%= render 'tests_info_header' %>
-			<% count = 1 %>
-			<% laboratory.laboratory_tests.each do |labtest| %>
-			<% if count % 6 == 0 %>
-		</table>
-	</div>
-</div>
-<div class="page landscape_page" >
-	<div class='tests'>
-	<%= render 'tests_info_header' %>
-	<%end%>
-	<tr style="height:100px;">
-		<td class="table_cell">
-		<b><%=labtest.analyte_name%></b>
-	</td>
-<td class="methodology">
-<%=labtest.methodology%>
-</td>
-<td class='reference_range'>
-<%=labtest.reference_range%>
-</td>
-<td class="eqa_participation">
-<div class="eqa_status">
-	<b><%=labtest.eqa_status%></b>
-</div>
-</td>
-<td class="eqa_participation">
-  <div class="eqa_status">
-  	<b><%=labtest.eqa_provider%></b>
-  </div>
-</td>
-<td class="eqa_participation">
-  <div class="eqa_status">
-  	<b><%=labtest.eqa_performance%></b>
-  </div>
-</td>
-<td class="tat">
-<%=labtest.turnaround_time%>
-</td>
-<td class="tat">
+<div class="page" >
+  <p>Please complete the following information for each test that you provide for our laboratory. We have prefilled the table with the infomation we currently have in our database</p>
 
-</td>
-<td class='sample_requirements'>
-</td>
-<td class='sample_requirements'>
-</td>
-<td class='cost'>
-<%=labtest.cost_of_test%>
-</td>
-<td class='uom'>
-<%=labtest.uncertainty_of_measurement%>
-</td>
-</tr>
-<% count += 1 %>
+      <table class='print_table'>
+        <%= render partial: 'tests_info_header', locals: {labtest: labtest} %>
+      </table>
+
+      <p><strong>**Satisfactory performance:-</strong></p>
+      <ul>
+      <li>‘Yes’	indicates no communication from scheme organiser/panel chair about unsatisfactory performance in the last 12 months.</li>
+      <li>‘No’	please indicate whether the issue is currently under investigation or has been satisfactorily concluded.</li>
+      </ul>
+      <br>
+      <br>
+      <br>
+      <p>Name (Print): .................................................................			Date:.............................</p>
+      <br>
+      <br>
+      <br>
+      <p>Signed:.........................................................					Designation:……………………………….</p>
+
+</div>
+
 <%end%>
-
-</table>
-</div>

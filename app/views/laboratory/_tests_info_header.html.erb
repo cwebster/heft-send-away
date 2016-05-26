@@ -1,43 +1,76 @@
-<table class='print_table landscape_table'>
-	<tr>
-		<td class="table_cell">
-			<h1 class='headers'>Test (s)</h1>
-		</td>
-		<td class="methodology">
-			<h1 class='headers'>Methodology/ technology used</h1>
-		</td>
-		<td class='reference_range'>
-			<h1 class='headers'>Reference Range</h1>
-		</td>
-		<td class="eqa_participation">
-			<h1 class='headers'>Participation
-				in EQA or other Inter-laboratory comparison scheme<h1>
-		</td>
-    <td class="eqa_participation">
-          <p class='headers'>State EQA provider</p>
-    </td>
-    <td class="eqa_participation">
-          <p class='headers'>Satisfactory
-            EQA performance</p>
 
+  <tr>
+    <td class="table_cell">
+      <h1 class='headers'>Test (s)</h1>
     </td>
-					<td class="tat">
-						<h1 class='headers'>Expected
-							turnaround time</h1>
-						</td>
-            <td class="tat">
-              <h1 class='headers'>Volume required</h1>
-              </td>
-						<td class='sample_requirements'>
-							<h1 class='headers'>Sample Type</h1>
-						</td>
-            <td class='sample_requirements'>
-              <h1 class='headers'>Special collection/transport requirements</h1>
-            </td>
-							<td class='cost'>
-								<h1 class='headers'>Cost of test</h1>
-							</td>
-							<td class='uom'>
-								<h1 class='headers'>Uncertainty of Measurement</h1>
-							</td>
-						</tr>
+    <td colspan="2" class="methodology">
+      <h1 class='headers'>Methodology/ technology used</h1>
+    </td>
+    <td colspan="2" class='reference_range'>
+      <h1 class='headers'>Reference Range</h1>
+    </td>
+
+  </tr>
+
+  <%= render partial: 'test_info_row', locals: {labtest: labtest} %>
+
+  <tr>
+    <td class="eqa_participation">
+      <h1 class='headers'>
+        Participation in EQA or other Inter-laboratory comparison scheme<h1>
+    </td>
+
+    <td class="eqa_participation">
+      <p class='headers'>State EQA provider</p>
+    </td>
+
+    <td class="eqa_participation">
+      <p class='headers'>Satisfactory EQA performance</p>
+    </td>
+
+    <td colspan="2" class="eqa_participation">
+      <p class='headers'>ISO 15189 Accreditated / Number</p>
+    </td>
+  </tr>
+
+  <%= render partial: 'test_quality_info_row', locals: {labtest: labtest} %>
+
+   <tr>
+    <td class="tat">
+      <h1 class='headers'>Expected turnaround time</h1>
+    </td>
+
+    <td class="tat">
+      <h1 class='headers'>Volume required</h1>
+    </td>
+
+    <td class='sample_requirements'>
+      <h1 class='headers'>Sample Type</h1>
+    </td>
+
+    <td colspan="2" class='sample_requirements'>
+      <h1 class='headers'>Special collection/transport requirements</h1>
+    </td>
+
+
+  </tr>
+
+  <%= render partial: 'sample_info_row', locals: {labtest: labtest} %>
+<tr>
+  <td colspan="2" class='cost'>
+    <h1 class='headers'>Cost of test</h1>
+  </td>
+
+  <td colspan="3" class='uom'>
+    <h1 class='headers'>Uncertainty of Measurement</h1>
+  </td>
+</tr>
+<tr>
+<td colspan="2" class='cost'>
+  <%=labtest.cost_of_test%>
+</td>
+
+<td colspan="3" class='uom'>
+  <%=labtest.uncertainty_of_measurement%>
+</td>
+</tr>

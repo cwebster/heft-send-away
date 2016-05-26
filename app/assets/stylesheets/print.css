@@ -13,7 +13,7 @@
   border-radius: 5px;
   background: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  font: 16px helvetica, sans-serif;
+  font: 12px helvetica, sans-serif;
 }
 
 .landscape_page {
@@ -30,17 +30,17 @@
 }
 
 .headers {
-  font: 14px helvetica, sans-serif;
+  font: 12px helvetica, sans-serif;
   font-weight: bold;
 }
 
 .print_table {
-  font: 14px helvetica, sans-serif;
+  font: 12px helvetica, sans-serif;
   border-collapse: collapse;
 }
 
 .landscape_table {
-  width:1000pt;
+  width:800;
 }
 
 td {
@@ -49,9 +49,9 @@ td {
 }
 
 .table_cell {
-  width:100mm;
+  width:90mm;
   border:solid black 1.0pt;
-  height:30mm;
+  height:25mm;
 }
 
 .accred_status {
