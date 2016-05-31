@@ -25,8 +25,14 @@ class Laboratory < ActiveRecord::Base
 
   def self.out_of_date(months)
     Laboratory
-      .where(['date_information_updated < ?', months.months.ago])
+      .where(['date_information_updated < ? OR date_information_updated IS NULL', months.months.ago])
       .order(:date_information_updated)
+  end
+
+  def self.out_of_date_update_letter_send(months)
+    Laboratory
+      .where(['date_information_updated < ? OR date_information_updated IS NULL', months.months.ago])
+      .update_all(:date_request_for_information_sent => Date.today)
   end
 
   def self.waiting_for_update
@@ -43,4 +49,6 @@ class Laboratory < ActiveRecord::Base
       end
     end
   end
+
+
 end

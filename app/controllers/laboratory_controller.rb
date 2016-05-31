@@ -1,5 +1,7 @@
 class LaboratoryController < ApplicationController
   before_action :authenticate_user!
+
+  include Labels
   def index
     if current_user.admin?
       @laboratories = Laboratory.all.page params[:page]
@@ -43,7 +45,9 @@ class LaboratoryController < ApplicationController
 
   def out_of_date
     @howFarBack = params[:months_out]
-    @laboratories = Laboratory.out_of_date(params[:months].to_i)
+    @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
+    Laboratory.out_of_date_update_letter_send(params[:months_out].to_i)
+
     respond_to do |format|
       format.html {render 'form_letters', :layout => 'print'}
       format.csv { out_of_date_letter_send }

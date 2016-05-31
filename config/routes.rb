@@ -6,25 +6,35 @@ Rails.application.routes.draw do
   resources :laboratory_test
 
   match 'tests_for_laboratory', to: 'laboratory_test#tests_for_laboratory',
-  as: :tests_for_laboratory, via: [:get]
+                                as: :tests_for_laboratory,
+                                via: [:get]
 
   match 'labs_out_of_date', to: 'laboratory#labs_out_of_date',
-  as: :labs_out_of_date, via: [:get]
+                            as: :labs_out_of_date,
+                            via: [:get]
 
   match 'out_of_date/:months', to: 'laboratory#out_of_date',
-  as: :out_of_date, via: [:get, :post]
+                               as: :out_of_date,
+                               via: [:get, :post]
 
   match 'search', to: 'search#search',
-  as: :search, via: [:get]
+                  as: :search,
+                  via: [:get]
+
+  match 'generate_labels', to: 'label#generate_labels',
+                           as: :generate_labels,
+                           via: [:get, :post]
 
   namespace :api do
     namespace :v1 do
       match 'laboratories/workload', to: 'laboratories#workload',
-      as: :workload, via: [:get]
+                                     as: :workload,
+                                     via: [:get]
       resources :laboratories
 
       match 'laboratories/out_of_date/:months', to: 'laboratories#out_of_date',
-      as: :out_of_date, via: [:get]
+                                                as: :out_of_date,
+                                                via: [:get]
     end
   end
 

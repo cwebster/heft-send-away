@@ -48,6 +48,7 @@ gem 'algoliasearch-rails'
 gem 'hogan_assets'
 gem 'jsonapi-serializers'
 gem 'draper', '~> 1.3'
+gem 'prawn-labels'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'
