@@ -1,78 +1,57 @@
-<html lang="en" data-ember-extension="1"><head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-  <meta charset="utf-8">
-  <title><%= yield :title %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta content="" name="description">
-  <meta content="" name="author application">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%= yield :title %></title>
 
-  <!-- BEGIN PLUGIN CSS -->
-  <%= stylesheet_link_tag "pace-theme-flash", media: "all" %>
-  <%= stylesheet_link_tag "animate.min", media: "all" %>
-  <%= stylesheet_link_tag "jquery.scrollbar", media: "all" %>
-  <%= stylesheet_link_tag "application", media: "all" %>
-  <!-- END PLUGIN CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Main css styles -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <!-- BEGIN CORE CSS FRAMEWORK -->
-  <%= stylesheet_link_tag "webarch", media: "all" %>
-  <!-- END CORE CSS FRAMEWORK -->
-
+    <!-- Main javascript files -->
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 </head>
 
-<body class="horizontal-menu">
-  <!-- BEGIN HEADER -->
-  <%= render 'shared/header'%>
-  <!-- END HEADER -->
-  <div class="page-container row-fluid">
-    <%= render 'shared/sidebar' %>
-    <!-- BEGIN PAGE CONTAINER-->
-    <div class="page-content">
-      <%= render 'shared/menu_bar'%>
-      <div class="clearfix"></div>
-      <div class="content">
-        <!-- BEGIN PAGE TITLE -->
-        <div class="page-title">
-          <div class ='cw-gutter'>
-            <%= render 'shared/errors' %>
-            <h3><%= yield :content_title %></h3>
-          </div>
+<body>
+
+<!-- Skin configuration box -->
+<!-- <%= render 'layouts/skinconfig' %> -->
+
+    <!-- Wrapper-->
+    <div id="wrapper" >
+
+        <!-- Navigation -->
+        <%= render 'layouts/navigation' %>
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
+
+            <!-- Page wrapper -->
+            <%= render 'layouts/topnavbar' %>
+
+            <!-- Main view  -->
+            <%= yield %>
+
+            <!-- Footer -->
+            <%= render 'layouts/footer' %>
+
         </div>
-        <!-- END PAGE TITLE -->
-        <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <div class ='cw-gutter'>
-          <%= yield %>
-        </div>
-        <!-- END PLACE PAGE CONTENT HERE -->
-      </div>
+        <!-- End page wrapper-->
+
+        <!-- Right sidebar -->
+        <%= render 'layouts/rightsidebar' %>
+
     </div>
-    <!-- END PAGE CONTAINER -->
-  </div>
+    <!-- End wrapper-->
+
+    <!-- Include javascript per-controller - vendor plugins -->
+    <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+
+    <!-- Include javascript per-view -->
+    <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+    <%= yield :javascript %>
+
 </body>
-
-<!-- END CONTENT -->
-<!-- BEGIN CORE JS FRAMEWORK-->
-<%= javascript_include_tag "pace.min", "data-turbolinks-track" => true %>
-<!-- BEGIN JS DEPENDECENCIES-->
-
-<%= javascript_include_tag "jquery-1.11.3.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jqueryblockui.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.unveil.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.scrollbar.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.animateNumbers", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.validate.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "select2.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.jeditable", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "datatables.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag :application %>
-<!-- END CORE JS DEPENDECENCIES-->
-<!-- BEGIN CORE TEMPLATE JS -->
-<%= javascript_include_tag "webarch", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "chat", "data-turbolinks-track" => true %>
-<!-- END CORE TEMPLATE JS -->
-
- <%= yield :javascript %>
-
 </html>

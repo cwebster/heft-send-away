@@ -15,22 +15,12 @@
 
 <!-- END CONTENT -->
 <!-- BEGIN CORE JS FRAMEWORK-->
-<%= javascript_include_tag "pace.min", "data-turbolinks-track" => true %>
 <!-- BEGIN JS DEPENDECENCIES-->
 
-<%= javascript_include_tag "jquery-1.11.3.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "bootstrap.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jqueryblockui.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.unveil.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.scrollbar.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.animateNumbers", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "jquery.validate.min", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "select2.min", "data-turbolinks-track" => true %>
 <%= javascript_include_tag :application %>
 <!-- END CORE JS DEPENDECENCIES-->
 <!-- BEGIN CORE TEMPLATE JS -->
-<%= javascript_include_tag "webarch", "data-turbolinks-track" => true %>
-<%= javascript_include_tag "chat", "data-turbolinks-track" => true %>
+
 <!-- END CORE TEMPLATE JS -->
 
  <%= yield :javascript %>

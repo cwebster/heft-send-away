@@ -13,7 +13,8 @@
 		
 	</div>
 	<div class="p-l-15 p-t-10 p-r-20">
-	<%= button_to "View Tests", tests_for_laboratory_path, remote: true, method: :get,  params: {laboratory_id: laboratory.id}, class: "btn btn-info" %>
+	<%= button_to "View Tests You Offer", tests_for_laboratory_path, remote: true, method: :get,  params: {laboratory_id: laboratory.id}, class: "btn btn-info" %><br>
+	<%= button_to "Your Repertoire", repertoire_for_laboratory_path, method: :get,  params: {laboratory_id: laboratory.id}, class: "btn btn-info" %>
 	<script type="text/javascript">
 	  function clearBox(elementID)
 	  {

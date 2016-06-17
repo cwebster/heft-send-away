@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
   def index
     if current_user.nil? || !current_user.admin?
       ## Add something for the normal user
+      render :home, :layout => 'empty'
     else
       @labs_gtr_6_months = Laboratory.where(['date_information_updated > ?', 6.months.ago])
       @total_labs = Laboratory.count

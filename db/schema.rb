@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525144752) do
+ActiveRecord::Schema.define(version: 20160617113813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,13 @@ ActiveRecord::Schema.define(version: 20160525144752) do
     t.string   "special_collection_requirements"
     t.string   "ukas_reference_number"
     t.date     "date_test_information_updated"
+  end
+
+  create_table "repertoires", force: :cascade do |t|
+    t.integer  "laboratory_id"
+    t.integer  "laboratory_tests_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "roles", force: :cascade do |t|

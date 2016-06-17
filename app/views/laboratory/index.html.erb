@@ -1,3 +1,7 @@
+<% content_for :content_title do %>
+Your laboratories
+<% end %>
+
 <div class="row">
 	<% colours =["green", "blue", "red"] %>
 	<% @laboratories.each_slice(3) do |row| %>

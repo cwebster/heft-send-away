@@ -2,12 +2,10 @@ class LaboratoryController < ApplicationController
   before_action :authenticate_user!
 
   include Labels
+  
   def index
-    if current_user.admin?
-      @laboratories = Laboratory.all.page params[:page]
-    else
-      @laboratories = Laboratory.where(user_id: current_user).page params[:page]
-    end
+    @laboratories = Laboratory.where(user_id: current_user).page params[:page]
+
     authorize @laboratories
   end
 

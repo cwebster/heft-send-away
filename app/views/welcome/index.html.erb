@@ -4,5 +4,6 @@ HEFT Sendaway Database
 <% if user_signed_in? %>
   <%= render 'signed_in_user' %>
 <%else%>
-  <%= render 'login_form'%>
+
+  <%= render partial: "blank", layout: "empty" %>
 <%end%>
