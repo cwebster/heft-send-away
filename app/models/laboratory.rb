@@ -37,7 +37,7 @@ class Laboratory < ActiveRecord::Base
 
   def self.waiting_for_update
     Laboratory
-      .where(['date_information_updated < date_request_for_information_sent'])
+      .where(['date_information_updated < date_request_for_information_sent OR date_information_updated IS NULL'])
       .order(:date_information_updated)
   end
 

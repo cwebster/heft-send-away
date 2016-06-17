@@ -17,6 +17,14 @@ Rails.application.routes.draw do
                                as: :out_of_date,
                                via: [:get, :post]
 
+  match 'out_of_date_test/:months', to: 'laboratory#out_of_date_test',
+                                    as: :out_of_date_test,
+                                    via: [:get, :post]
+
+  match 'waiting_for_update/', to: 'laboratory#waiting_for_update',
+                               as: :waiting_for_update,
+                               via: [:get, :post]
+
   match 'search', to: 'search#search',
                   as: :search,
                   via: [:get]

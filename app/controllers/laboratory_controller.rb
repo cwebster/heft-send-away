@@ -54,11 +54,24 @@ class LaboratoryController < ApplicationController
     end
   end
 
+  def out_of_date_test
+    @howFarBack = params[:months_out]
+    @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
+    respond_to do |format|
+      format.html {render 'form_letters', :layout => 'print'}
+      format.csv { out_of_date_letter_send }
+    end
+  end
+
   def out_of_date_letter_send
     @laboratories = Laboratory.out_of_date(params[:months].to_i)
     Laboratory.where(:id =>@laboratories.pluck(:id))
     .update_all(:date_request_for_information_sent => Date.today)
     render text: @laboratories.to_csv
+  end
+
+  def waiting_for_update
+    @labs_waiting = Laboratory.waiting_for_update
   end
 
   def laboratory_params

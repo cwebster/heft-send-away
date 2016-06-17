@@ -18,3 +18,4 @@
 //= require algolia/typeahead.jquery
 //= require hogan
 //= require search
+//= require waiting_for_updates

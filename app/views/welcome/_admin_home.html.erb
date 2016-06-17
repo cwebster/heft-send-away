@@ -10,21 +10,25 @@
 
 <div class="row 3col">
 	<div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-    <%= render 'number_of_labs_up_to_date', locals: {title: @title = 'Print Letters'}  %>
+    <%= render 'number_of_labs_up_to_date', locals: {title: @title = 'Number of Labs Up To Date'}  %>
 	</div>
   <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-    <%= render 'number_of_tests_with_data', locals: {title: @title = 'Print Letters'}  %>
+    <%= render 'number_of_tests_with_data', locals: {title: @title = 'Number of Labs Up To Date'}  %>
   </div>
   <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-    <%= render 'print_letters', locals: {title: @title = 'Print Letters'}  %>
+    <%= render 'number_of_labs_waiting_for_updates', locals: {title: @title = 'Number of Labs Waiting for Updates'}  %>
   </div>
+
 </div>
 
 
 
 
-<div class="row 2col">
+<div class="row 3col">
 <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
 <%= render 'workload_summary', locals: {title: @title = 'Workload Summary'} %>
+</div>
+<div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+  <%= render 'print_letters', locals: {title: @title = 'Print Letters'}  %>
 </div>
 </div>

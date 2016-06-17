@@ -6,13 +6,20 @@
       <div class="heading"> Generate Addresses of Labs</div>
       <div class="tiles-title">Generate MailMerge File Addressess (records updated and marked as out)</div>
       <%=form_tag(out_of_date_path([:months]), class: "form-inline") do%>
-
       <div class="form-group">
-        <label for="usr">Number of Months:</label>
+        <label for="usr">at least X months out of date:</label>
         <input type="text" class="form-control" id="months_out" name="months_out">
+        <button type="submit" class="btn btn-default">Months Old</button>
       </div>
+      <% end %>
 
-      <button type="submit" class="btn btn-default">Months Old</button>
+<div class="heading"> Generate Addresses of Labs Test (Don't Send)</div>
+      <%=form_tag(out_of_date_test_path([:months]), class: "form-inline") do%>
+      <div class="form-group">
+        <label for="usr">at least X months out of date:</label>
+        <input type="text" class="form-control" id="months_out" name="months_out">
+        <button type="submit" class="btn btn-default">Months Old</button>
+      </div>
       <% end %>
     </div>
   </div>
