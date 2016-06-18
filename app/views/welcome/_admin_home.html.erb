@@ -1,34 +1,28 @@
 <% content_for :javascript do %>
-  <%= javascript_include_tag 'jquery-sparkline.min' %>
-  <%= javascript_include_tag 'laboratory/workload' %>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<%= javascript_include_tag 'jquery-sparkline.min' %>
+<%= javascript_include_tag 'laboratory/workload' %>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <% end %>
 
-
-
 <div class="row 3col">
-	<div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+  <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
     <%= render 'number_of_labs_up_to_date', locals: {title: @title = 'Number of Labs Up To Date'}  %>
-	</div>
+  </div>
   <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
     <%= render 'number_of_tests_with_data', locals: {title: @title = 'Number of Labs Up To Date'}  %>
   </div>
   <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
     <%= render 'number_of_labs_waiting_for_updates', locals: {title: @title = 'Number of Labs Waiting for Updates'}  %>
   </div>
-
 </div>
-
-
-
 
 <div class="row 3col">
-<div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-<%= render 'workload_summary', locals: {title: @title = 'Workload Summary'} %>
-</div>
-<div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
-  <%= render 'print_letters', locals: {title: @title = 'Print Letters'}  %>
-</div>
+  <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+    <%= render 'workload_summary', locals: {title: @title = 'Workload Summary'} %>
+  </div>
+  <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+    <%= render 'print_letters', locals: {title: @title = 'Print Letters'}  %>
+  </div>
 </div>

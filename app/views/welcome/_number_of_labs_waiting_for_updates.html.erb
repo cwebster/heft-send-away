@@ -1,19 +1,12 @@
-<div class="tiles green added-margin">
-	<div class="tiles-body">
-		<div class="controller">
-			<a href="javascript:;" class="reload"></a>
-			<a href="javascript:;" class="remove"></a>
-		</div>
-		<div class="tiles-title"> Number of Labs Waiting for Updates </div>
-		<div class="heading"> <span class="animate-number" data-value="<%=@number_of_labs_waiting_for_update.count%>" data-animation-duration="1000"><%=@number_of_labs_waiting_for_update.count.to_i%>
+<div class="widget yellow-bg p-lg text-center">
+		<h2> Number of Labs Waiting for Updates </h2>
+    <span class="animate-number" data-value="<%=@number_of_labs_waiting_for_update.count%>" data-animation-duration="1000"><%=@number_of_labs_waiting_for_update.count.to_i%>
     </span>
-		</div>
 		<div class="progress transparent progress-small no-radius">
 			<div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<%=((@number_of_labs_waiting_for_update.count.to_f/@total_labs)*100).to_i%>%" style="width: <%=((@number_of_labs_waiting_for_update.count.to_f/@total_labs)*100).to_i%>%;"></div>
 		</div>
-		<div class="description">
-			<span class="text-white mini-description ">number of labs <span class="blend">waiting for update out of <%=@total_labs%>, <%=link_to 'Click to View',waiting_for_update_path%> </span>
+		<p>
+			<span class="text-white mini-description ">number of labs <span class="blend">waiting for update out of <%=@total_labs%>, <br><%=link_to 'Click to View',waiting_for_update_path%> </span>
 			</span>
-		</div>
-	</div>
+		</p>
 </div>
