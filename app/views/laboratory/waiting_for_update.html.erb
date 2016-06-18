@@ -1,5 +1,5 @@
 <% content_for :content_title do %>
-Waiting for Information from the following laboratories 
+Waiting for Information from the following laboratories
 <% end %>
 
 <% content_for :javascript do %>
@@ -7,7 +7,6 @@ Waiting for Information from the following laboratories
 <%= javascript_include_tag 'waiting_for_updates', 'data-turbolinks-track' => true %>
 <% end %>
 
-//= require dataTables/datatables.min
 <div class='wrapper wrapper-content animated fadeInRight'>
 	<div class='row'>
 		<div class='col-lg-12'>
@@ -29,34 +28,34 @@ Waiting for Information from the following laboratories
 						<tbody>
 <% @labs_waiting.each do |laboratory| %>
 							<tr class="gradeA" role="row">
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <%=laboratory.laboratory_name %>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <%=laboratory.contact_name %>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <%=laboratory.address1 %>
-								, 
+								,
 <%=laboratory.address2 %>
-								, 
+								,
 <%=laboratory.postcode %>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <%=laboratory.telephone %>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <% unless laboratory.user.nil? %>
 <%=laboratory.user.email %>
 <%end%>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <%=laboratory.date_request_for_information_sent %>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <%=laboratory.date_information_updated %>
 								</td>
-								<td class="sorting_1"> 
+								<td class="sorting_1">
 <% unless laboratory.date_information_updated.nil? %>
 <%=(laboratory.date_request_for_information_sent.to_date - laboratory.date_information_updated.to_date).to_i %>
 <%end%>
@@ -64,7 +63,7 @@ Waiting for Information from the following laboratories
 							</tr>
 <%end%>
 						</tbody>
-						<tfoot> 
+						<tfoot>
 						<tr>
 							<th rowspan="1" colspan="1">Laboratory Name</th>
 							<th rowspan="1" colspan="1">Contact Name</th>
@@ -75,7 +74,7 @@ Waiting for Information from the following laboratories
 							<th rowspan="1" colspan="1">Date information last updated</th>
 							<th rowspan="1" colspan="1">Number of Days Waiting</th>
 						</tr>
-						</tfoot> 
+						</tfoot>
 					</table>
 				</div>
 			</div>

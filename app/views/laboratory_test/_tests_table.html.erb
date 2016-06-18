@@ -5,11 +5,9 @@
 			<th>EQA</th>
 			<th>TAT</th>
 			<th>UKAS</th>
-			<th>Method</th>
 			<th>Ref Range</th>
 			<th>Sample</th>
 			<th>Cost</th>
-			<th>UoM</th>
 			<th>Tools</th>
 		</tr>
 	</thead>
@@ -20,13 +18,11 @@
 			<td><%=laboratory_test.eqa_status%></td>
 			<td><%=laboratory_test.turnaround_time%></td>
 			<td><%=laboratory_test.ukas_status%></td>
-			<td><%=laboratory_test.methodology%></td>
 			<td><%=laboratory_test.reference_range%></td>
 			<td><%=laboratory_test.sample_type%></td>
 			<td><%=laboratory_test.cost_of_test%></td>
-			<td><%=laboratory_test.uncertainty_of_measurement%></td>
 			<td>
-				<a href="<%=edit_laboratory_test_path(laboratory_test)%>" class="btn btn-primary"><i class="fa fa-edit"></i> Edit Record</a>
+				<a href="<%=edit_laboratory_test_path(laboratory_test)%>" class="btn btn-outline btn-danger"><i class="fa fa-edit"></i></a>
 			</td>
 		</tr>
 		<% end %>

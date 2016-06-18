@@ -2,29 +2,22 @@
 Your laboratories
 <% end %>
 
+<% @laboratories.each_slice(2).with_index  do |laboratory, index| %>
 <div class="row">
-	<% colours =["green", "blue", "red"] %>
-	<% @laboratories.each_slice(3) do |row| %>
-	<div class="col-md-12 col-sm-12">
-		<% row.each_with_index do |laboratory, index| %>
-		<div class="row ">
-			<div class="col-md-12 m-b-10">
-				<div class="widget-item ">
-					<div class="controller overlay right">
-            <%= link_to "", tests_for_laboratory_path(:laboratory_id => laboratory.id), remote: true, class: "reload" %>
-						<a href="javascript:;" class="remove"></a>
-					</div>
-					<%= render partial: "widget_header", locals: {laboratory: laboratory, colour: colours[rand(0..2)]} %>
-					<div class="tiles white ">
-						<div class="tiles-body">
-							<%= render partial: "widget_body", locals: {laboratory: laboratory} %>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<%end%>
-	</div>
-	<%end%>
+  <% laboratory.each do |lab| %>
+  <div class='col-md-6'>
+    <div class="widget-head-color-box navy-bg p-lg text-center">
+      <div class="m-b-md">
+        <h2 class="font-bold no-margins">
+          <%= render partial: "widget_header", locals: {laboratory: lab, colour: 'blue'} %>
+        </h2>
+      </div>
+    </div>
+    <div class="widget-text-box">
+      <%= render partial: "widget_body", locals: {laboratory: lab} %>
+    </div>
+  </div>
+  <%end%>
 </div>
+<%end%>
 <%= paginate @laboratories %>
