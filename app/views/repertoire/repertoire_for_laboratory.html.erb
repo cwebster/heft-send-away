@@ -1,8 +1,11 @@
 <% content_for :content_title do %>
-Your Repertoire <br>
+Your Repertoire 
+<div>
+<p>
 <%= button_to "Add to Repertoire", add_to_repertoire_path, method: :get,  params: {laboratory_id: @laboratory.id}, class: "btn btn-info" %>
+</p>
+</div>
 <% end %>
-
 <div class='wrapper wrapper-content animated fadeInRight'>
 	<div class='row'>
 		<div class='col-lg-12'>
@@ -20,20 +23,22 @@ Your Repertoire <br>
 								<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending">Sample</th>
 								<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending">Cost</th>
 								<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending">Uncertainty of Measurement</th>
+								<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Activate to sort column ascending">Record Complete</th>
 							</tr>
 						</thead>
 						<tbody>
-<% @repertoire.each do |laboratory_test| %>
+<% @repertoire.each do |repertoire_details| %>
 							<tr class="gradeA" role="row">
-			<td><%=laboratory_test.analyte_name%></td>
-			<td><%=laboratory_test.eqa_status%></td>
-			<td><%=laboratory_test.turnaround_time%></td>
-			<td><%=laboratory_test.ukas_status%></td>
-			<td><%=laboratory_test.methodology%></td>
-			<td><%=laboratory_test.reference_range%></td>
-			<td><%=laboratory_test.sample_type%></td>
-			<td><%=laboratory_test.cost_of_test%></td>
-			<td><%=laboratory_test.uncertainty_of_measurement%></td>
+			<td><%=repertoire_details.laboratory_test.analyte_name%></td>
+			<td><%=repertoire_details.laboratory_test.eqa_status%></td>
+			<td><%=repertoire_details.laboratory_test.turnaround_time%></td>
+			<td><%=repertoire_details.laboratory_test.ukas_status%></td>
+			<td><%=repertoire_details.laboratory_test.methodology%></td>
+			<td><%=repertoire_details.laboratory_test.reference_range%></td>
+			<td><%=repertoire_details.laboratory_test.sample_type%></td>
+			<td><%=repertoire_details.laboratory_test.cost_of_test%></td>
+			<td><%=repertoire_details.laboratory_test.uncertainty_of_measurement%></td>
+			<td><%=repertoire_details.record_complete%></td>
 							</tr>
 <%end%>
 						</tbody>
@@ -48,6 +53,7 @@ Your Repertoire <br>
 							<th rowspan="1" colspan="1">Sample</th>
 							<th rowspan="1" colspan="1">Cost</th>
 							<th rowspan="1" colspan="1">Uncertainty of Measurement</th>
+							<th rowspan="1" colspan="1">Record Complete</th>
 						</tr>
 						</tfoot> 
 					</table>

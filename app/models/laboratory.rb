@@ -3,6 +3,7 @@ class Laboratory < ActiveRecord::Base
   include AlgoliaSearch
 
   has_many :laboratory_tests
+  has_many :repertoires
   belongs_to :user
 
   scope :date_completed_not_nil, -> {Laboratory.where('date_information_updated IS NOT NULL')}

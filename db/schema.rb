@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617113813) do
+ActiveRecord::Schema.define(version: 20160801105735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,9 +80,15 @@ ActiveRecord::Schema.define(version: 20160617113813) do
 
   create_table "repertoires", force: :cascade do |t|
     t.integer  "laboratory_id"
-    t.integer  "laboratory_tests_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "laboratory_test_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.date     "date_selection_form_completed"
+    t.boolean  "selection_form_completed"
+    t.boolean  "website_updated"
+    t.date     "date_request_for_information_sent"
+    t.date     "date_information_updated"
+    t.boolean  "record_complete"
   end
 
   create_table "roles", force: :cascade do |t|
