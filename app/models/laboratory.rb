@@ -4,7 +4,7 @@ class Laboratory < ActiveRecord::Base
 
   geocoded_by :full_street_address,
   :latitude => :latitude, :longitude => :longitude
-  after_validation :geocode, :if => :changed?
+  after_validation :geocode
 
   has_many :laboratory_tests
   has_many :repertoires
