@@ -12,7 +12,7 @@ class LaboratoryController < ApplicationController
   def edit
     begin
       @laboratory = Laboratory.find(params[:id])
-      authorize @laboratory
+#       authorize @laboratory
     rescue ArgumentError
       return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
     end

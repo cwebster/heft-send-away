@@ -1,6 +1,10 @@
 class RepertoireController < ApplicationController
   def index
-
+    @repertoire = Repertoire.where(laboratory_id: @laboratory)
+  end
+  
+  def edit
+    @repertoire = Repertoire.find(params[:id])
   end
 
   def repertoire_for_laboratory
@@ -11,6 +15,19 @@ class RepertoireController < ApplicationController
   def build_repertoire
     @laboratory = Laboratory.find(params[:laboratory_id])
     @laboratory_tests = LaboratoryTest.all
+  end
+  
+  def update
+    @repertoire = Repertoire.find(params[:id])
+#     authorize @repertoire
+    if @repertoire.update_attributes(repertoire_params)
+      # Handle a successful update.
+      flash[:success] = "Labortory updated"
+      redirect_to repertoire_for_laboratory_url(laboratory_id: @repertoire.laboratory)
+    else
+      render 'edit'
+    end
+  
   end
 
   def add_to_repertoire
@@ -30,6 +47,12 @@ class RepertoireController < ApplicationController
     end
     
     redirect_to repertoire_for_laboratory_url(laboratory_id: lab_id)
+  end
+  
+  def repertoire_params
+    params.require(:repertoire).permit(:date_selection_form_completed, :selection_form_completed, 
+                                       :website_updated, :date_request_for_information_sent,
+                                       :date_information_updated, :record_complete)
   end
   
   private

@@ -19,6 +19,13 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="form-label">Turnaround Time</label>
+				<span class="help">What is the turnaround time</span>
+				<div class="controls">
+					<%= f.text_field :turnaround_time, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="form-label">Reference Range</label>
 				<span class="help">Reference Range</span>
 				<div class="controls">
@@ -30,6 +37,13 @@
 				<span class="help">What type of sample is required</span>
 				<div class="controls">
 					<%= f.text_field :sample_type, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Sample Volume</label>
+				<span class="help">What type of sample volume is required</span>
+				<div class="controls">
+					<%= f.text_field :sample_volume, class: 'form-control' %>
 				</div>
 			</div>
 			<div class="form-group">
@@ -54,10 +68,31 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label class="form-label">EQA Performance</label>
+				<span class="help">Describe the EQA performance of the assay</span>
+				<div class="controls">
+					<%= f.text_field :eqa_performance, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
 				<label class="form-label">UKAS Status</label>
 				<span class="help">Is the test UKAS accrediated? enter details here.</span>
 				<div class="controls">
 					<%= f.text_field :ukas_status, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">UKAS Reference Number</label>
+				<span class="help">UKAS Schedule Number</span>
+				<div class="controls">
+					<%= f.text_field :ukas_reference_number, class: 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="form-label">Date information last updated</label>
+				<span class="help">When was the test information last updated?</span>
+				<div class="controls">
+					<%= f.date_field :date_test_information_updated, class: 'form-control' %>
 				</div>
 			</div>
 

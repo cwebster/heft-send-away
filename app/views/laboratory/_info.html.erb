@@ -1,21 +1,21 @@
 <div class="post">
-	<ul class="action-bar no-margin p-b-20 ">
-		<% unless laboratory.telephone.nil? %>
-		<li>
+		<% if laboratory.telephone.nil? || laboratory.telephone.empty?%>
+		  No phone number listed
+		<% else %>
 			<a href="#" class="muted bold">
 				<i class="fa fa-phone   m-r-10"></i>
 				<%= laboratory.telephone %>
 			</a>
-		</li>
+		
 		<% end %>
 		<% unless laboratory.website.nil? %>
-		<li><a href="#" class="text-error bold">
+		<p>
+		Website:
+		<a href="#" class="text-error bold">
 			<i class="fa fa-internet-explorer  m-r-10"></i>
-			<%= laboratory.website %></a>
-		</li>
+			 <%= laboratory.website %></a>
+	    </p>
 		<% end %>
-
-	</ul>
 	<div class="clearfix"></div>
 </div>
 

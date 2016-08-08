@@ -85,36 +85,7 @@
 				</div>
 			</div>
 
-			<div class='row'>
-				<div class="col-md-4">
-				<div class="form-group">
-					<label class="form-label">Date Selection for Completed</label><br>
-					<span class="help">The date we last checked the details of this laboratory</span>
-					<div class="controls">
-						<%= f.text_field :date_selection_form_completed, class: 'input-append success date col-md-10 col-lg-6 no-padding' %>
-						<span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
-					</div>
-				</div>
-			</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label class="form-label">Selection Form Completed?</label><br>
-						<span class="help">The date we last checked the details of this laboratory</span>
-						<div class="controls">
-							<%= f.check_box :selection_form_completed %>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label class="form-label">HEFT Website Updated?</label><br>
-						<span class="help">Is the HEFT Web site up to date?</span>
-						<div class="controls">
-							<%= f.check_box :website_updated %>
-						</div>
-					</div>
-				</div>
-			</div>
+
 			<div class='row m-t-10'>
 <%= f.submit ("Submit"), class: 'btn btn-success btn-cons' %>
 </div>

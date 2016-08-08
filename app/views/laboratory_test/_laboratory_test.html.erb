@@ -2,25 +2,33 @@
 	<thead>
 		<tr>
 			<th>EQA</th>
+			<th>EQA Performance</th>
 			<th>TAT</th>
 			<th>UKAS</th>
+			<th>UKAS Reference Number</th>
 			<th>Method</th>
 			<th>Ref Range</th>
 			<th>Sample</th>
+			<th>Sample Volume</th>
 			<th>Cost</th>
 			<th>UoM</th>
+			<th>Date Test Information last Updated</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td><%=laboratory_test.eqa_status%></td>
+			<td><%=laboratory_test.eqa_performance%></td>
 			<td><%=laboratory_test.turnaround_time%></td>
 			<td><%=laboratory_test.ukas_status%></td>
+			<td><%=laboratory_test.ukas_reference_number%></td>
 			<td><%=laboratory_test.methodology%></td>
 			<td><%=laboratory_test.reference_range%></td>
 			<td><%=laboratory_test.sample_type%></td>
+			<td><%=laboratory_test.sample_volume%></td>
 			<td><%=laboratory_test.cost_of_test%></td>
 			<td><%=laboratory_test.uncertainty_of_measurement%></td>
+			<td><%=laboratory_test.date_test_information_updated%></td>
 		</tr>
 	</tbody>
 </table>
