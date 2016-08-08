@@ -1,0 +1,14 @@
+<% flash.each do |key, value| %>
+<div class="row">
+  <div class="col-lg-4">
+  </div>
+  <div class="col-lg-4 text-center">
+    <div class="alert alert-danger alert-dismissable">
+      <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+      <%= value %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+  </div>
+</div>
+<% end %>

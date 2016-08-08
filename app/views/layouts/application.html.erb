@@ -26,11 +26,12 @@
         <%= render 'layouts/navigation' %>
 
         <!-- Page wraper -->
-        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
+        <div id="page-wrapper" class="white-bg <%= @extra_class %>">
 
             <!-- Page wrapper -->
             <%= render 'layouts/topnavbar' %>
             <%= render 'layouts/page_header' %>
+            <%= render 'layouts/messages' %>
             <!-- Main view  -->
             <%= yield %>
 
@@ -47,7 +48,8 @@
     <!-- End wrapper-->
 
     <!-- Include javascript per-view -->
-    <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+    <script src="//maps.google.com/maps/api/js?v=3.23&key=AIzaSyAtaDTj5rxRE8-capmjI-MSanY_jUjuwKw"></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <%= yield :javascript %>
 
 </body>

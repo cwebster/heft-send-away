@@ -58,6 +58,8 @@ gem 'hogan_assets'
 gem 'jsonapi-serializers'
 gem 'draper', '~> 1.3'
 gem 'prawn-labels'
+gem 'gmaps4rails'
+gem 'geocoder'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.1.0'

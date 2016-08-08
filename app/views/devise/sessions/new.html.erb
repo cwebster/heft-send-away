@@ -1,43 +1,38 @@
 
-    <div class="middle-box text-center loginscreen  animated fadeInDown">
-        <div>
-            <div>
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div>
 
-                <h1 class="logo-name">AppXchange</h1>
+      <h1 class="logo-name">AppXchange</h1>
 
-            </div>
-            <h3>Welcome to AppXchange</h3>
-            <p>
-                The blah
-            </p>
-            <p>Login in. To manage your details</p>
-            
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="form-group">
-                    <input autofocus="autofocus" placeholder="Username" type="email" name="user[email]" id="user_email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input autofocus="autofocus" placeholder="Password" type="password" name="user[password]" id="user_password" class="form-control">
-                </div>
-                               <%= render "devise/shared/links" %>
-                <% if devise_mapping.rememberable? -%>
-                  <div class="field">
-                    <%= f.check_box :remember_me %>
-                    <%= f.label :remember_me %>
-                  </div>
-                <% end -%>
-        <div role="tablist">
-          <%= f.submit "Log in", :class => 'btn btn-primary btn-cons' %>
-        </div>
+    </div>
+    <h3>Welcome to AppXchanges</h3>
+    <p>Login in. To manage your details</p>
 
-                <a href="#"><small>Forgot password?</small></a>
-                <p class="text-muted text-center"><small>Do not have an account?</small></p>
-      
-<% end %>
-            
-            
-            <p class="m-t"> <small>Developed by HEFT Pathology &copy; 2016</small> </p>
-        </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-group">
+      <input autofocus="autofocus" placeholder="Username" type="email" name="user[email]" id="user_email" class="form-control">
+    </div>
+    <div class="form-group">
+      <input autofocus="autofocus" placeholder="Password" type="password" name="user[password]" id="user_password" class="form-control">
+    </div>
+    <%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+    <% end -%>
+    <div role="tablist">
+      <%= f.submit "Log in", :class => 'btn btn-primary btn-cons' %>
     </div>
 
+    <a href="#"><small>Forgot password?</small></a>
+    <p class="text-muted text-center"><small>Do not have an account?</small></p>
 
+    <% end %>
+
+
+    <p class="m-t"> <small>Developed by HEFT Pathology &copy; 2016</small> </p>
+  </div>
+</div>

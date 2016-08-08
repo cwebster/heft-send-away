@@ -1,0 +1,69 @@
+<% current_user.laboratories.each_with_index do |laboratory, index| %>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    <%= render partial: 'shared/map.js', locals: {longitude: laboratory.longitude, latitude: laboratory.latitude, index: index} %>
+  </script>
+<% end %>
+
+
+<div class="ibox">
+  <div class="ibox-title">
+    <h5>
+      <%= laboratory.laboratory_name %>
+    </h5>
+
+    <div class="ibox-tools">
+      <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
+      <ul class="dropdown-menu dropdown-user">
+      <li><a href="<%=edit_laboratory_path(laboratory)%>">Edit Laboratory Details</a> </li>
+      <li><%=link_to "Repertoire for Laboratory", repertoire_for_laboratory_path(:laboratory_id => laboratory.id)%> </li>
+      </ul>
+      <a class="close-link"><i class="fa fa-times"></i></a>
+    </div>
+  </div>
+  <div class="ibox-content">
+    <h4>
+      Information about the laboratory
+    </h4>
+    <p>
+      <%= laboratory.address1 %>
+    </p>
+
+<div class="google-map" id="location_map<%=index%>" style="position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+</div>
+
+    <div>
+      <span>Status of sendaway details</span>
+      <div class="stat-percent">
+        <%=(laboratory.send_away_records_complete.count / laboratory.repertoires.count) * 100%>% of details complete
+      </div>
+      <div class="progress progress-mini">
+        <div style="width: <%=(laboratory.send_away_records_complete.count / laboratory.repertoires.count) * 100%>%;" class="progress-bar">
+        </div>
+      </div>
+    </div>
+    <div class="row  m-t-sm">
+      <div class="col-sm-4">
+        <div class="font-bold">
+          Tests in repertoire
+        </div>
+        <%=laboratory.repertoires.count%>
+      </div>
+      <div class="col-sm-4">
+        <div class="font-bold">
+          Number of tests offered
+        </div>
+        <%= laboratory.tests_offered.count %>
+      </div>
+      <div class="col-sm-4 text-right">
+        <div class="font-bold">
+          Number of records complete
+        </div>
+        <%= laboratory.send_away_records_complete.count %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

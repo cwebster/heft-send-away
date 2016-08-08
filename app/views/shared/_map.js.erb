@@ -1,0 +1,19 @@
+handler = Gmaps.build('Google');
+handler.buildMap({
+  provider: { zoom: 15 },
+  internal: {id: 'location_map<%=index%>'}}, function(){
+  markers = handler.addMarkers([
+    {
+      lat: <%=latitude%>,
+      lng: <%=longitude%>,
+      picture: {
+        url: "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+        width:  36,
+        height: 36
+      },
+      infowindow: "hello!"
+    }
+  ]);
+
+  handler.map.centerOn({ lat: <%=latitude%>, lng: <%=longitude%> })
+});

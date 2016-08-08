@@ -23,3 +23,5 @@
 //= require hogan
 //= require search
 //= require jquery-sparkline.min
+//= require underscore
+//= require gmaps/google

@@ -2,6 +2,10 @@ class Laboratory < ActiveRecord::Base
   include Import
   include AlgoliaSearch
 
+  geocoded_by :full_street_address,
+  :latitude => :latitude, :longitude => :longitude
+  after_validation :geocode, :if => :changed?
+
   has_many :laboratory_tests
   has_many :repertoires
   belongs_to :user
@@ -40,6 +44,18 @@ class Laboratory < ActiveRecord::Base
     Laboratory
       .where(['date_information_updated < date_request_for_information_sent OR date_information_updated IS NULL'])
       .order(:date_information_updated)
+  end
+
+  def full_street_address
+    "#{self.address1}, #{self.address2}, #{self.address3}, #{self.city}, #{self.postcode}"
+  end
+
+  def tests_offered
+    LaboratoryTest.where(laboratory_id: self.id)
+  end
+
+  def send_away_records_complete
+    Repertoire.where(laboratory_id: self.id, record_complete: true)
   end
 
   def self.to_csv

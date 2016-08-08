@@ -1,9 +1,8 @@
 <% content_for :title do %>
-HEFT Sendaway Database
+AssayXchange Sendaway Database
 <% end %>
 <% if user_signed_in? %>
   <%= render 'signed_in_user' %>
 <%else%>
-
-  <%= render partial: "blank", layout: "empty" %>
+  <%= render "application_home_page" %>
 <%end%>

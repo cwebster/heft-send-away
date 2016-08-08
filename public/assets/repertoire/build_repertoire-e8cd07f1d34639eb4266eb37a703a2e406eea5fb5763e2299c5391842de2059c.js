@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#build_repertoire").DataTable()});

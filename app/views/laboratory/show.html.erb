@@ -2,10 +2,16 @@
 <%=@laboratory.laboratory_name%>
 <% end %>
 
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    <%= render partial: 'shared/map.js', locals: {longitude: @laboratory.longitude, latitude: @laboratory.latitude, index: 1} %>
+  </script>
+<% end %>
+
 <div class="ibox float-e-margins">
   <div class="ibox-title">
     <h5>Contact Details</h5>
-    
+
     <div class="ibox-tools">
       <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
       <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
@@ -16,14 +22,15 @@
       <a class="close-link"><i class="fa fa-times"></i></a>
     </div>
   </div>
-  
-  
+
+
   <div class="ibox-content">
     <%= render partial: "address", locals: {laboratory: @laboratory} %>
-	<%= render partial: "info", locals: {laboratory: @laboratory} %>
-	
-	    <%= render partial: "cpa_status", locals: {laboratory: @laboratory} %>
-                        
+    <div class="google-map" id="location_map1" style="position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
+    </div>
+	  <%= render partial: "info", locals: {laboratory: @laboratory} %>
+	  <%= render partial: "cpa_status", locals: {laboratory: @laboratory} %>
+
 	<script type="text/javascript">
 	  function clearBox(elementID)
 	  {
@@ -33,7 +40,7 @@
 
 	<div id="<%=@laboratory.id%>"></div>
   </div>
-                    
+
   <div class="ibox-footer">
     <span class="pull-right"><%= button_to "View Tests You Offer", tests_for_laboratory_path, remote: true, method: :get,  params: {laboratory_id: @laboratory.id}, class: "btn btn-block btn-success btn-xs" %></span>
   </div>
