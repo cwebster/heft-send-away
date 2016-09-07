@@ -30,25 +30,21 @@
       </li>
 
       <li class="">
-        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Build Repertoire For Laboratory</span> <span class="fa arrow"></span></a>
+        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Manage Repertoire For Laboratory</span> <span class="fa arrow"></span></a>
         <ul class="nav nav-second-level collapse" style="height: 0px;">
           <% current_user.laboratories.each do |laboratory| %>
           <li>
-            <%=link_to laboratory.laboratory_name, build_repertoire_path(laboratory)%>
+            <%=link_to "Build repertoire for #{laboratory.laboratory_name}", build_repertoire_path(laboratory)%>
+          </li>
+          <li>
+            <%=link_to "View repertoire for #{laboratory.laboratory_name}", repertoire_for_laboratory_path(:laboratory_id => laboratory.id)%>
           </li>
           <% end %>
         </ul>
       </li>
 
       <li class="">
-        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Show Repertoire For Laboratory</span> <span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level collapse" style="height: 0px;">
-          <% current_user.laboratories.each do |laboratory| %>
-          <li>
-            <%=link_to laboratory.laboratory_name, repertoire_for_laboratory_path(:laboratory_id => laboratory.id)%>
-          </li>
-          <% end %>
-        </ul>
+        <%= render 'layouts/lab_manager_functions_menu' %>
       </li>
 
     </ul>

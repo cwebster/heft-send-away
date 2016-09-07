@@ -1,5 +1,4 @@
 <% current_user.laboratories.each_with_index do |laboratory, index| %>
-
 <% content_for :javascript do %>
   <script type="text/javascript">
     <%= render partial: 'shared/map.js', locals: {longitude: laboratory.longitude, latitude: laboratory.latitude, index: index} %>
@@ -62,6 +61,18 @@
           Number of records complete
         </div>
         <%= laboratory.send_away_records_complete.count %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3">
+  <div class="ibox">
+    <div class="ibox-content">
+      <h5>Percentage distribution</h5>
+      <h2>42/20</h2>
+      <div class="text-center">
+        <div id="sparkline5"><canvas width="140" height="140" style="display: inline-block; width: 140px; height: 140px; vertical-align: top;"></canvas></div>
       </div>
     </div>
   </div>

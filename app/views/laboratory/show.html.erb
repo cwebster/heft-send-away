@@ -5,6 +5,7 @@
 <% content_for :javascript do %>
   <script type="text/javascript">
     <%= render partial: 'shared/map.js', locals: {longitude: @laboratory.longitude, latitude: @laboratory.latitude, index: 1} %>
+    <%= render partial: 'shared/dashboard_sparklines.js', locals: {dashboard_data: @dashboard_data} %>
   </script>
 <% end %>
 
@@ -45,3 +46,5 @@
     <span class="pull-right"><%= button_to "View Tests You Offer", tests_for_laboratory_path, remote: true, method: :get,  params: {laboratory_id: @laboratory.id}, class: "btn btn-block btn-success btn-xs" %></span>
   </div>
 </div>
+
+<%= render 'dashboard' %>
