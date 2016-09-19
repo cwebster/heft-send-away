@@ -1,0 +1,13 @@
+language: ruby
+sudo: false
+cache: bundler
+rvm:
+  - 1.9.3
+  - 2.1.1
+  - 2.2.2
+  - ruby-head
+before_install:
+  # TODO: remove this when this issue is fixed: https://github.com/travis-ci/travis-ci/issues/5798
+  - gem uninstall bundler -v 1.6.9
+  - gem install bundler
+script: bundle exec rspec

@@ -1,0 +1,10 @@
+<% content_for :content_title do %>
+Letters sent to these laboratories but information not complete
+<p>
+<b>Number: <%=@build_updated_but_not_complete_array.first.count%></b>
+</p>
+<% end %>
+
+<% @build_updated_but_not_complete_array.each do |repertoire| %>
+<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoire => repertoire} %>
+<%end%>

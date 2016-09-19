@@ -1,0 +1,17 @@
+language: ruby
+branches:
+  only:
+  - master
+rvm:
+- 1.8.7
+- 1.9.3
+- 2.0.0
+- 2.1
+- 2.2
+- jruby
+- rbx-2
+install: bundle update
+env:
+  global:
+  - secure: kD+PX8ZNg+AAzyr6WYs1vp9teAkzMfEoYkIMI0hrRN0ml9ccJVsJR1pIGpaIwyCa5PmFtCZ1Xi2vFb4XzTTeaZoHHS/ll9LwuQH6mwvdgj3n6TmNRdq3b/oGRHBX4Z0HMobqaftuzY/V8iTpVk92jwIY8NPj00k055b2jrKqhdw=
+  - secure: Eai99h4K7s9/Sh3CHClWs3IQNaEUdVagpmA/A8m0rysGBAYJdMKbUOp9DZPAmCnT+06l0aFv87+CRYtgyX05pE5f21nqBOU46eKS38cLif3aPTwFmwokf28WLDgmZKa/zJp767SiQ/dp0hz+LJrkJvkDRnA1un36f7wiyY9xnYs=

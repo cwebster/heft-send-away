@@ -1,0 +1,15 @@
+current directory: /Users/craigwebster/heft-send-away/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+/Users/craigwebster/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20160919-39037-1shmk44.rb extconf.rb
+creating Makefile
+
+current directory: /Users/craigwebster/heft-send-away/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/craigwebster/heft-send-away/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/craigwebster/heft-send-away/vendor/bundle/gems/debug_inspector-0.0.2/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20160919-39037-b1k3bf

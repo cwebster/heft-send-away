@@ -46,9 +46,9 @@ class LaboratoryController < ApplicationController
   end
 
   def labs_out_of_date
-    @laboratories = Laboratory.where(["date_information_updated < ?", 6.months.ago]).order(:date_information_updated).page params[:page]
-    authorize @laboratories
-    render 'index'
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @out_of_date_information_array = Repertoire.build_out_of_data_array(laboratories: @user_laboratories)
+    authorize @user_laboratories
   end
 
   def out_of_date
@@ -79,7 +79,13 @@ class LaboratoryController < ApplicationController
   end
 
   def waiting_for_update
-    @labs_waiting = Laboratory.waiting_for_update
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @out_of_date_information_array = Repertoire.build_waiting_for_updated_information_array(laboratories: @user_laboratories )
+  end
+
+  def updated_but_not_complete
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @build_updated_but_not_complete_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories )
   end
 
   def laboratory_params

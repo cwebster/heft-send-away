@@ -36,10 +36,10 @@
     <div>
       <span>Status of sendaway details</span>
       <div class="stat-percent">
-        <%=(laboratory.send_away_records_complete.count / laboratory.repertoires.count) * 100%>% of details complete
+        <%=(laboratory.repertoires.send_away_records_complete(laboratory_id: laboratory.id).count / laboratory.repertoires.count) * 100%>% of details complete
       </div>
       <div class="progress progress-mini">
-        <div style="width: <%=(laboratory.send_away_records_complete.count / laboratory.repertoires.count) * 100%>%;" class="progress-bar">
+        <div style="width: <%=(laboratory.repertoires.send_away_records_complete(laboratory_id: laboratory.id).count / laboratory.repertoires.count) * 100%>%;" class="progress-bar">
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="font-bold">
           Number of records complete
         </div>
-        <%= laboratory.send_away_records_complete.count %>
+        <%= laboratory.repertoires.send_away_records_complete(laboratory_id: laboratory.id).count %>
       </div>
     </div>
   </div>

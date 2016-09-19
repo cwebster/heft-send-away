@@ -1,7 +1,7 @@
 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Manage Referral Labs</span> <span class="fa arrow"></span></a>
 <ul class="nav nav-second-level collapse" style="height: 0px;">
-  <li><%= link_to "View laboratories with out of date information" %></li>
+  <li><%= link_to "View laboratories with out of date information", labs_out_of_date_path(current_user) %></li>
   <li><%= link_to "Request update information from referral laboratories"%></li>
-  <li><%= link_to "View laboratories where request for updates have been sent but waiting for information"%></li>
-  <li><%= link_to "View laboratories where updates have been recevied but record still incomplete"%></li>
+  <li><%= link_to "View laboratories where request for updates have been sent but waiting for information", waiting_for_update_path(current_user)%></li>
+  <li><%= link_to "View laboratories where updates have been recevied but record still incomplete", updated_but_not_complete_path(current_user)%></li>
 </ul>
