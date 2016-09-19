@@ -13,15 +13,15 @@ class LaboratoryController < ApplicationController
     begin
       @laboratory = Laboratory.find(params[:id])
 #       authorize @laboratory
-    rescue ArgumentError
-      return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
-    end
-  end
+rescue ArgumentError
+  return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
+end
+end
 
-  def update
-    @laboratory = Laboratory.find(params[:id])
-    authorize @laboratory
-    if @laboratory.update_attributes(laboratory_params)
+def update
+  @laboratory = Laboratory.find(params[:id])
+  authorize @laboratory
+  if @laboratory.update_attributes(laboratory_params)
       # Handle a successful update.
       flash[:success] = "Labortory updated"
       redirect_to laboratory_path
@@ -45,37 +45,47 @@ class LaboratoryController < ApplicationController
     @dashboard_data["records_complete"] = Repertoire.send_away_records_complete(laboratory_id: laboratory_id).count
   end
 
+  # def out_of_date
+  #   @howFarBack = params[:months_out]
+  #   @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
+  #   Laboratory.out_of_date_update_letter_send(params[:months_out].to_i)
+
+  #   respond_to do |format|
+  #     format.html {render 'form_letters', :layout => 'print'}
+  #     format.csv { out_of_date_letter_send }
+  #   end
+  # end
+
+  # def out_of_date_test
+  #   @howFarBack = params[:months_out]
+  #   @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
+  #   respond_to do |format|
+  #     format.html {render 'form_letters', :layout => 'print'}
+  #     format.csv { out_of_date_letter_send }
+  #   end
+  # end
+
+  # def out_of_date_letter_send
+  #   @laboratories = Laboratory.out_of_date(params[:months].to_i)
+  #   Laboratory.where(:id =>@laboratories.pluck(:id))
+  #   .update_all(:date_request_for_information_sent => Date.today)
+  #   render text: @laboratories.to_csv
+  # end
+
   def labs_out_of_date
     @user_laboratories = Laboratory.where(user_id: current_user)
     @out_of_date_information_array = Repertoire.build_out_of_data_array(laboratories: @user_laboratories)
     authorize @user_laboratories
   end
 
-  def out_of_date
-    @howFarBack = params[:months_out]
-    @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
-    Laboratory.out_of_date_update_letter_send(params[:months_out].to_i)
-
+  def labs_out_of_date_letters
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @out_of_date_information_array = Repertoire.build_out_of_data_array(laboratories: @user_laboratories)
+    @laboratories_array = Repertoire.get_laboratories_for_repertoire(repertoires: @out_of_date_information_array )
     respond_to do |format|
       format.html {render 'form_letters', :layout => 'print'}
       format.csv { out_of_date_letter_send }
     end
-  end
-
-  def out_of_date_test
-    @howFarBack = params[:months_out]
-    @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
-    respond_to do |format|
-      format.html {render 'form_letters', :layout => 'print'}
-      format.csv { out_of_date_letter_send }
-    end
-  end
-
-  def out_of_date_letter_send
-    @laboratories = Laboratory.out_of_date(params[:months].to_i)
-    Laboratory.where(:id =>@laboratories.pluck(:id))
-    .update_all(:date_request_for_information_sent => Date.today)
-    render text: @laboratories.to_csv
   end
 
   def waiting_for_update
@@ -83,15 +93,35 @@ class LaboratoryController < ApplicationController
     @out_of_date_information_array = Repertoire.build_waiting_for_updated_information_array(laboratories: @user_laboratories )
   end
 
+  def waiting_for_update_letters
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @out_of_date_information_array = Repertoire.build_waiting_for_updated_information_array(laboratories: @user_laboratories )
+    @laboratories_array = Repertoire.get_laboratories_for_repertoire(repertoires: @out_of_date_information_array )
+    respond_to do |format|
+      format.html {render 'form_letters', :layout => 'print'}
+      format.csv { out_of_date_letter_send }
+    end
+  end
+
   def updated_but_not_complete
     @user_laboratories = Laboratory.where(user_id: current_user)
     @build_updated_but_not_complete_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories )
   end
 
+  def updated_but_not_complete_letters
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @build_updated_but_not_complete_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories )
+    @laboratories_array = Repertoire.get_laboratories_for_repertoire(repertoires: @build_updated_but_not_complete_array )
+    respond_to do |format|
+      format.html {render 'form_letters', :layout => 'print'}
+      format.csv { out_of_date_letter_send }
+    end
+  end
+
   def laboratory_params
     params.require(:laboratory).permit(:laboratory_name, :address1, :address2,
-    :address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number,
-    :contact_name, :date_selection_form_completed, :selection_form_completed, :website_updated)
+      :address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number,
+      :contact_name, :date_selection_form_completed, :selection_form_completed, :website_updated)
   end
 
 end

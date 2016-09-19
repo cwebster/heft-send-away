@@ -1,9 +1,9 @@
 <div class="page">
 <strong>Generate Labels</strong>
-
-<%= link_to "Labels", generate_labels_path(months:@howFarBack ) %>
 </div>
-<% @laboratories.each do |laboratory|%>
+
+<% @laboratories_array.each do |laboratories| %>
+<% laboratories.each do |laboratory|%>
 <div class="page">
   <div align='right'>
     <%= image_tag('trustlogo.jpg') %>
@@ -28,4 +28,5 @@
 </div>
 
 <%=render partial: 'tests_info_table', locals: {laboratory: laboratory}%>
+<%end%>
 <%end%>

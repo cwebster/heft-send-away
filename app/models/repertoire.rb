@@ -86,7 +86,15 @@ class Repertoire < ActiveRecord::Base
       updated_but_not_complete_array << Repertoire.information_updated_but_not_complete_for_laboratory(laboratory_id: laboratory)
     end
     return updated_but_not_complete_array
-    
+  end
+
+  def self.get_laboratories_for_repertoire(repertoires: )
+    laboratories_array =[]
+    repertoires.each do |repertoire|
+      laboratory_tests = LaboratoryTest.where("id IN (?)", repertoire.select(:laboratory_test_id))
+      laboratories_array << Laboratory.where("id IN (?)", laboratory_tests.select(:laboratory_id))
+    end
+    return laboratories_array
   end
 
 
