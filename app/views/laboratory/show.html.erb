@@ -3,48 +3,20 @@
 <% end %>
 
 <% content_for :javascript do %>
-  <script type="text/javascript">
-    <%= render partial: 'shared/map.js', locals: {longitude: @laboratory.longitude, latitude: @laboratory.latitude, index: 1} %>
-    <%= render partial: 'shared/dashboard_sparklines.js', locals: {dashboard_data: @dashboard_data} %>
-  </script>
+<script type="text/javascript">
+  <%= render partial: 'shared/map.js', locals: {longitude: @laboratory.longitude, latitude: @laboratory.latitude, index: 1} %>
+  <%= render partial: 'shared/dashboard_sparklines.js', locals: {dashboard_data: @dashboard_data} %>
+</script>
 <% end %>
-
-<div class="ibox float-e-margins">
-  <div class="ibox-title">
-    <h5>Contact Details</h5>
-
-    <div class="ibox-tools">
-      <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
-      <ul class="dropdown-menu dropdown-user">
-	    <li><a href="<%=edit_laboratory_path(@laboratory)%>">Edit Laboratory Details</a> </li>
-	    <li><%=link_to "Repertoire for Laboratory", repertoire_for_laboratory_path(:laboratory_id => @laboratory.id)%> </li>
-      </ul>
-      <a class="close-link"><i class="fa fa-times"></i></a>
-    </div>
+<div class="row">
+  <div class="col-lg-6">
+    <%= render  partial: 'location_map', locals: {laboratory: @laboratory} %>
   </div>
 
-
-  <div class="ibox-content">
-    <%= render partial: "address", locals: {laboratory: @laboratory} %>
-    <div class="google-map" id="location_map1" style="position: relative; overflow: hidden; background-color: rgb(229, 227, 223);">
-    </div>
-	  <%= render partial: "info", locals: {laboratory: @laboratory} %>
-	  <%= render partial: "cpa_status", locals: {laboratory: @laboratory} %>
-
-	<script type="text/javascript">
-	  function clearBox(elementID)
-	  {
-		  document.getElementById(elementID).innerHTML = "";
-	  }
-	</script>
-
-	<div id="<%=@laboratory.id%>"></div>
+  <div class="col-lg-6">
+    <%= render partial: 'procedure', locals: {laboratory: @laboratory, dashboard_data: @dashboard_data} %>
   </div>
 
-  <div class="ibox-footer">
-    <span class="pull-right"><%= button_to "View Tests You Offer", tests_for_laboratory_path, remote: true, method: :get,  params: {laboratory_id: @laboratory.id}, class: "btn btn-block btn-success btn-xs" %></span>
-  </div>
 </div>
-
 <%= render 'dashboard' %>
+
