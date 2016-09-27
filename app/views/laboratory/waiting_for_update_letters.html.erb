@@ -1,0 +1,37 @@
+<% @laboratories_array.each do |laboratories| %>
+<% laboratories.each do |laboratory|%>
+<div class="page">
+  <div align='right'>
+    <%= image_tag('trustlogo.jpg') %>
+  </div>
+  <h2>***Reminder Repeat Request for Information***</h2>
+  <p>Lab code (HEFT use only)  <b><%=laboratory.id%></b></p>
+  <p>Please send the completed form to: louise.fallon@heartofengland.nhs.uk </p>
+
+  <p>or post to:</p>
+  <address>
+    Louise Fallon</br>
+    Quality Manager, Laboratory Medicine</br>
+    Birmingham Heartlands Hospital</br>
+    Bordesley Green East</br>
+    Birmingham</br>
+    B9 5SS</br>
+  </address>
+  <br>
+
+  <p><b>Dear Colleague,</b></p>
+
+  <p>It is an ISO 15189 requirement that we assess the performance of the laboratories that supply services to us. We receently sent you a letter regarding the current tests/investigations we sent to your laboratory. Our records indicate that we have not yet recevied a reply. The information we currently have for your laboratory is included below. We would be grateful if you could check and complete any missing infomation and send back to the address above. Forms may be scanned and emailed back.</p>
+
+  <p>Yours Sincerey</p>
+  <p>Louise Fallon, Quality Manager</p>
+</div>
+<div class="page" >
+  <div align='center'>
+    <%=render partial: 'lab_info_table', locals: {laboratory: laboratory}%>
+  </div>
+</div>
+
+<%=render partial: 'tests_info_table', locals: {laboratory: laboratory}%>
+<%end%>
+<%end%>

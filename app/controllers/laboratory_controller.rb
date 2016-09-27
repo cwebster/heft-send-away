@@ -98,7 +98,7 @@ def update
     @out_of_date_information_array = Repertoire.build_waiting_for_updated_information_array(laboratories: @user_laboratories )
     @laboratories_array = Repertoire.get_laboratories_for_repertoire(repertoires: @out_of_date_information_array )
     respond_to do |format|
-      format.html {render 'form_letters', :layout => 'print'}
+      format.html {render 'waiting_for_update_letters', :layout => 'print'}
       format.csv { out_of_date_letter_send }
     end
   end
@@ -113,7 +113,7 @@ def update
     @build_updated_but_not_complete_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories )
     @laboratories_array = Repertoire.get_laboratories_for_repertoire(repertoires: @build_updated_but_not_complete_array )
     respond_to do |format|
-      format.html {render 'form_letters', :layout => 'print'}
+      format.html {render 'updated_but_not_complete_letters', :layout => 'print'}
       format.csv { out_of_date_letter_send }
     end
   end
