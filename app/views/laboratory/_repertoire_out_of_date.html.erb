@@ -1,37 +1,88 @@
-<div class="row">
-	<div class="col-md-12 col-sm-12">
-		<div class="grid simple ">
-			<div class="grid-title no-border">
-				<h4>Laboratory <span class="semi-bold">Tests</span></h4>
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="grid simple ">
+						<div class="grid-body no-border">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Laboratories & <span class="semi-bold">Tests</span></h5>
+									<div class="ibox-tools">
+										<a class="collapse-link">
+											<i class="fa fa-chevron-up"></i>
+										</a>
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											<i class="fa fa-wrench"></i>
+										</a>
+										<ul class="dropdown-menu dropdown-user">
+											<li><a href="#">Config option 1</a>
+											</li>
+											<li><a href="#">Config option 2</a>
+											</li>
+										</ul>
+										<a class="close-link">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
+								<div class="ibox-content">
+									<table class="table table-hover no-more-tables">
+										<thead>
+											<tr>
+												<th>Laboratory</th>
+												<th>Investigations</th>
+											</tr>
+										</thead>
+										<tbody>
+
+											<% laboratories.each do |laboratory| %>
+											<tr>
+												<td><%=laboratory_details(laboratory_id: laboratory[0])%></td>
+												<td>	
+													<%repertoire.where(laboratory_test_id: LaboratoryTest.where(laboratory_id: laboratory[0])).each do |rep| %>
+													<%=link_to rep.laboratory_test.analyte_name, edit_repertoire_path(rep.id)%><br>
+													<%end%>
+
+												</td>
+											</tr>
+											<% end %>
+										</tbody>
+									</table>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5><span class="semi-bold">Tests</span></h5>
+					<div class="ibox-tools">
+						<a class="collapse-link">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							<i class="fa fa-wrench"></i>
+						</a>
+						<ul class="dropdown-menu dropdown-user">
+							<li><a href="#">Config option 1</a>
+							</li>
+							<li><a href="#">Config option 2</a>
+							</li>
+						</ul>
+						<a class="close-link">
+							<i class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="ibox-content">
+				<%repertoire.each do |rep|%>
+				<%=link_to rep.laboratory_test.analyte_name, edit_repertoire_path(rep.id)%><br>
+				<%=rep.laboratory_test.laboratory.laboratory_name%>
+
+				<%end%>
+				</div>
 			</div>
-			<div class="grid-body no-border">
-				<table class="table table-hover no-more-tables">
-					<thead>
-						<tr>
-							<th>Investigation</th>
-							<th>Laboratory Name</th>
-							<th>Address</th>
-							<th></th>
-							<th></th>
-							<th>City</th>
-							<th>Postcode</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% repertoire.each do |rep| %>
-						<tr>
-							<td><%=rep.laboratory_test.analyte_name%></td>
-							<td><%=rep.laboratory_test.laboratory.laboratory_name%></td>
-							<td><%=rep.laboratory_test.laboratory.address1%></td>
-							<td><<%=rep.laboratory_test.laboratory.address2%></td>
-							<td><%=rep.laboratory_test.laboratory.address3%></td>
-							<td><%=rep.laboratory_test.laboratory.city%></td>
-							<td><%=rep.laboratory_test.laboratory.postcode%></td>
-							</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div>
+
+

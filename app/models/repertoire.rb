@@ -64,6 +64,15 @@ class Repertoire < ActiveRecord::Base
     Repertoire.where(laboratory_id: laboratory_id)
   end
 
+  def self.build_laboratories_array(laboratories: )
+    laboratories_array = []
+    laboratories.each do |laboratory|
+      laboratory_tests_ids = Repertoire.information_out_of_date_since(months: 12, laboratory_id: laboratory).pluck("laboratory_test_id")
+      laboratories_array << LaboratoryTest.where(id: laboratory_tests_ids).joins(:laboratory).references(:laboratories).group(:laboratory_id).count
+    end
+    return laboratories_array    
+  end
+
   def self.build_out_of_data_array(laboratories: )
     out_of_data_array =[]
     laboratories.each do |laboratory|

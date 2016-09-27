@@ -30,14 +30,14 @@
       </li>
 
       <li class="">
-        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Manage Repertoire For Laboratory</span> <span class="fa arrow"></span></a>
+        <a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Manage Repertoire For Laboratory</span> <span class="fa arrow"></span></a>
         <ul class="nav nav-second-level collapse" style="height: 0px;">
           <% current_user.laboratories.each do |laboratory| %>
           <li>
-            <%=link_to "Build repertoire for #{laboratory.laboratory_name}", build_repertoire_path(laboratory)%>
+            <%=link_to "<i class='fa fa-hospital-o'></i> Build repertoire for #{laboratory.laboratory_name}".html_safe, build_repertoire_path(laboratory)%>
           </li>
           <li>
-            <%=link_to "View repertoire for #{laboratory.laboratory_name}", repertoire_for_laboratory_path(:laboratory_id => laboratory.id)%>
+            <%=link_to "<i class='fa fa-hospital-o'></i> View repertoire for #{laboratory.laboratory_name}".html_safe, repertoire_for_laboratory_path(:laboratory_id => laboratory.id)%>
           </li>
           <% end %>
         </ul>
@@ -50,4 +50,6 @@
   </div>
 </nav>
 <% end %>
+ 
+
  

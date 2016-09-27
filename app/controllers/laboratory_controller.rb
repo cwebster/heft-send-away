@@ -13,10 +13,10 @@ class LaboratoryController < ApplicationController
     begin
       @laboratory = Laboratory.find(params[:id])
 #       authorize @laboratory
-rescue ArgumentError
-  return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
-end
-end
+    rescue ArgumentError
+     return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
+    end
+  end
 
 def update
   @laboratory = Laboratory.find(params[:id])
@@ -25,10 +25,10 @@ def update
       # Handle a successful update.
       flash[:success] = "Labortory updated"
       redirect_to laboratory_path
-    else
+  else
       render 'edit'
-    end
   end
+end
 
   def show
     @laboratory = Laboratory.find(params[:id])
@@ -75,6 +75,7 @@ def update
   def labs_out_of_date
     @user_laboratories = Laboratory.where(user_id: current_user)
     @out_of_date_information_array = Repertoire.build_out_of_data_array(laboratories: @user_laboratories)
+    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
     authorize @user_laboratories
   end
 
@@ -91,6 +92,7 @@ def update
   def waiting_for_update
     @user_laboratories = Laboratory.where(user_id: current_user)
     @out_of_date_information_array = Repertoire.build_waiting_for_updated_information_array(laboratories: @user_laboratories )
+    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
   end
 
   def waiting_for_update_letters
@@ -106,6 +108,7 @@ def update
   def updated_but_not_complete
     @user_laboratories = Laboratory.where(user_id: current_user)
     @build_updated_but_not_complete_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories )
+    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
   end
 
   def updated_but_not_complete_letters

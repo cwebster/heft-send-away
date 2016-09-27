@@ -5,7 +5,6 @@ Letters sent to these laboratories but waiting for information
 </p>
 <% end %>
 
-<% @out_of_date_information_array.each do |repertoire| %>
-<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoire => repertoire} %>
-
-<%end%>
+<% @out_of_date_information_array.each_with_index do |repertoire, index| %>
+<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoire => repertoire, :laboratories => @referral_laboratories_array[index]} %>
+<% end %>
