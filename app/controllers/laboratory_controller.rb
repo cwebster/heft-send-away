@@ -5,7 +5,6 @@ class LaboratoryController < ApplicationController
 
   def index
     @laboratories = Laboratory.where(user_id: current_user).page params[:page]
-
     authorize @laboratories
   end
 
@@ -79,6 +78,14 @@ end
     authorize @user_laboratories
   end
 
+  def labs_out_of_date_labels
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
+    laboratories = Laboratory.laboratory_objects(laboratories_array: @referral_laboratories_array)
+    mailing_labels(laboratories)
+    send_data @labels, :filename => "test.pdf", :type => "application/pdf"
+  end
+
   def labs_out_of_date_letters
     @user_laboratories = Laboratory.where(user_id: current_user)
     @out_of_date_information_array = Repertoire.build_out_of_data_array(laboratories: @user_laboratories)
@@ -105,10 +112,26 @@ end
     end
   end
 
+  def waiting_for_update_labels
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
+    laboratories = Laboratory.laboratory_objects(laboratories_array: @referral_laboratories_array)
+    mailing_labels(laboratories)
+    send_data @labels, :filename => "test.pdf", :type => "application/pdf"
+  end
+
   def updated_but_not_complete
     @user_laboratories = Laboratory.where(user_id: current_user)
     @build_updated_but_not_complete_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories )
     @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
+  end
+
+  def updated_but_not_complete_labels
+    @user_laboratories = Laboratory.where(user_id: current_user)
+    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
+    laboratories = Laboratory.laboratory_objects(laboratories_array: @referral_laboratories_array)   
+    mailing_labels(laboratories)
+    send_data @labels, :filename => "test.pdf", :type => "application/pdf"
   end
 
   def updated_but_not_complete_letters

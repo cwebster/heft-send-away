@@ -45,5 +45,13 @@ class Laboratory < ActiveRecord::Base
     end
   end
 
+  def self.laboratory_objects(laboratories_array: )
+    laboratory_objects = Laboratory.all
+    laboratories_array.each do |lab_hash|
+      laboratory_objects.merge!(Laboratory.where(id: lab_hash.keys))
+    end
+    return laboratory_objects
+  end
+
 
 end

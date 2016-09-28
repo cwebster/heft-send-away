@@ -36,13 +36,26 @@ Rails.application.routes.draw do
   match 'labs_out_of_date_letters/:current_user_id', to: 'laboratory#labs_out_of_date_letters',
                             as: :labs_out_of_date_letters,
                             via: [:get]
+  
+
+  match 'labs_out_of_date_labels/:current_user_id', to: 'laboratory#labs_out_of_date_labels',
+                            as: :labs_out_of_date_labels,
+                            via: [:get]
 
   match 'waiting_for_update_letters/:current_user_id', to: 'laboratory#waiting_for_update_letters',
                                as: :waiting_for_update_letters,
                                via: [:get, :post]
 
+  match 'waiting_for_update_labels/:current_user_id', to: 'laboratory#waiting_for_update_labels',
+                               as: :waiting_for_update_labels,
+                               via: [:get, :post]
+
   match 'updated_but_not_complete_letters/:current_user_id', to: 'laboratory#updated_but_not_complete_letters',
                                as: :updated_but_not_complete_letters,
+                               via: [:get, :post]
+
+  match 'updated_but_not_complete_labels/:current_user_id', to: 'laboratory#updated_but_not_complete_labels',
+                               as: :updated_but_not_complete_labels,
                                via: [:get, :post]
 
   match 'search', to: 'search#search',
@@ -51,7 +64,7 @@ Rails.application.routes.draw do
 
   match 'generate_labels', to: 'label#generate_labels',
                            as: :generate_labels,
-                           via: [:get, :post]
+                           via: [:post]
 
   match 'repertoire_for_laboratory', to: 'repertoire#repertoire_for_laboratory',
                                      as: :repertoire_for_laboratory,

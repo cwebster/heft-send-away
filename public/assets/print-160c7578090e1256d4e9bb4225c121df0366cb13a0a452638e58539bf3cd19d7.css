@@ -1,0 +1,171 @@
+@page {
+  size: 21cm 29.7cm;   /*A4*/
+  margin: 0cm !important;
+}
+
+.page {
+  width: 216mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  padding: 20mm;
+  margin: 10mm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font: 12px helvetica, sans-serif;
+}
+
+.landscape_page {
+  width: 297mm;
+  min-height: 216mm;
+  max-height: 216mm;
+  padding: 20mm;
+  margin: 10mm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font: 16px helvetica, sans-serif;
+}
+
+.headers {
+  font: 12px helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.print_table {
+  font: 12px helvetica, sans-serif;
+  border-collapse: collapse;
+}
+
+.landscape_table {
+  width:800;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table_cell {
+  width:90mm;
+  border:solid black 1.0pt;
+  height:25mm;
+}
+
+.accred_status {
+  width:80pt;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.methodology {
+  width:100mm;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+.reference_range {
+  width:50mm;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.eqa_participation {
+  width:25mm;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.tat {
+  width:80pt;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.sample_requirements {
+  width:100mm;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.cost {
+  width:80pt;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.uom {
+  width:100mm;
+  border: 1.0pt;
+  height:30mm;
+  border:solid black 1.0pt;
+}
+
+.row_highlight {
+  background-color: rgba(128, 128, 128, 0.43);
+  border:solid black 1.0pt;
+
+}
+
+.row_spacer {
+  height: 5mm;
+  border:solid black 1.0pt;
+
+}
+
+.sample_collection {
+  text-align: left;
+  padding-bottom: 10mm;
+}
+
+.eqa_status {
+  width:10mm;
+  text-align: center;
+  padding-bottom: 5mm;
+}
+
+.accreditation_status {
+  padding-bottom: 30mm;
+}
+
+@media print {
+  .page {
+    width: 216mm;
+    min-height: 297mm;
+    border: 0px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    page-break-after: always;
+  }
+
+  .landscape_page {
+    width: 297mm;
+    min-height: 216mm;
+    border: 0px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+    page-break-after: always;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin-top: 100mm;
+  }
+
+  .tests {
+    margin-top: 20mm;
+    margin-left: -40mm;
+  }
+
+}
