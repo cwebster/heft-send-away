@@ -1,53 +1,59 @@
 <div class="ibox float-e-margins">
-  <%= render 'errors' %>
+	<%= render 'errors' %>
 	<div class="ibox-title">
-	  <h2><%=@repertoire.laboratory_test.analyte_name %> 	  <%= link_to ("<i class='fa fa-paste'></i> Edit Test Details").html_safe,  edit_laboratory_test_path(@repertoire.laboratory_test), class: "btn btn-default btn-xs" %></h2>
-	  <h4>Test <span class="semi-bold">Details</span></h4>
-	  This test is performed at: <%=@repertoire.laboratory_test.laboratory.laboratory_name%> 
-	  <p>
-	  <%= link_to ("<i class='fa fa-paste'></i> Edit Laboratory Details").html_safe,  edit_laboratory_path(@repertoire.laboratory_test.laboratory), class: "btn btn-default btn-xs" %>
-
-	  </p>
+		<h2><%=@repertoire.laboratory_test.analyte_name %> 	  <%= link_to ("<i class='fa fa-paste'></i> Edit Test Details").html_safe,  edit_laboratory_test_path(@repertoire.laboratory_test), class: "btn btn-default btn-xs" %></h2>
+		<h4>Test <span class="semi-bold">Details</span></h4>
+		This test is performed at: <%=@repertoire.laboratory_test.laboratory.laboratory_name%> 
+		<p>
+			<%= link_to ("<i class='fa fa-paste'></i> Edit Laboratory Details").html_safe,  edit_laboratory_path(@repertoire.laboratory_test.laboratory), class: "btn btn-default btn-xs" %>
+		</p>
 	</div>
-	
-	
-		<div class='ibox-content'>
-			<%= form_for @repertoire do |f|%>
+	<div class='ibox-content'>
+		<%= form_for @repertoire do |f|%>
 		<h4>Test <span class="semi-bold">Details</span></h4>
 
-			<div class='row'>
-				<div class="col-md-4">
+		<div class='row'>
+			<div class="col-md-3">
 				<div class="form-group">
-					<label class="form-label">Date Selection for Completed</label><br>
-					<span class="help">The date we last checked the details of this laboratory</span>
+					<label class="form-label">Local Department</label><br>
+					<span class="help">Local department/section that would manage this investigation</span>
 					<div class="controls">
-						<%= f.text_field :date_selection_form_completed, class: 'input-append success date col-md-10 col-lg-6 no-padding' %>
+						<%= collection_select(:repertoire, :local_department_id, LocalDepartment.all, :id, :department_name, prompt: true) %>
 						<span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
 					</div>
 				</div>
 			</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label class="form-label">Selection Form Completed?</label><br>
-						<span class="help">The date we last checked the details of this laboratory</span>
-						<div class="controls">
-							<%= f.check_box :selection_form_completed %>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label class="form-label">HEFT Website Updated?</label><br>
-						<span class="help">Is the HEFT Web site up to date?</span>
-						<div class="controls">
-							<%= f.check_box :website_updated %>
-						</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="form-label">Selection Form Completed?</label><br>
+					<span class="help">The date we last checked the details of this laboratory</span>
+					<div class="controls">
+						<%= f.check_box :selection_form_completed %>
 					</div>
 				</div>
 			</div>
-			
-			<div class='row'>
-				<div class="col-md-4">
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="form-label">Selection Form Completed?</label><br>
+					<span class="help">The date we last checked the details of this laboratory</span>
+					<div class="controls">
+						<%= f.check_box :selection_form_completed %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<label class="form-label">HEFT Website Updated?</label><br>
+					<span class="help">Is the HEFT Web site up to date?</span>
+					<div class="controls">
+						<%= f.check_box :website_updated %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='row'>
+			<div class="col-md-4">
 				<div class="form-group">
 					<label class="form-label">Date request for information sent</label><br>
 					<span class="help">The date we sent the requests for information</span>
@@ -57,29 +63,29 @@
 					</div>
 				</div>
 			</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label class="form-label">Date Information Updated</label><br>
-						<span class="help">The date we last updated the information</span>
-						<div class="controls">
-							<%= f.text_field :date_information_updated, class: 'input-append success date col-md-10 col-lg-6 no-padding' %>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="form-group">
-						<label class="form-label">Record Complete</label><br>
-						<span class="help">Is the record complete?</span>
-						<div class="controls">
-							<%= f.check_box :record_complete %>
-						</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-label">Date Information Updated</label><br>
+					<span class="help">The date we last updated the information</span>
+					<div class="controls">
+						<%= f.text_field :date_information_updated, class: 'input-append success date col-md-10 col-lg-6 no-padding' %>
 					</div>
 				</div>
 			</div>
-			<div class='row m-t-10'>
-<%= f.submit ("Submit"), class: 'btn btn-success btn-cons' %>
-</div>
-			<% end %>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-label">Record Complete</label><br>
+					<span class="help">Is the record complete?</span>
+					<div class="controls">
+						<%= f.check_box :record_complete %>
+					</div>
+				</div>
+			</div>
 		</div>
+		<div class='row m-t-10'>
+			<%= f.submit ("Submit"), class: 'btn btn-success btn-cons' %>
+		</div>
+		<% end %>
 	</div>
+</div>
 </div>

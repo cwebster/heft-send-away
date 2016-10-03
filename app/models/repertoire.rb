@@ -1,6 +1,7 @@
 class Repertoire < ActiveRecord::Base
   belongs_to :laboratory_test
   belongs_to :laboratory
+  belongs_to :local_department
 
   def self.in_repertoire?(laboratory_id: ,laboratory_test_id: )
     if Repertoire.where(laboratory_id: laboratory_id, laboratory_test_id: laboratory_test_id).empty?
@@ -47,7 +48,7 @@ class Repertoire < ActiveRecord::Base
 
   def self.waiting_for_updated_information(laboratory_id: )
     Repertoire
-    .where(['date_information_updated < date_request_for_information_sent OR date_information_updated IS NULL AND laboratory_id = ?', laboratory_id])
+    .where(['date_information_updated < date_request_for_information_sent OR date_information_updated IS NULL AND laboratory_id = ? AND record_complete = false', laboratory_id])
     .order(:date_information_updated)
   end
 
@@ -64,7 +65,7 @@ class Repertoire < ActiveRecord::Base
     Repertoire.where(laboratory_id: laboratory_id)
   end
 
-  def self.build_laboratories_array(laboratories: )
+  def self.build_laboratories_array_information_out_of_date(laboratories: )
     laboratories_array = []
     laboratories.each do |laboratory|
       laboratory_tests_ids = Repertoire.information_out_of_date_since(months: 12, laboratory_id: laboratory).pluck("laboratory_test_id")
@@ -72,6 +73,7 @@ class Repertoire < ActiveRecord::Base
     end
     return laboratories_array    
   end
+
 
   def self.build_out_of_data_array(laboratories: )
     out_of_data_array =[]
@@ -99,10 +101,10 @@ class Repertoire < ActiveRecord::Base
 
   def self.get_laboratories_for_repertoire(repertoires: )
     laboratories_array =[]
-    repertoires.each do |repertoire|
-      laboratory_tests = LaboratoryTest.where("id IN (?)", repertoire.select(:laboratory_test_id))
-      laboratories_array << Laboratory.where("id IN (?)", laboratory_tests.select(:laboratory_id))
-    end
+
+      laboratory_tests = LaboratoryTest.where("id IN (?)", repertoires.pluck(:laboratory_test_id))
+      laboratories_array << Laboratory.where("id IN (?)", laboratory_tests.pluck(:laboratory_id))
+  
     return laboratories_array
   end
 

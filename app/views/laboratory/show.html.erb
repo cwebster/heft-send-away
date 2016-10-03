@@ -8,15 +8,12 @@
   <%= render partial: 'shared/dashboard_sparklines.js', locals: {dashboard_data: @dashboard_data} %>
 </script>
 <% end %>
+<%= render 'dashboard' %>
 <div class="row">
+ <div class="col-lg-6">
+    <%= render partial: 'procedure', locals: {laboratory: @laboratory, dashboard_data: @dashboard_data} %>
+  </div>
   <div class="col-lg-6">
     <%= render  partial: 'location_map', locals: {laboratory: @laboratory} %>
   </div>
-
-  <div class="col-lg-6">
-    <%= render partial: 'procedure', locals: {laboratory: @laboratory, dashboard_data: @dashboard_data} %>
-  </div>
-
 </div>
-<%= render 'dashboard' %>
-

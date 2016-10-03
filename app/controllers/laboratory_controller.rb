@@ -44,33 +44,6 @@ end
     @dashboard_data["records_complete"] = Repertoire.send_away_records_complete(laboratory_id: laboratory_id).count
   end
 
-  # def out_of_date
-  #   @howFarBack = params[:months_out]
-  #   @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
-  #   Laboratory.out_of_date_update_letter_send(params[:months_out].to_i)
-
-  #   respond_to do |format|
-  #     format.html {render 'form_letters', :layout => 'print'}
-  #     format.csv { out_of_date_letter_send }
-  #   end
-  # end
-
-  # def out_of_date_test
-  #   @howFarBack = params[:months_out]
-  #   @laboratories = Laboratory.out_of_date(params[:months_out].to_i)
-  #   respond_to do |format|
-  #     format.html {render 'form_letters', :layout => 'print'}
-  #     format.csv { out_of_date_letter_send }
-  #   end
-  # end
-
-  # def out_of_date_letter_send
-  #   @laboratories = Laboratory.out_of_date(params[:months].to_i)
-  #   Laboratory.where(:id =>@laboratories.pluck(:id))
-  #   .update_all(:date_request_for_information_sent => Date.today)
-  #   render text: @laboratories.to_csv
-  # end
-
   def labs_out_of_date
     @user_laboratories = Laboratory.where(user_id: current_user)
     @out_of_date_information_array = Repertoire.build_out_of_data_array(laboratories: @user_laboratories)
@@ -128,8 +101,9 @@ end
 
   def updated_but_not_complete_labels
     @user_laboratories = Laboratory.where(user_id: current_user)
-    @referral_laboratories_array = Repertoire.build_laboratories_array(laboratories: @user_laboratories)
-    laboratories = Laboratory.laboratory_objects(laboratories_array: @referral_laboratories_array)   
+    @referral_laboratories_array = Repertoire.build_updated_but_not_complete_array(laboratories: @user_laboratories)
+
+    laboratories = Laboratory.laboratory_objects_from_relation(laboratories_array: @referral_laboratories_array)   
     mailing_labels(laboratories)
     send_data @labels, :filename => "test.pdf", :type => "application/pdf"
   end

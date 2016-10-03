@@ -53,5 +53,15 @@ class Laboratory < ActiveRecord::Base
     return laboratory_objects
   end
 
+  def self.laboratory_objects_from_relation(laboratories_array: )
+    lab_ids = []
+    laboratories_array.each do |repertoire|
+      lab_ids << Repertoire.get_laboratories_for_repertoire(repertoires: repertoire)
+    end
+
+    laboratory_objects = Laboratory.where(id: lab_ids)
+
+    return laboratory_objects
+  end
 
 end

@@ -4,7 +4,8 @@ class WelcomeController < ApplicationController
       ## Add something for the normal user
       render layout: "no_left_side_bar"
     else
-      render layout: "application"
+      redirect_to laboratory_path(current_user.laboratories.first)
+      # render layout: "application"
     end
   end
 end

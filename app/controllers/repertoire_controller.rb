@@ -50,7 +50,7 @@ class RepertoireController < ApplicationController
   end
   
   def repertoire_params
-    params.require(:repertoire).permit(:date_selection_form_completed, :selection_form_completed, 
+    params.require(:repertoire).permit(:local_department_id, :date_selection_form_completed, :selection_form_completed, 
                                        :website_updated, :date_request_for_information_sent,
                                        :date_information_updated, :record_complete)
   end
