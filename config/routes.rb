@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :laboratory_test
   resources :repertoire
 
+  match 'information_requested/:type', to: 'laboratory#information_requested',
+                                 as: :information_requested,
+                                 via: [:get]
+
   match 'tests_for_laboratory', to: 'laboratory_test#tests_for_laboratory',
                                 as: :tests_for_laboratory,
                                 via: [:get]

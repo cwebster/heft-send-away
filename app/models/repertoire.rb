@@ -66,39 +66,6 @@ class Repertoire < ActiveRecord::Base
     Repertoire.where(laboratory_id: laboratory_id)
   end
 
-  # def self.build_laboratories_array_information_out_of_date(laboratories: )
-  #   laboratories_array = []
-  #   laboratories.each do |laboratory|
-  #     laboratory_tests_ids = Repertoire.information_out_of_date_since(months: 12, laboratory_id: laboratory).pluck("laboratory_test_id")
-  #     laboratories_array << LaboratoryTest.where(id: laboratory_tests_ids).joins(:laboratory).references(:laboratories).group(:laboratory_id).count
-  #   end
-  #   return laboratories_array    
-  # end
-
-
-  # def self.build_out_of_data_array(laboratories: )
-  #   out_of_data_array =[]
-  #   laboratories.each do |laboratory|
-  #     out_of_data_array << Repertoire.information_out_of_date_since(months: 12, laboratory_ids: laboratory)
-  #   end
-  #   return out_of_data_array
-  # end
-
-  # def self.build_waiting_for_updated_information_array(laboratories: )
-  #   waiting_for_update_array =[]
-  #   laboratories.each do |laboratory|
-  #     waiting_for_update_array << Repertoire.waiting_for_updated_information(laboratory_id: laboratory)
-  #   end
-  #   return waiting_for_update_array
-  # end
-
-  # def self.build_updated_but_not_complete_array(laboratories: )
-  #   updated_but_not_complete_array =[]
-  #   laboratories.each do |laboratory|
-  #     updated_but_not_complete_array << Repertoire.information_updated_but_not_complete_for_laboratory(laboratory_id: laboratory)
-  #   end
-  #   return updated_but_not_complete_array
-  # end
 
   def self.get_laboratories_for_repertoire(repertoires: ) 
 

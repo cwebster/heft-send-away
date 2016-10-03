@@ -1,0 +1,8 @@
+<h2>Requested information to be updated for the following tests</h2>
+
+<%@repertoires.each do |repertoire| %>
+<%=repertoire.laboratory_test.analyte_name%> | <%=repertoire.laboratory_test.laboratory.laboratory_name%> on
+<%=repertoire.date_request_for_information_sent%></br>
+
+
+<% end %>

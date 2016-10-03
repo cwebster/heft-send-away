@@ -5,12 +5,10 @@ module Labels
     addresses.flatten!
     set_label_type
     set_un_image
-    
     @labels = Prawn::Labels.render( addresses, type: "967") do |pdf, laboratory|
       pdf.stroke_bounds
       address(pdf, laboratory)
     end
-  
   end
 
   def get_meter_details_for_user(user_id, pdf)

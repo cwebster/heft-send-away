@@ -5,6 +5,7 @@
     <%= image_tag('trustlogo.jpg') %>
   </div>
   <h2>Referral Laboratory Questionnaire</h2>
+  <p><%= link_to("Printed at: #{DateTime.now}",  information_requested_path(:out_of_date)) %></p>
   <p>Lab code (HEFT use only)  <b><%=laboratory.id%></b></p>
   <p>Please send the completed form to: louise.fallon@heartofengland.nhs.uk </p>
 
