@@ -34,9 +34,10 @@ class Repertoire < ActiveRecord::Base
     return current_repertoire_arr
   end
 
-  def self.information_out_of_date_since(months: 6, laboratory_id: )
+  def self.information_out_of_date_since(months: 6, laboratory_ids: )
     Repertoire
-    .where(['date_information_updated < ? OR date_information_updated IS NULL AND laboratory_id = ?', months.months.ago, laboratory_id])
+    .where(['date_information_updated < ? OR date_information_updated IS NULL', months.months.ago])
+    .where(laboratory_id: laboratory_ids)
     .order(:date_information_updated)
   end
 
@@ -46,15 +47,15 @@ class Repertoire < ActiveRecord::Base
     .update_all(:date_request_for_information_sent => Date.today)
   end
 
-  def self.waiting_for_updated_information(laboratory_id: )
+  def self.waiting_for_updated_information(laboratory_ids: )
     Repertoire
-    .where(['date_information_updated < date_request_for_information_sent OR date_information_updated IS NULL AND laboratory_id = ? AND record_complete = false', laboratory_id])
+    .where(['date_information_updated < date_request_for_information_sent OR date_information_updated IS NULL AND laboratory_id = ? AND record_complete = false', laboratory_ids])
     .order(:date_information_updated)
   end
 
-  def self.information_updated_but_not_complete_for_laboratory(laboratory_id: )
+  def self.information_updated_but_not_complete_for_laboratory(laboratory_ids: )
     Repertoire
-    .where(['date_information_updated > date_request_for_information_sent AND laboratory_id = ? AND record_complete = false', laboratory_id])
+    .where(['date_information_updated > date_request_for_information_sent AND laboratory_id = ? AND record_complete = false', laboratory_ids])
   end
 
   def self.send_away_records_complete(laboratory_id: )
@@ -65,47 +66,62 @@ class Repertoire < ActiveRecord::Base
     Repertoire.where(laboratory_id: laboratory_id)
   end
 
-  def self.build_laboratories_array_information_out_of_date(laboratories: )
-    laboratories_array = []
-    laboratories.each do |laboratory|
-      laboratory_tests_ids = Repertoire.information_out_of_date_since(months: 12, laboratory_id: laboratory).pluck("laboratory_test_id")
-      laboratories_array << LaboratoryTest.where(id: laboratory_tests_ids).joins(:laboratory).references(:laboratories).group(:laboratory_id).count
-    end
-    return laboratories_array    
-  end
+  # def self.build_laboratories_array_information_out_of_date(laboratories: )
+  #   laboratories_array = []
+  #   laboratories.each do |laboratory|
+  #     laboratory_tests_ids = Repertoire.information_out_of_date_since(months: 12, laboratory_id: laboratory).pluck("laboratory_test_id")
+  #     laboratories_array << LaboratoryTest.where(id: laboratory_tests_ids).joins(:laboratory).references(:laboratories).group(:laboratory_id).count
+  #   end
+  #   return laboratories_array    
+  # end
 
 
-  def self.build_out_of_data_array(laboratories: )
-    out_of_data_array =[]
-    laboratories.each do |laboratory|
-      out_of_data_array << Repertoire.information_out_of_date_since(months: 12, laboratory_id: laboratory)
-    end
-    return out_of_data_array
-  end
+  # def self.build_out_of_data_array(laboratories: )
+  #   out_of_data_array =[]
+  #   laboratories.each do |laboratory|
+  #     out_of_data_array << Repertoire.information_out_of_date_since(months: 12, laboratory_ids: laboratory)
+  #   end
+  #   return out_of_data_array
+  # end
 
-  def self.build_waiting_for_updated_information_array(laboratories: )
-    waiting_for_update_array =[]
-    laboratories.each do |laboratory|
-      waiting_for_update_array << Repertoire.waiting_for_updated_information(laboratory_id: laboratory)
-    end
-    return waiting_for_update_array
-  end
+  # def self.build_waiting_for_updated_information_array(laboratories: )
+  #   waiting_for_update_array =[]
+  #   laboratories.each do |laboratory|
+  #     waiting_for_update_array << Repertoire.waiting_for_updated_information(laboratory_id: laboratory)
+  #   end
+  #   return waiting_for_update_array
+  # end
 
-  def self.build_updated_but_not_complete_array(laboratories: )
-    updated_but_not_complete_array =[]
-    laboratories.each do |laboratory|
-      updated_but_not_complete_array << Repertoire.information_updated_but_not_complete_for_laboratory(laboratory_id: laboratory)
-    end
-    return updated_but_not_complete_array
-  end
+  # def self.build_updated_but_not_complete_array(laboratories: )
+  #   updated_but_not_complete_array =[]
+  #   laboratories.each do |laboratory|
+  #     updated_but_not_complete_array << Repertoire.information_updated_but_not_complete_for_laboratory(laboratory_id: laboratory)
+  #   end
+  #   return updated_but_not_complete_array
+  # end
 
-  def self.get_laboratories_for_repertoire(repertoires: )
+  def self.get_laboratories_for_repertoire(repertoires: ) 
+
     laboratories_array =[]
 
       laboratory_tests = LaboratoryTest.where("id IN (?)", repertoires.pluck(:laboratory_test_id))
       laboratories_array << Laboratory.where("id IN (?)", laboratory_tests.pluck(:laboratory_id))
   
     return laboratories_array
+  end
+
+
+  ### Refactor to display by laboratory
+
+  def self.repertoires_search(laboratory_ids:, type: )
+    case type
+    when :out_of_date
+      self.information_out_of_date_since(months: 6, laboratory_ids: laboratory_ids)
+    when :updated_but_not_complete
+      self.information_updated_but_not_complete_for_laboratory(laboratory_ids: laboratory_ids)
+    when :waiting_for_update
+      self.waiting_for_updated_information(laboratory_ids: laboratory_ids)
+    end
   end
 
 

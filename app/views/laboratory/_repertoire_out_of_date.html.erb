@@ -33,16 +33,19 @@
 										</thead>
 										<tbody>
 
-											<% laboratories.each do |laboratory| %>
+											<% laboratories_arr.each do |managed_laboratory| %>
+											<% managed_laboratory.each do |laboratory| %>
 											<tr>
-												<td><%=laboratory_details(laboratory_id: laboratory[0])%></td>
+												<td><%=laboratory_details(laboratory_id: laboratory)%></td>
 												<td>	
-													<%repertoire.where(laboratory_test_id: LaboratoryTest.where(laboratory_id: laboratory[0])).each do |rep| %>
-													<%=link_to rep.laboratory_test.analyte_name, edit_repertoire_path(rep.id)%><br>
+													<%LaboratoryTest.where(laboratory_id: laboratory).where(id: repertoires.pluck(:laboratory_test_id)).each do |investigation| %>
+													
+													  <%=link_to investigation.analyte_name, edit_repertoire_path(repertoires.where(laboratory_test_id:investigation.id).first)%><br>
 													<%end%>
 
 												</td>
 											</tr>
+											<% end %>
 											<% end %>
 										</tbody>
 									</table>
@@ -77,7 +80,7 @@
 					</div>
 				</div>
 				<div class="ibox-content">
-				<%repertoire.each do |rep|%>
+				<%repertoires.each do |rep|%>
 				<%=link_to rep.laboratory_test.analyte_name, edit_repertoire_path(rep.id)%><br>
 				<%=rep.laboratory_test.laboratory.laboratory_name%>
 

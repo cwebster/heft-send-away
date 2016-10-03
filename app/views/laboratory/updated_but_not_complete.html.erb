@@ -1,10 +1,8 @@
 <% content_for :content_title do %>
 Letters sent to these laboratories but information not complete
 <p>
-<b>Number: <%=@build_updated_but_not_complete_array.first.count%></b>
+<b><b>Number: <%=@laboratories.flatten.count%></b></b>
 </p>
 <% end %>
 
-<% @build_updated_but_not_complete_array.each_with_index do |repertoire, index| %>
-<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoire => repertoire, :laboratories => @referral_laboratories_array[index]} %>
-<% end %>
+<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoires => @repertoires, :laboratories_arr => @laboratories} %>

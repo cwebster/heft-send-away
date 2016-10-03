@@ -1,5 +1,5 @@
 <li class="">
-<a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Manage Referral Labs</span> <span class="fa arrow"></span></a>
+<a href=""><i class="fa fa-cogs"></i> <span class="nav-label">Manage Referral Labs</span> <span class="fa arrow"></span></a>
 <ul class="nav nav-second-level collapse" style="height: 0px;">
   <li><%= link_to "<i class='fa fa-eye'></i> View laboratories with out of date information".html_safe, labs_out_of_date_path(current_user) %></li>
   <li><%= link_to "<i class='fa fa-eye'></i> View laboratories where request for updates have been sent but waiting for information".html_safe, waiting_for_update_path(current_user)%></li>
@@ -7,19 +7,20 @@
   <li class="">
 
 
-<a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Print Letters</span> <span class="fa arrow"></span></a>
+<a href=""><i class="fa fa-cogs"></i> <span class="nav-label">Print Letters</span> <span class="fa arrow"></span></a>
 <ul class="nav nav-second-level collapse" style="height: 0px;">
   <li><%= link_to "<i class='fa fa-print'></i> Letters for updated but not completed".html_safe, updated_but_not_complete_letters_path(current_user) %></li>
   <li><%= link_to "<i class='fa fa-print'></i> Initial letter to update information from referral laboratories".html_safe, labs_out_of_date_letters_path(current_user)%></li>
   <li><%= link_to "<i class='fa fa-print'></i> Reminder letters".html_safe, waiting_for_update_letters_path(current_user)%></li>
 </ul>
-
-<a href="index.html"><i class="fa fa-cogs"></i> <span class="nav-label">Print Labels</span> <span class="fa arrow"></span></a>
+<li class="">
+<a href=""><i class="fa fa-cogs"></i> <span class="nav-label">Print Labels</span> <span class="fa arrow"></span></a>
 <ul class="nav nav-second-level collapse" style="height: 0px;">
   <li><%= link_to "<i class='fa fa-print'></i> Labels for updated but not completed".html_safe, updated_but_not_complete_labels_path(current_user) %></li>
   <li><%= link_to "<i class='fa fa-print'></i> Initial letter labels to update information from referral laboratories".html_safe, labs_out_of_date_labels_path(current_user)%></li>
   <li><%= link_to "<i class='fa fa-print'></i> Reminder Labels".html_safe, waiting_for_update_labels_path(current_user)%></li>
 </ul>
+</li>
 
 </li>
 </ul>

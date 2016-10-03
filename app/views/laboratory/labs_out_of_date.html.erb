@@ -1,10 +1,9 @@
 <% content_for :content_title do %>
-<h2>Investigations with out of date infomation</h2>
+<h2>Laboratories with out of date infomation</h2>
 <p>
-	<b>Number: <%=@out_of_date_information_array.first.count%></b>
+	<b>Number: <%=@laboratories.flatten.count%></b>
 </p>
 <% end %>
 
-<% @out_of_date_information_array.each_with_index do |repertoire, index| %>
-<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoire => repertoire, :laboratories => @referral_laboratories_array[index]} %>
-<% end %>
+
+<%= render :partial => 'repertoire_out_of_date', :locals => {:repertoires => @repertoires, :laboratories_arr => @laboratories} %>
