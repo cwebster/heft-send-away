@@ -19,11 +19,11 @@ end
 
 def update
   @laboratory = Laboratory.find(params[:id])
-  authorize @laboratory
+  # authorize @laboratory
   if @laboratory.update_attributes(laboratory_params)
       # Handle a successful update.
       flash[:success] = "Labortory updated"
-      redirect_to laboratory_path
+      redirect_to laboratory_path(current_user.laboratories.first)
     else
       render 'edit'
     end
@@ -31,7 +31,7 @@ def update
 
   def show
     @laboratory = Laboratory.find(params[:id])
-    authorize @laboratory
+    # authorize @laboratory
     build_dashboard(laboratory_id: @laboratory.id)
   end
 
