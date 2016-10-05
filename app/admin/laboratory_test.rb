@@ -12,6 +12,7 @@ index do
   column "Laboratory" do |laboratory_test|
     link_to laboratory_test.laboratory.laboratory_name, admin_laboratory_path(laboratory_test.laboratory)
   end
+  actions
 end
 
 
@@ -28,6 +29,7 @@ form do |f|
     f.input :sample_type
     f.input :cost_of_test
     f.input :uncertainty_of_measurement
+    f.submit
   end
 end
 
