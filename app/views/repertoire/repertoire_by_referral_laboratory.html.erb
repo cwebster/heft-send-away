@@ -29,7 +29,7 @@ Your Repertoire
 									<tbody>
 										<% @referral_laboratories.group(:referral_laboratory_id).count.each do |key, value| %>
 										<tr>
-											<td><%= link_to "#{laboratory_details(key)}" %></td>
+											<td><%= link_to "#{laboratory_details(key)}", edit_laboratory_path(key) %></td>
 											<td><%= investigations_for_laboratory(key, @laboratory)	%></td>
 										</tr>
 										<% end %>
