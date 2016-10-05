@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005141032) do
+ActiveRecord::Schema.define(version: 20161005151734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20161005141032) do
     t.boolean  "record_complete"
     t.integer  "local_department_id",               :foreign_key=>{:references=>"local_departments", :name=>"fk_rails_2d7496257b", :on_update=>:no_action, :on_delete=>:no_action}
     t.integer  "local_departments_id",              :index=>{:name=>"index_repertoires_on_local_departments_id"}
-    t.boolean  "active"
+    t.boolean  "inactive"
     t.date     "date_inactive"
   end
 
