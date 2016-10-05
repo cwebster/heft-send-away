@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails', '4.3.0.0'
 
 gem 'pg'
+gem "schema_plus"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.4'

@@ -14,10 +14,16 @@ class User < ActiveRecord::Base
     self.role == Role.find_by_name('admin')
   end
 
+  def full_name
+    "#{self.title} #{self.first_name} #{self.surname}"
+  end
+
   private
   def set_default_role
     self.role ||= Role.find_by_name('registered')
   end
+
+
 
 
 end

@@ -16,10 +16,16 @@ class RepertoireController < ApplicationController
     @laboratory = Laboratory.find(params[:laboratory_id])
     @laboratory_tests = LaboratoryTest.all
   end
+
+  def repertoire_by_referral_laboratory
+    @laboratory = Laboratory.find(params[:laboratory_id])
+    @referral_laboratories = RepertoireLookup.where(host_laboratory_id: @laboratory.id)
+    
+  end
   
   def update
     @repertoire = Repertoire.find(params[:id])
-#     authorize @repertoire
+      # authorize @repertoire
     if @repertoire.update_attributes(repertoire_params)
       # Handle a successful update.
       flash[:success] = "Labortory updated"
@@ -52,7 +58,7 @@ class RepertoireController < ApplicationController
   def repertoire_params
     params.require(:repertoire).permit(:local_department_id, :date_selection_form_completed, :selection_form_completed, 
                                        :website_updated, :date_request_for_information_sent,
-                                       :date_information_updated, :record_complete)
+                                       :date_information_updated, :record_complete, :active, :date_inactive)
   end
   
   private

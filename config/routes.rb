@@ -74,6 +74,10 @@ Rails.application.routes.draw do
                                      as: :repertoire_for_laboratory,
                                      via: [:get]
 
+  match 'repertoire_for_laboratory_by_referral_laboratory', to: 'repertoire#repertoire_by_referral_laboratory',
+                                     as: :repertoire_by_referral_laboratory,
+                                     via: [:get]
+
   match 'build_repertoire/:laboratory_id', to: 'repertoire#build_repertoire',
                                            as: :build_repertoire,
                                            via: [:get]

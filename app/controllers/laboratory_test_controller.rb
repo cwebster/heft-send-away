@@ -47,7 +47,7 @@ class LaboratoryTestController < ApplicationController
 
   def laboratory_test_params
     params.require(:laboratory_test).permit(:analyte_name, :methodology, :reference_range,
-    :sample_type, :cost_of_test, :uncertainty_of_measurement, :eqa_status, :ukas_status,
+    :sample_type, :cost_of_test, :uncertainty_of_measurement, :eqa_status, :ukas_status, :email,
     :sample_volume, :date_test_information_updated, :ukas_reference_number, :eqa_performance)
   end
 

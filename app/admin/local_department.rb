@@ -13,5 +13,6 @@ permit_params :department_name
 #   permitted
 # end
 
+filter :repertoires, :collection => proc {(Repertoire.all).map{|c| [c.local_departments_id, c.id]}}
 
 end

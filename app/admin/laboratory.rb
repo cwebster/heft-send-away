@@ -35,4 +35,18 @@ ActiveAdmin.register Laboratory do
     end
     render 'index'
   end
+
+  index do
+    selectable_column
+    column :laboratory_name
+    column :address1
+    column :address2
+    column :address3
+    column :postcode
+  end
+
+
+  filter :laboratory_test, :collection => proc {(LaboratoryTest.all).map{|c| [c.analyte_name, c.id]}}
+  filter :laboratory_name
+  filter :postcode
 end

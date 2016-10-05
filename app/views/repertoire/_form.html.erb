@@ -13,17 +13,16 @@
 		<h4>Test <span class="semi-bold">Details</span></h4>
 
 		<div class='row'>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="form-group">
 					<label class="form-label">Local Department</label><br>
 					<span class="help">Local department/section that would manage this investigation</span>
 					<div class="controls">
 						<%= collection_select(:repertoire, :local_department_id, LocalDepartment.all, :id, :department_name, prompt: true) %>
-						<span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="form-group">
 					<label class="form-label">Selection Form Completed?</label><br>
 					<span class="help">The date we last checked the details of this laboratory</span>
@@ -32,16 +31,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="form-group">
-					<label class="form-label">Selection Form Completed?</label><br>
-					<span class="help">The date we last checked the details of this laboratory</span>
-					<div class="controls">
-						<%= f.check_box :selection_form_completed %>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
+
+			<div class="col-md-4">
 				<div class="form-group">
 					<label class="form-label">HEFT Website Updated?</label><br>
 					<span class="help">Is the HEFT Web site up to date?</span>
@@ -73,13 +64,41 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="form-group">
+							<div class="form-group">
 					<label class="form-label">Record Complete</label><br>
 					<span class="help">Is the record complete?</span>
 					<div class="controls">
 						<%= f.check_box :record_complete %>
 					</div>
 				</div>
+
+			</div>
+		</div>
+				<div class='row'>
+			<div class="col-md-4">
+			<% if @repertoire.inactive? %>
+			
+				<div class="form-group">
+					<label class="form-label">Date investigation was inactivated</label><br>
+					<span class="help">When did we stop sending investigations to this laboratory?</span>
+					<div class="controls">
+						<%= f.text_field :date_inactive, class: 'input-append success date col-md-10 col-lg-6 no-padding' %>
+						<span class="add-on"><span class="arrow"></span><i class="fa fa-th"></i></span>
+					</div>
+				</div>
+			<% end %>
+			</div>
+			<div class="col-md-4">
+							<div class="form-group">
+					<label class="form-label">Active</label><br>
+					<span class="help">Do we still send investigations to this laboratory?</span>
+					<div class="controls">
+						<%= f.check_box :active %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+
 			</div>
 		</div>
 		<div class='row m-t-10'>

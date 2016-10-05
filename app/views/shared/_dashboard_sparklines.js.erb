@@ -1,26 +1,26 @@
 $(function () {
-  $("#labs_out_of_date").sparkline([<%=dashboard_data["total_tests"] - dashboard_data["labs_out_of_date"]%>, <%=(dashboard_data["labs_out_of_date"])%>], {
+  $("#labs_out_of_date").sparkline([<%=dashboard_data["total_labs"] - dashboard_data["labs_out_of_date"]%>, <%=(dashboard_data["labs_out_of_date"])%>], {
     type: 'pie',
     height: '150px',
-    sliceColors: ['#e4f0fb', '#1ab394', '#e4f0fb']
+    sliceColors: ['#009600', '#FF2525', '#e4f0fb']
   });
 
-  $("#updates_sent_but_waiting_for_response").sparkline([<%=dashboard_data["total_tests"] - dashboard_data["waiting_for_updated_information"]%>, <%=(dashboard_data["waiting_for_updated_information"])%>], {
+  $("#updates_sent_but_waiting_for_response").sparkline([<%=dashboard_data["total_labs"] - dashboard_data["waiting_for_updated_information"]%>, <%=(dashboard_data["waiting_for_updated_information"])%>], {
     type: 'pie',
     height: '150px',
-    sliceColors: ['#1ab394', '#b3b3b3', '#e4f0fb']
+    sliceColors: ['#FF2525', '#009600', '#e4f0fb']
   });
 
-  $("#information_updated_but_not_complete_for_laboratory").sparkline([<%=dashboard_data["total_tests"] - dashboard_data["information_updated_but_not_complete_for_laboratory"]%>, <%=(dashboard_data["information_updated_but_not_complete_for_laboratory"])%>], {
+  $("#information_updated_but_not_complete_for_laboratory").sparkline([<%=dashboard_data["total_labs"] - dashboard_data["information_updated_but_not_complete_for_laboratory"]%>, <%=(dashboard_data["information_updated_but_not_complete_for_laboratory"])%>], {
     type: 'pie',
     height: '150px',
-    sliceColors: ['#1ab394', '#b3b3b3', '#e4f0fb']
+    sliceColors: ['#FF2525', '#009600', '#e4f0fb']
   });
 
-  $("#record_complete").sparkline([<%=dashboard_data["total_tests"] - dashboard_data["records_complete"]%>, <%=(dashboard_data["records_complete"])%>], {
+  $("#record_complete").sparkline([<%=dashboard_data["total_labs"] - dashboard_data["records_complete"]%>, <%=(dashboard_data["records_complete"])%>], {
     type: 'pie',
     height: '150px',
-    sliceColors: ['#1ab394', '#b3b3b3', '#e4f0fb']
+    sliceColors: ['#FF2525', '#009600', '#e4f0fb']
   });
 
 

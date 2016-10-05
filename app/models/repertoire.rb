@@ -3,6 +3,14 @@ class Repertoire < ActiveRecord::Base
   belongs_to :laboratory
   belongs_to :local_department
 
+  def inactive?
+    if self.active == true
+      return false
+    elsif self.active == false
+      return true
+    end
+  end
+
   def self.in_repertoire?(laboratory_id: ,laboratory_test_id: )
     if Repertoire.where(laboratory_id: laboratory_id, laboratory_test_id: laboratory_test_id).empty?
       return false
@@ -34,14 +42,14 @@ class Repertoire < ActiveRecord::Base
     return current_repertoire_arr
   end
 
-  def self.information_out_of_date_since(months: 6, laboratory_ids: )
+  def self.information_out_of_date_since(months: 12, laboratory_ids: )
     Repertoire
     .where(['date_information_updated < ? OR date_information_updated IS NULL', months.months.ago])
     .where(laboratory_id: laboratory_ids)
     .order(:date_information_updated)
   end
 
-  def self.information_out_of_date_since_and_update_letter_sent_now(months: 6, laboratory_id: )
+  def self.information_out_of_date_since_and_update_letter_sent_now(months: 12, laboratory_id: )
     Repertoire
     .where(['date_information_updated < ? OR date_information_updated IS NULL AND laboratory_id = ?', months.months.ago, laboratory_id])
     .update_all(:date_request_for_information_sent => Date.today)

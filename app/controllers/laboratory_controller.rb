@@ -2,6 +2,7 @@ class LaboratoryController < ApplicationController
   before_action :authenticate_user!
 
   include Labels
+  include Dashboard
 
   def index
     @laboratories = Laboratory.where(user_id: current_user).page params[:page]
@@ -12,10 +13,10 @@ class LaboratoryController < ApplicationController
     begin
       @laboratory = Laboratory.find(params[:id])
 #       authorize @laboratory
-rescue ArgumentError
- return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
-end
-end
+    rescue ArgumentError
+      return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
+    end
+  end
 
 def update
   @laboratory = Laboratory.find(params[:id])
@@ -36,12 +37,7 @@ def update
   end
 
   def build_dashboard(laboratory_id: )
-    @dashboard_data = {}
-    @dashboard_data["total_tests"] = Repertoire.tests_for_laboratory(laboratory_id:laboratory_id).count
-    @dashboard_data["labs_out_of_date"] = Repertoire.information_out_of_date_since(months: 6, laboratory_ids: laboratory_id).count
-    @dashboard_data["waiting_for_updated_information"] = Repertoire.waiting_for_updated_information(laboratory_ids: laboratory_id).count
-    @dashboard_data["information_updated_but_not_complete_for_laboratory"] = Repertoire.information_updated_but_not_complete_for_laboratory(laboratory_ids: laboratory_id).count
-    @dashboard_data["records_complete"] = Repertoire.send_away_records_complete(laboratory_id: laboratory_id).count
+    dashboard_for_laboratory(laboratory_id: laboratory_id)
   end
 
 ###########   refactor 3/10/2016
@@ -148,28 +144,28 @@ end
 def information_requested
   case params[:type]
   when "out_of_date"
-      @user_laboratories  = user_laboratories
-      out_of_date(laboratories: @user_laboratories)
-      @repertoires.update_all(:date_request_for_information_sent => DateTime.now)
+    @user_laboratories  = user_laboratories
+    out_of_date(laboratories: @user_laboratories)
+    @repertoires.update_all(:date_request_for_information_sent => DateTime.now)
       #@laboratories.update_all(:date_request_for_information_sent => DateTime.now)
-  when "updated_but_not_complete"
+    when "updated_but_not_complete"
       @user_laboratories  = user_laboratories
       updated_missing(laboratories: @user_laboratories)
       @repertoires.update_all(:date_request_for_information_sent => DateTime.now)
       #@laboratories.update_all(:date_request_for_information_sent => DateTime.now)
-  when "waiting_for_update"
+    when "waiting_for_update"
       @user_laboratories  = user_laboratories
       waiting(laboratories: @user_laboratories) 
       @repertoires.update_all(:date_request_for_information_sent => DateTime.now)
       #@laboratories.update_all(:date_request_for_information_sent => DateTime.now)
+    end
+
   end
 
-end
-
-def laboratory_params
-  params.require(:laboratory).permit(:laboratory_name, :address1, :address2,
-    :address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number,
-    :contact_name, :date_selection_form_completed, :selection_form_completed, :website_updated)
-end
+  def laboratory_params
+    params.require(:laboratory).permit(:laboratory_name, :address1, :address2,
+      :address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number, :email,
+      :contact_name, :date_selection_form_completed, :selection_form_completed, :website_updated)
+  end
 
 end

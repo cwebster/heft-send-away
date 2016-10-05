@@ -10,7 +10,7 @@
           <a data-toggle="dropdown" class="dropdown-toggle" href="#">
             <span class="clear">
               <span class="block m-t-xs">
-                <strong class="font-bold">Hospital Account Manager</strong>
+                <strong class="font-bold"><%=current_user.full_name%></strong>
               </span> <span class="text-muted text-xs block">Your Account <b class="caret"></b></span>
             </span>
           </a>
@@ -38,6 +38,9 @@
           </li>
           <li>
             <%=link_to "<i class='fa fa-hospital-o'></i> View repertoire for #{laboratory.laboratory_name}".html_safe, repertoire_for_laboratory_path(:laboratory_id => laboratory.id)%>
+          </li>
+          <li>
+            <%=link_to "<i class='fa fa-hospital-o'></i> View referral laboratories for #{laboratory.laboratory_name}".html_safe, repertoire_by_referral_laboratory_path(:laboratory_id => laboratory.id)%>
           </li>
           <% end %>
         </ul>
