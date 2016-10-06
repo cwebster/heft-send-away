@@ -1,14 +1,15 @@
+<div class="row  border-bottom white-bg dashboard-header">
 <% flash.each do |key, value| %>
 <div class="row">
-  <div class="col-lg-4">
-  </div>
-  <div class="col-lg-4 text-center">
-    <div class="alert alert-danger alert-dismissable">
-      <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+  <div class="col-lg-10">
+    <h2>
       <%= value %>
-    </div>
+    </h2>
+    <ol class="breadcrumb">
+    </ol>
   </div>
-  <div class="col-lg-4">
+  <div class="col-lg-2">
   </div>
-</div>
+  </div>
 <% end %>
+</div>
