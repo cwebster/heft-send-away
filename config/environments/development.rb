@@ -40,4 +40,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:637437dac092100ac625570de1d55e05@sculpin.redistogo.com:10219/'
 end

@@ -7,6 +7,7 @@ gem 'font-awesome-rails', '4.3.0.0'
 
 gem 'pg'
 gem "schema_plus"
+gem 'redis'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.4'
