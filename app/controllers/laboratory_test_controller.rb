@@ -7,7 +7,7 @@ class LaboratoryTestController < ApplicationController
     else
       @laboratory_tests = LaboratoryTest.where(laboratory_id: current_user.laboratories).page params[:page]
     end
-#     authorize @laboratory_tests
+      # authorize @laboratory_tests
   end
 
   def tests_for_laboratory
@@ -22,7 +22,7 @@ class LaboratoryTestController < ApplicationController
   def edit
     begin
       @laboratory_test = LaboratoryTest.find(params[:id])
-#       authorize @laboratory_test
+      # authorize @laboratory_test
     rescue ArgumentError
       return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
     end
@@ -30,7 +30,7 @@ class LaboratoryTestController < ApplicationController
 
   def update
     @laboratory_test = LaboratoryTest.find(params[:id])
-#     authorize @laboratory_test
+      # authorize @laboratory_test
     if @laboratory_test.update_attributes(laboratory_test_params)
       # Handle a successful update.
       flash[:success] = "Labortory test updated"
@@ -42,7 +42,7 @@ class LaboratoryTestController < ApplicationController
 
   def show
     @laboratory_test = LaboratoryTest.find(params[:id])
-#     authorize @laboratory_test
+    # authorize @laboratory_test
   end
 
   def laboratory_test_params

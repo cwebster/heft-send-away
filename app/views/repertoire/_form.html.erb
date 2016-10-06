@@ -1,17 +1,17 @@
-<div class="ibox float-e-margins">
-	<%= render 'errors' %>
-	<div class="ibox-title">
-		<h2><%=@repertoire.laboratory_test.analyte_name %> 	  <%= link_to ("<i class='fa fa-paste'></i> Edit Test Details").html_safe,  edit_laboratory_test_path(@repertoire.laboratory_test), class: "btn btn-default btn-xs" %></h2>
-		<h4>Test <span class="semi-bold">Details</span></h4>
-		This test is performed at: <%=@repertoire.laboratory_test.laboratory.laboratory_name%> 
-		<p>
-			<%= link_to ("<i class='fa fa-paste'></i> Edit Laboratory Details").html_safe,  edit_laboratory_path(@repertoire.laboratory_test.laboratory), class: "btn btn-default btn-xs" %>
-		</p>
-	</div>
-	<div class='ibox-content'>
-		<%= form_for @repertoire do |f|%>
-		<h4>Test <span class="semi-bold">Details</span></h4>
 
+	<div class='ibox-content'>
+
+	<%= render 'errors' %>
+
+			<h2><%=@repertoire.laboratory_test.analyte_name %> 	  <%= link_to ("<i class='fa fa-paste'></i> Edit Test Details").html_safe,  edit_laboratory_test_path(@repertoire.laboratory_test), class: "btn btn-warning btn-xs" %></h2>
+		This test is performed at: <%=@repertoire.laboratory_test.laboratory.laboratory_name%>, <%=@repertoire.laboratory_test.laboratory.address1%> 
+		
+			<%= link_to ("<i class='fa fa-paste'></i> Edit Laboratory Details").html_safe,  edit_laboratory_path(@repertoire.laboratory_test.laboratory), class: "btn btn-warning btn-xs" %>
+		
+		<%= form_for @repertoire do |f|%>
+		<div class="hr-line-dashed"></div>
+		<h3>Our Repertoire <span class="semi-bold">Details</span></h3>
+<div class="hr-line-dashed"></div>
 		<div class='row'>
 			<div class="col-md-4">
 				<div class="form-group">
@@ -91,7 +91,7 @@
 			<div class="col-md-4">
 							<div class="form-group">
 					<label class="form-label">Inactive</label><br>
-					<span class="help">Do we still send investigations to this laboratory?</span>
+					<span class="help"></span>
 					<div class="controls">
 						<%= f.check_box :inactive %>
 					</div>
@@ -106,5 +106,4 @@
 		</div>
 		<% end %>
 	</div>
-</div>
 </div>

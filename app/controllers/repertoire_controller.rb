@@ -30,7 +30,7 @@ class RepertoireController < ApplicationController
     if @repertoire.update_attributes(repertoire_params)
       # Handle a successful update.
       flash[:success] = "Labortory updated"
-      redirect_to repertoire_for_laboratory_url(laboratory_id: @repertoire.laboratory)
+      redirect_to edit_repertoire_url(laboratory_id: @repertoire)
     else
       render 'edit'
     end

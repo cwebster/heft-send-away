@@ -12,7 +12,7 @@ class LaboratoryController < ApplicationController
   def edit
     begin
       @laboratory = Laboratory.find(params[:id])
-#       authorize @laboratory
+      # authorize @laboratory
     rescue ArgumentError
       return render(:partial => 'record_not_found', :layout => 'application', :status => :not_found)
     end
@@ -24,7 +24,8 @@ def update
   if @laboratory.update_attributes(laboratory_params)
       # Handle a successful update.
       flash[:success] = "Labortory updated"
-      redirect_to laboratory_path(current_user.laboratories.first)
+      # redirect_to tests_for_laboratory_path(@laboratory, format: :html)
+      redirect_to controller: 'laboratory_test', action: 'tests_for_laboratory', laboratory_id: @laboratory, format: :html
     else
       render 'edit'
     end
@@ -86,7 +87,7 @@ def waiting_for_update_labels
   send_data @labels, :filename => "test.pdf", :type => "application/pdf"
 end
 
-  ########################
+########################
 
 ###########   refactor 3/10/2016
 def updated_but_not_complete
@@ -141,6 +142,10 @@ def user_laboratories
   @user_laboratories = Laboratory.where(user_id: current_user)
 end
 
+def tests_offered_by_laboratory
+
+end
+
 def information_requested
   case params[:type]
   when "out_of_date"
@@ -160,9 +165,9 @@ def information_requested
       #@laboratories.update_all(:date_request_for_information_sent => DateTime.now)
     end
 
-  end
+end
 
-  def laboratory_params
+def laboratory_params
     params.require(:laboratory).permit(:laboratory_name, :address1, :address2,
       :address3, :city, :postcode, :telephone, :website, :cpa_status, :cpa_reference_number, :email,
       :contact_name, :date_selection_form_completed, :selection_form_completed, :website_updated)

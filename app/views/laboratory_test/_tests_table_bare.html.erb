@@ -29,7 +29,8 @@
 			<td><%=laboratory_test.cost_of_test%></td>
 			<td><%=laboratory_test.uncertainty_of_measurement%></td>
 			<td>
-				<a href="<%=edit_laboratory_test_path(laboratory_test)%>" class="btn btn-outline btn-danger"><i class="fa fa-edit"></i></a>
+			<% test_in_repertoire?(laboratory_test) %>
+				
 			</td>
 		</tr>
 		<% end %>

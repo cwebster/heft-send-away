@@ -29,6 +29,8 @@
 											<tr>
 												<th>Laboratory</th>
 												<th>Investigations</th>
+												<th>Date Infomation Updated</th>
+												<th>Date Letter Sent</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -36,13 +38,9 @@
 											<% laboratories_arr.each do |managed_laboratory| %>
 											<% managed_laboratory.each do |laboratory| %>
 											<tr>
-												<td><%=laboratory_details(laboratory_id: laboratory)%></td>
+												<td><h4><%=laboratory_details(laboratory_id: laboratory)%></h4></td>
 												<td>	
-													<%LaboratoryTest.where(laboratory_id: laboratory).where(id: repertoires.pluck(:laboratory_test_id)).each do |investigation| %>
-													
-													  <%=link_to investigation.analyte_name, edit_repertoire_path(repertoires.where(laboratory_test_id:investigation.id).first)%><br>
-													<%end%>
-
+												<%= repertoire_test_details(laboratory: laboratory, repertoires: repertoires)%>
 												</td>
 											</tr>
 											<% end %>
@@ -55,36 +53,6 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div> 
-
-			<div class="ibox float-e-margins">
-				<div class="ibox-title">
-					<h5><span class="semi-bold">Tests</span></h5>
-					<div class="ibox-tools">
-						<a class="collapse-link">
-							<i class="fa fa-chevron-up"></i>
-						</a>
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							<i class="fa fa-wrench"></i>
-						</a>
-						<ul class="dropdown-menu dropdown-user">
-							<li><a href="#">Config option 1</a>
-							</li>
-							<li><a href="#">Config option 2</a>
-							</li>
-						</ul>
-						<a class="close-link">
-							<i class="fa fa-times"></i>
-						</a>
-					</div>
-				</div>
-				<div class="ibox-content">
-				<%repertoires.each do |rep|%>
-				<%=link_to rep.laboratory_test.analyte_name, edit_repertoire_path(rep.id)%><br>
-				<%=rep.laboratory_test.laboratory.laboratory_name%>
-
-				<%end%>
 				</div>
 			</div>
 
