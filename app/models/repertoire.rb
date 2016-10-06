@@ -3,14 +3,6 @@ class Repertoire < ActiveRecord::Base
   belongs_to :laboratory
   belongs_to :local_department
 
-  # def inactive?
-  #   # if self.active == true
-  #   #   return false
-  #   # elsif self.active == false
-  #   #   return true
-  #   # end
-  # end
-
   def self.in_repertoire?(laboratory_id: ,laboratory_test_id: )
     if Repertoire.where(laboratory_id: laboratory_id, laboratory_test_id: laboratory_test_id).empty?
       return false
