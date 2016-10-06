@@ -9,16 +9,19 @@ class RepertoireController < ApplicationController
   end
 
   def repertoire_for_laboratory
+    REDIS.set("#{current_user.id}current_lab", params[:laboratory_id])
     @laboratory = Laboratory.find(params[:laboratory_id])
     @repertoire = Repertoire.where(laboratory_id: @laboratory)
   end
 
   def build_repertoire
+    REDIS.set("#{current_user.id}current_lab", params[:laboratory_id])
     @laboratory = Laboratory.find(params[:laboratory_id])
     @laboratory_tests = LaboratoryTest.all
   end
 
   def repertoire_by_referral_laboratory
+    REDIS.set("#{current_user.id}current_lab", params[:laboratory_id])
     @laboratory = Laboratory.find(params[:laboratory_id])
     @referral_laboratories = RepertoireLookup.where(host_laboratory_id: @laboratory.id)
     
@@ -38,6 +41,7 @@ class RepertoireController < ApplicationController
   end
 
   def add_to_repertoire
+      REDIS.set("#{current_user.id}current_lab", params[:host_laboratory_id])
       host_laboratory = Laboratory.find(params[:host_laboratory_id])
       referral_laboratory_test = LaboratoryTest.find(params[:referral_laboratory_test_id])
 

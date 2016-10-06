@@ -3,7 +3,7 @@
 <%= javascript_include_tag 'repertoire/build_repertoire', 'data-turbolinks-track' => true %>
 <% end %>
 <% content_for :content_title do %>
-Your Repertoire 
+Your Repertoire <%= REDIS.get("#{current_user.id}current_lab") %>
 <% end %>
 <div>
 	<p>

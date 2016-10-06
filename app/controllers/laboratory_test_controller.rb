@@ -11,6 +11,7 @@ class LaboratoryTestController < ApplicationController
   end
 
   def tests_for_laboratory
+    @current_laboratory_being_managed = REDIS.get("#{current_user.id}current_lab")
     @laboratory_id = params[:laboratory_id]
     @laboratory_tests = LaboratoryTest.where(laboratory_id: @laboratory_id)
     respond_to do |format|

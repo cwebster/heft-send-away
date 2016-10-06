@@ -9,7 +9,6 @@
 			<th>Ref Range</th>
 			<th>Sample</th>
 			<th>Cost</th>
-			<th>UoM</th>
 			<th>Tools</th>
 		</tr>
 	</thead>
@@ -19,7 +18,7 @@
 			<td>
 			<%=laboratory_test.analyte_name%>
 		  <span data-toggle="tooltip" title="" data-placement="right"
-			data-original-title="<%=laboratory_test.laboratory.laboratory_name + ' ' +laboratory_test.laboratory.address1%>" class="badge badge-info"><i class="fa fa-info"> </i></span></td>
+			data-original-title="<%=laboratory_test.laboratory.laboratory_name + ' ' +laboratory_test.laboratory.address1%>" class="badge badge-info"></span></td>
 			<td><%=laboratory_test.eqa_status%></td>
 			<td><%=laboratory_test.turnaround_time%></td>
 			<td><%=laboratory_test.ukas_status%></td>
@@ -27,9 +26,8 @@
 			<td><%=laboratory_test.reference_range%></td>
 			<td><%=laboratory_test.sample_type%></td>
 			<td><%=laboratory_test.cost_of_test%></td>
-			<td><%=laboratory_test.uncertainty_of_measurement%></td>
 			<td>
-			<% test_in_repertoire?(laboratory_test) %>
+			<%= test_in_repertoire?(laboratory_id: @current_laboratory_being_managed, laboratory_test: laboratory_test) %>
 				
 			</td>
 		</tr>
