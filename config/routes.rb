@@ -84,7 +84,7 @@ Rails.application.routes.draw do
 
   match 'add_to_repertoire', to: 'repertoire#add_to_repertoire',
                              as: :add_to_repertoire,
-                            via: [:post]
+                            via: [:post, :get]
 
   match 'remove_from__repertoire/:repertoire_id', to: 'repertoire#remove_from_repertoire',
                              as: :remove_from__repertoire,

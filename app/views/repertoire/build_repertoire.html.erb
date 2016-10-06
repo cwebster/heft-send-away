@@ -66,11 +66,13 @@ Build Your Repertoire for <%= REDIS.get("#{current_user.id}current_lab") %>
 								</td>
 								<td><%=laboratory_test.cost_of_test%>
 								</td>
+								<% rep = Repertoire.where(laboratory_id: @laboratory.id ,laboratory_test_id: laboratory_test.id ).first%>
 								
-								<% if rep = Repertoire.where(laboratory_id: @laboratory.id ,laboratory_test_id: laboratory_test.id ).first %>
-								<td id='<%=laboratory_test.id%>'><%= link_to "Remove from Repertoire", remove_from__repertoire_path(rep.id, :format => "js"), remote: true, method: :delete, confirm: 'Delete?'%></td>
+								<% if  rep.nil? || rep.inactive? %>
+								<td id='<%=laboratory_test.id%>'> <%= link_to "Add to Repertoire", add_to_repertoire_path(:host_laboratory_id => @laboratory.id, :referral_laboratory_test_id => laboratory_test.id ,:format => "js"), remote: true %></td>
 								<% else %>
-								<td id='<%=laboratory_test.id%>'> <%= link_to "Add from Repertoire", add_to_repertoire_path(@laboratory.id, laboratory_test.id), remote: true %></td>
+								
+								<td id='<%=laboratory_test.id%>'><%= link_to "Remove from Repertoire", remove_from__repertoire_path(rep.id, :format => "js"), remote: true, method: :delete, confirm: 'Delete?'%></td>
 								<% end %>
 								
 							</tr>

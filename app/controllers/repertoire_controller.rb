@@ -44,13 +44,17 @@ class RepertoireController < ApplicationController
       REDIS.set("#{current_user.id}current_lab", params[:host_laboratory_id])
       host_laboratory = Laboratory.find(params[:host_laboratory_id])
       referral_laboratory_test = LaboratoryTest.find(params[:referral_laboratory_test_id])
+      @laboratory_test_id = params[:referral_laboratory_test_id]
 
-      rep = Repertoire.new
-      rep.laboratory_id = params[:host_laboratory_id]
-      rep.laboratory_test_id = params[:referral_laboratory_test_id]
+      rep = Repertoire.find_or_create_by(laboratory_id: params[:host_laboratory_id], laboratory_test_id: params[:referral_laboratory_test_id])
+
+      # rep = Repertoire.new
+      # rep.laboratory_id = params[:host_laboratory_id]
+      # rep.laboratory_test_id = params[:referral_laboratory_test_id]
+      rep.inactive = false
 
       respond_to do |format|
-      if rep.save
+      if rep.save!
         format.js {render layout: false}
       end
     end
@@ -66,6 +70,8 @@ class RepertoireController < ApplicationController
 
     repertoire = Repertoire.find(params[:repertoire_id])
     @laboratory_test_id = repertoire.laboratory_test_id
+    repertoire.inactive = true
+    repertoire.save
 
 
   end
