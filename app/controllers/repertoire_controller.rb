@@ -1,4 +1,5 @@
 class RepertoireController < ApplicationController
+
   def index
     @repertoire = Repertoire.where(laboratory_id: @laboratory)
   end
@@ -37,28 +38,32 @@ class RepertoireController < ApplicationController
   end
 
   def add_to_repertoire
-    # Get current repertoire 
-    
-    lab_id = params[:laboratory_id]
-    current_repertoire = Repertoire.where(laboratory_id: lab_id).pluck(:laboratory_test_id)
-    
-    unless params[:checks].nil?
-      Repertoire.add_to_repertoire_func(checkboxes: params[:checks], current_repertoire_arr: current_repertoire)
+      host_laboratory = Laboratory.find(params[:host_laboratory_id])
+      referral_laboratory_test = LaboratoryTest.find(params[:referral_laboratory_test_id])
+
+      rep = Repertoire.new
+      rep.laboratory_id = params[:host_laboratory_id]
+      rep.laboratory_test_id = params[:referral_laboratory_test_id]
+
+      respond_to do |format|
+      if rep.save
+        format.js {render layout: false}
+      end
     end
-    
-    # if current_repertoire is empty then results are synced. If there is still test_ids
-    # in the array, these need deleting from the current repertoire
-    unless current_repertoire.empty?
-      Repertoire.delete_from_repertoire(lab_id: lab_id, tests_to_delete: current_repertoire)
-    end
-    
-    redirect_to repertoire_for_laboratory_url(laboratory_id: lab_id)
   end
   
   def repertoire_params
     params.require(:repertoire).permit(:local_department_id, :date_selection_form_completed, :selection_form_completed, 
                                        :website_updated, :date_request_for_information_sent,
                                        :date_information_updated, :record_complete, :inactive, :date_inactive)
+  end
+
+  def remove_from_repertoire
+
+    repertoire = Repertoire.find(params[:repertoire_id])
+    @laboratory_test_id = repertoire.laboratory_test_id
+
+
   end
   
   private

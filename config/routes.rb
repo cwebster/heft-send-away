@@ -86,6 +86,10 @@ Rails.application.routes.draw do
                              as: :add_to_repertoire,
                             via: [:post]
 
+  match 'remove_from__repertoire/:repertoire_id', to: 'repertoire#remove_from_repertoire',
+                             as: :remove_from__repertoire,
+                            via: [:post, :get, :delete]
+
   namespace :api do
     namespace :v1 do
       match 'laboratories/workload', to: 'laboratories#workload',
