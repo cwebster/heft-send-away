@@ -9,4 +9,9 @@ class Api::V1::BaseController < ActionController::Base
     options[:is_collection] = true
     JSONAPI::Serializer.serialize(models, options)
   end
+
+  def serialize_test_details(models, options = {})
+  	options[:is_collection] = true
+	JSONAPI::Serializer.serialize(models, include: ['host-laboratory'], is_collection: true)
+  end
 end

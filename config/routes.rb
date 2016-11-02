@@ -100,6 +100,8 @@ Rails.application.routes.draw do
       match 'laboratories/out_of_date/:months', to: 'laboratories#out_of_date',
                                                 as: :out_of_date,
                                                 via: [:get]
+      resources :repertoires
+      resources :laboratory_tests
     end
   end
 

@@ -1,6 +1,7 @@
 class LaboratorySerializer < BaseSerializer
-  attribute :laboratory_name
-  attribute :city
+	has_many :laboratory_tests
+	attribute :laboratory_name
+	attribute :city
 	attribute :address1
 	attribute :address2
 	attribute :address3
