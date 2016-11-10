@@ -102,6 +102,7 @@ Rails.application.routes.draw do
                                                 via: [:get]
       resources :repertoires
       resources :laboratory_tests
+      resources :referral_laboratories
     end
   end
 
