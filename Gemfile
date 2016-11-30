@@ -44,13 +44,13 @@ group :development do
   gem 'binding_of_caller'
   gem 'spring'
 end
-gem 'byebug'
+
 gem 'rails_12factor', group: :production
 gem 'puma'
 gem 'material_icons'
 gem 'devise'
 gem 'pundit'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'active_admin_theme'
 gem 'active_admin_import_anything'
 gem 'kaminari'
