@@ -22,8 +22,10 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
 
   def update
     byebug
-    laboratory = Laboratory.find(params[:json][:id])
-    puts params
+    laboratory = Laboratory.find(params["id"])
+    laboratory.attributes = params
+    laboratory.save!
+
     render json: serialize_model(laboratory)
 
   end
