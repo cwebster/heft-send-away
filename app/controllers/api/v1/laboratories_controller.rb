@@ -23,12 +23,16 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
   def update
     byebug
     laboratory = Laboratory.find(params["id"])
-    laboratory.attributes = params
+    laboratory.attributes = laboratory_params
     laboratory.save!
 
     render json: serialize_model(laboratory)
 
   end
 
-
+  def laboratory_params
+    params.permit(:laboratory_name, :address1, :address2, :address3, :postcode, :city,
+                  :telephone, :email, :website, :contact_name, :cpa_status, :cpa_reference_number,
+                  :date_information_updated, :date_request_for_information_sent)
+  end
 end
