@@ -21,12 +21,13 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
   end
 
   def update
-    byebug
     laboratory = Laboratory.find(params["id"])
     laboratory.attributes = laboratory_params
-    laboratory.save!
-
-    render json: serialize_model(laboratory)
+    if laboratory.save!
+      render json: serialize_model(laboratory), status: ok
+    else
+      render json: serialize_model(laboratory), status: 500
+    end
 
   end
 
