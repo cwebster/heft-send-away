@@ -20,4 +20,12 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
     render json: workload
   end
 
+  def update
+    laboratory = Laboratory.find(params[:json][:id])
+    puts params
+    render json: serialize_model(laboratory)
+
+  end
+
+
 end
