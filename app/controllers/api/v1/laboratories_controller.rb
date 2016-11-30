@@ -24,7 +24,7 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
     laboratory = Laboratory.find(params["id"])
     laboratory.attributes = laboratory_params
     if laboratory.save!
-      render json: serialize_model(laboratory), status: ok
+      render json: serialize_model(laboratory), status: 200
     else
       render json: serialize_model(laboratory), status: 500
     end
