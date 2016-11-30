@@ -44,7 +44,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'spring'
 end
-
+gem 'byebug'
 gem 'rails_12factor', group: :production
 gem 'puma'
 gem 'material_icons'
