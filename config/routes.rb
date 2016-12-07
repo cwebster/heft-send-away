@@ -102,6 +102,10 @@ Rails.application.routes.draw do
                                                 via: [:get]
       resources :repertoires
       resources :laboratory_tests
+      match 'investigations_offered/:laboratory_id', to: 'laboratory_tests#investigations_offered',
+                                     as: :investigations_offered,
+                                     via: [:get]
+                                     
       resources :referral_laboratories
       match 'my_referral_laboratories/:host_laboratory_id', to: 'referral_laboratories#referral_laboratories',
                                      as: :my_referral_laboratories,
