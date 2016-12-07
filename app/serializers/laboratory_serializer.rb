@@ -8,4 +8,13 @@ class LaboratorySerializer < BaseSerializer
 	attribute :cpa_status
 	attribute :contact_name
 	attribute :postcode
+	attribute :telephone
+	attribute :website
+	attribute :cpa_reference_number
+	attribute :date_selection_form_completed
+	attribute :date_selection_form_completed
+	attribute :website_updated
+	attribute :date_request_for_information_sent
+	attribute :date_information_updated
+	attribute :email
 end

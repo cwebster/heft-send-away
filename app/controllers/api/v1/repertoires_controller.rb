@@ -9,4 +9,8 @@ class Api::V1::RepertoiresController < Api::V1::BaseController
     repertoires = RepertoireLookup.where(host_laboratory_id: params[:id])
     render json: serialize_models(repertoires)
   end
+
+  def referral_laboratories
+  	@referral_laboratories = RepertoireLookup.where(host_laboratory_id: params[:id])
+  end
 end

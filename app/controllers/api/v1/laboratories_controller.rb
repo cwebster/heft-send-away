@@ -1,4 +1,4 @@
-# app/controllers/api/v1/posts_controller.rb
+ # app/controllers/api/v1/posts_controller.rb
 class Api::V1::LaboratoriesController < Api::V1::BaseController
   def index
     laboratories = Laboratory.all
@@ -28,7 +28,16 @@ class Api::V1::LaboratoriesController < Api::V1::BaseController
     else
       render json: serialize_model(laboratory), status: 500
     end
+  end
 
+  def create
+    laboratory = Laboratory.new
+    laboratory.attributes = laboratory_params
+    if laboratory.save!
+      render status: 200, json: serialize_model(laboratory)
+    else
+      render status: 500, json: serialize_model(laboratory)
+    end
   end
 
   def laboratory_params
